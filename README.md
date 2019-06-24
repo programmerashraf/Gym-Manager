@@ -1,20 +1,20 @@
 # GYM
 ## Run commands : 
     
-        ```
-        composer install
-        ```
+```
+composer install
+```
         
-        ```
-        npm install
-        ```
-        
-        ```
-        php artisan serve
-        ```
+```
+npm install
+```
 
-        ```
-        npm run watch
-        ```
+```
+php artisan serve
+```
+
+```
+npm run watch
+```
 
 
