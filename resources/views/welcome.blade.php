@@ -13,7 +13,7 @@
 <body>
 
     <div id="app">
-        <Home></Home>
+        <App></App>
     </div>
 
     <script src="{{ asset("js/app.js") }}"></script>
