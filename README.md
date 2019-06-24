@@ -1,22 +1,24 @@
 # GYM
 
-```
-composer install
-```
+    ## Run commands : 
+    
+        ```
+        composer install
+        ```
 
-```
-npm install
-```
+        ```
+        npm install
+        ```
 
-run this command to start server
-```
-php artisan serve
-```
+        run this command to start server
+        ```
+        php artisan serve
+        ```
 
-run npm watcher
+        run npm watcher
 
-```
-npm run watch
-```
+        ```
+        npm run watch
+        ```
 
 
