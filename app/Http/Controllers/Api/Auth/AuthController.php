@@ -22,10 +22,14 @@ class AuthController extends Controller
 
     public function login(ApiLoginRequest $request){
         if (!auth()->attempt($request->only('email','password'))){
-            return $this->ApiResponse("404", "يرجي التحقق من بيانات الدخول", null);
+            return $this->ApiResponse(404, "يرجي التحقق من بيانات الدخول");
         }
-        return $this->ApiResponse("200", "تم تسجيل الدخول بنجاح", new UserResource(auth()->user()));
+        return $this->ApiResponse(200, "تم تسجيل الدخول بنجاح", new UserResource(auth()->user()));
+    }
 
+    public function logout(){
+        auth()->logout();
+        return $this->ApiResponse(200, "تم تسجيل الخروج بنجاح");
     }
 
 }
