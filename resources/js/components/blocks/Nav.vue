@@ -5,11 +5,14 @@
 		<button class="navbar-toggler" @click="show()"><span class="navbar-toggler-icon"></span></button>
 		<div class="collapse justify-content-end d-lg-flex">
 		<ul class="navbar-nav">
-			<li class="nav-item active ml-3"><a class="nav-link" href="#">الرئيسية <span
-				class="sr-only">(current)</span></a></li>
-			<li class="nav-item ml-3"><a class="nav-link" href="#">حسابك<span class="sr-only">(current)</span></a></li>
-			<li class="nav-item ml-3"><a class="nav-link" href="#">آخر الأخبار <span
-				class="sr-only">(current)</span></a></li>
+			<li class="nav-item ml-3">
+				<router-link to="/" active-class="active" class="nav-link" exact>الرئيسية<span class="sr-only">(current)</span></router-link>
+			<li class="nav-item ml-3">
+				<router-link to="/profile" active-class="active" class="nav-link" exact>حسابك<span class="sr-only">(current)</span></router-link>
+			</li>
+			<li class="nav-item ml-3">
+				<router-link to="/lo" active-class="active" class="nav-link" exact>آخر الأخبار<span class="sr-only">(current)</span></router-link>
+			</li>
 			<li class="nav-item">
 			<form class="form-inline my-2 my-lg-0">
 				<input class="form-control mr-sm-2 mb-sm-3" v-model="user.mail" type="email" placeholder="البريد الإلكتروني"
@@ -88,6 +91,9 @@ nav {
 	.collapse:not(.show) {
 	display: block
 	}
+}
+.active{
+	color: white !important; 
 }
 
 * {
