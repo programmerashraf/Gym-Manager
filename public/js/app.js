@@ -357,7 +357,7 @@ exports.push([module.i, "#Trainer[data-v-dec57c28] {\n  background-color: #ddd;\
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, "\n#app{\n  font-family: 'Tajawal', sans-serif;\n  /* font-family: 'Quicksand', sans-serif; */\n}\n.our-btn{\n    outline: none;\n    background-color: #f23a2e;\n    border-radius: 30px!important;\n    color: white;\n    -webkit-transition:all 0.4s ease;\n    transition:all 0.4s ease;\n}\n.our-btn:hover{\n  box-shadow: 0 5px 20px -7px rgba(0,0,0,.9)!important;\n}\n.owl-dots .owl-dot span{\n    width: 30px !important;\n    border-radius: 0 !important;\n    height: 5px !important;\n    outline: none;\n}\n.owl-dots .owl-dot.active span{\n  outline: none;\n  background-color: rgb(242, 58, 46) !important;\n}\n\n\n", ""]);
+exports.push([module.i, "\n#app{\r\n  font-family: 'Tajawal', sans-serif;\r\n  /* font-family: 'Quicksand', sans-serif; */\n}\n.our-btn{\r\n    outline: none;\r\n    background-color: #f23a2e;\r\n    border-radius: 30px!important;\r\n    color: white;\r\n    -webkit-transition:all 0.4s ease;\r\n    transition:all 0.4s ease;\n}\n.our-btn:hover{\r\n  box-shadow: 0 5px 20px -7px rgba(0,0,0,.9)!important;\n}\n.owl-dots .owl-dot span{\r\n    width: 30px !important;\r\n    border-radius: 0 !important;\r\n    height: 5px !important;\r\n    outline: none;\n}\n.owl-dots .owl-dot.active span{\r\n  outline: none;\r\n  background-color: rgb(242, 58, 46) !important;\n}\r\n\r\n\r\n", ""]);
 
 
 /***/ }),
