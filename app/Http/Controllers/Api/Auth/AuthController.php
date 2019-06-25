@@ -25,5 +25,7 @@ class AuthController extends Controller
             return $this->ApiResponse("404", "يرجي التحقق من بيانات الدخول", null);
         }
         return $this->ApiResponse("200", "تم تسجيل الدخول بنجاح", new UserResource(auth()->user()));
+
     }
+
 }

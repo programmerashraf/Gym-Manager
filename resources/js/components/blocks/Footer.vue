@@ -38,4 +38,7 @@ a{
         text-decoration: none;
     }
 }
+i{
+    cursor: pointer;
+}
 </style>

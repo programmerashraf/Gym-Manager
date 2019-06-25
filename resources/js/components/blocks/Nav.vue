@@ -12,9 +12,9 @@
 				class="sr-only">(current)</span></a></li>
 			<li class="nav-item">
 			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" v-model="user.mail" type="email" placeholder="البريد الإلكتروني"
+				<input class="form-control mr-sm-2 mb-sm-3" v-model="user.mail" type="email" placeholder="البريد الإلكتروني"
 				aria-label="تسجيل الدخول" />
-				<input class="form-control ml-4 mr-sm-2" v-model="user.password" type="password"
+				<input class="form-control ml-4 mr-sm-2 mb-sm-3" v-model="user.password" type="password"
 				placeholder="كلمة المرور" aria-label="كلمة المرور" />
 				<button class="btn our-btn my-2 my-sm-0" type="submit">سجل</button>
 			</form>
@@ -62,7 +62,7 @@ nav {
 
 	input.form-control {
 		background-color: transparent;
-		border-radius: 0;
+		border-radius: 4px;
 		border: 1px solid #fff;
 		transition: all 0.4s ease;
 		width: 200px;
@@ -104,6 +104,10 @@ nav {
 	height: 100%;
 	width: 75%;
 	transition: all 0.4s ease;
+
+	input.form-control {
+		border: 1px solid #000;
+	}
 
 	&.show {
 		right: 0;
