@@ -28,8 +28,12 @@ class AuthController extends Controller
     }
 
     public function logout(){
-        auth()->logout();
-        return $this->ApiResponse(200, "تم تسجيل الخروج بنجاح");
+        if (auth()->check()){
+            auth()->logout();
+            return $this->ApiResponse(200, "تم تسجيل الخروج بنجاح");
+        }
+        return $this->ApiResponse(404, "خطأ");
+
     }
 
 }
