@@ -7,7 +7,7 @@
     <Owl></Owl>
     <Trainers></Trainers>
     <Footer></Footer>
-    <Modal :props="this.modalState"></Modal>
+
 </div>
 </template>
 
@@ -19,7 +19,6 @@ import About from "../blocks/About";
 import Owl from "../blocks/FeaturedClass";
 import Trainers from "../blocks/Trainers";
 import Footer from "../blocks/Footer";
-import Modal from "../blocks/Modal";
 
 export default {
     components: {
@@ -30,7 +29,7 @@ export default {
         Owl,
         Trainers,
         Footer,
-        Modal
+        
     }
 }
 </script>
