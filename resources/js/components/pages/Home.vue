@@ -1,12 +1,13 @@
 <template>
 <div id="home">
-    <Nav></Nav>
+    <Nav @open="ok()"></Nav>
     <Carousel></Carousel>
     <Feats></Feats>
     <About></About>
     <Owl></Owl>
     <Trainers></Trainers>
     <Footer></Footer>
+    <Modal :props="this.modalState"></Modal>
 </div>
 </template>
 
@@ -18,6 +19,8 @@ import About from "../blocks/About";
 import Owl from "../blocks/FeaturedClass";
 import Trainers from "../blocks/Trainers";
 import Footer from "../blocks/Footer";
+import Modal from "../blocks/Modal";
+
 export default {
     components: {
         Nav,
@@ -26,7 +29,8 @@ export default {
         About,
         Owl,
         Trainers,
-        Footer
+        Footer,
+        Modal
     }
 }
 </script>
