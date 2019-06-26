@@ -3,7 +3,9 @@
 	<nav class="navbar navbar-expand-xl navbar-dark">
 	<div class="container"><a class="navbar-brand" href="#">لوجو</a>
 		<button class="navbar-toggler" @click="show()"><span class="navbar-toggler-icon"></span></button>
+
 		<div class="collapse justify-content-end d-lg-flex">
+				<button type="button" @click="show()" class="close" data-dismiss="modal">&times;</button>
 		<ul class="navbar-nav">
 			<li class="nav-item ml-3">
 				<router-link to="/" active-class="active" class="nav-link" exact>الرئيسية<span class="sr-only">(current)</span></router-link>
@@ -13,20 +15,54 @@
 			<li class="nav-item ml-3">
 				<router-link to="/lo" active-class="active" class="nav-link" exact>آخر الأخبار<span class="sr-only">(current)</span></router-link>
 			</li>
-			<li class="nav-item">
-				<form class="form-inline my-2 my-lg-0 ">
-					<input class="form-control mr-sm-2" v-model="user.email" type="email" placeholder="البريد الإلكتروني"
-					aria-label="تسجيل الدخول" />
-					<input class="form-control ml-4 mr-sm-2" v-model="user.password" type="password"
-					placeholder="كلمة المرور" aria-label="كلمة المرور" />
-					<button class="btn btn-secondary rounded-pill ml-3" @click="login()" type="button"> سجل دخول</button>
-					<button class="btn btn-success rounded-pill" @click="register()" type="button">سجل حساب</button>
+			<li class="nav-item" v-if="!user.name">
+				<form class="form-inline my-2 my-lg-0">
+					<button class="btn btn-secondary rounded-pill ml-3" 
+					@click="registerState = false;" data-toggle="modal" data-target="#myModal" type="button">سجل دخول</button>
+					<button class="btn btn-success rounded-pill" data-toggle="modal" data-target="#myModal" @click="registerState = true; " type="button">سجل حساب</button>
 				</form>
+			</li>
+			<li class="nav-item" v-if="loged">
+				<span>{{ user.name }}</span>
+				<img src="https	ia.placeholder.com/25.png/09f/fff" alt="Avatar" class="rounded-circle">
+				<button class="btn btn-danger rounded-pill">تسجيل الخروج</button>
 			</li>
 		</ul>
 		</div>
 	</div>
 	</nav>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal Heading</h4>
+                    <button type="button" class="close float-right" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+					<div class="login">
+						<input class="form-control mb-4" v-model="user.name" v-if="registerState" type="text" placeholder="الاسم"/>
+						<input class="form-control mb-4" v-model="user.email" type="email" placeholder="البريد الإلكتروني"/>
+						<input class="form-control mb-4" v-model="user.password" type="password" placeholder="كلمة المرور" />
+						
+					</div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+					<button class="btn btn-secondary rounded-pill ml-3" v-if="!registerState"  @click="login()" data-dismiss="modal" type="button">سجل دخول</button>
+					<button class="btn btn-success rounded-pill" v-if="registerState"  @click="register()" data-dismiss="modal" type="button">سجل حساب</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 </div>
 </template>
 
@@ -40,10 +76,13 @@ name: 'Nav',
 	data() {
 		return {
 			user: {
-				name: 'mohammed',
+				name: '',
 				email: '',
-				password: ''
-			}
+				role: '',
+				password: '',
+			},
+			registerState: false,
+			loged: false
 		}
 	},
 	methods: {
@@ -51,24 +90,32 @@ name: 'Nav',
 			$('nav .collapse').toggleClass('show');
 		},
 		register() {
-			axios.post('/api/login', {
+			this.registerState = true;
+
+			// Send the request
+			axios.post('/api/register', {
 				name: this.user.name,
 				email: this.user.email,
 				password: this.user.password
 			})
-			.then(function (response) {
+			.then(function (res) {
 				// Todo 
-				console.log(response.data);
+				console.log(res.data);
 			})
 		},
 		login(){
+			this.registerState = false;
+			// Send the request
 			axios.post('/api/login', {
 				email: this.user.email,
 				password: this.user.password
 			})
-			.then(function (response) {
-				// Todo 
-				console.log(response.data);
+			.then(function (res) {
+				if(res.data.code != 404){
+					this.user.name = name;
+				}
+				this.name = name;
+				console.log(res.data.code);
 			})
 		}
 	}
@@ -138,6 +185,14 @@ nav {
 	}
 	button{
 		margin-bottom: 10px;
+		&.close{
+			position: absolute;
+			top: 50px;
+			right: 20px;
+			font-size: 50px;
+			font-weight: bolder;
+			outline: none;
+		}
 	}
 
 	&.show {
@@ -147,12 +202,14 @@ nav {
 		transform: translate(-0%);
 
 		ul {
-
-		li a,
-		a.nav-link {
-			color: black;
-			font-size: 25px;
-		}
+			li form{
+				min-width: 200px;
+			}
+			li a,
+			a.nav-link {
+				color: black;
+				font-size: 25px;
+			}
 		}
 	}
 
