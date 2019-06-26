@@ -17,14 +17,22 @@ class AuthController extends Controller
 
     public function register(ApiRegisterRequest $request){
         $user = User::create($request->only("name","email","password"));
-        return $this->ApiResponse(200, "تم الستجيل بنجاح", new UserResource($user));
+        $token = $user->createToken('token')->accessToken;
+        return $this->ApiResponse(200, "تم الستجيل بنجاح", [
+            "user" => new UserResource($user),
+            "token" => $token
+        ]);
     }
 
     public function login(ApiLoginRequest $request){
         if (!auth()->attempt($request->only('email','password'))){
             return $this->ApiResponse(404, "يرجي التحقق من بيانات الدخول");
         }
-        return $this->ApiResponse(200, "تم تسجيل الدخول بنجاح", new UserResource(auth()->user()));
+        $token = auth()->user()->createToken('token')->accessToken;
+        return $this->ApiResponse(200, "تم تسجيل الدخول بنجاح", [
+            "user" => new UserResource(auth()->user()),
+            "token" => $token
+        ]);
     }
 
     public function logout(){
@@ -33,7 +41,10 @@ class AuthController extends Controller
             return $this->ApiResponse(200, "تم تسجيل الخروج بنجاح");
         }
         return $this->ApiResponse(404, "خطأ");
+    }
 
+    public function all(){
+        return response(User::all());
     }
 
 }

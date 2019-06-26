@@ -16,7 +16,10 @@ use Illuminate\Http\Request;
 Route::group(["namespace"=>"Api"], function (){
     Route::group(['namespace'=>'Auth'], function (){
         Route::post("register","AuthController@register");
-        Route::post("login","AuthController@login");
+        Route::post("login","AuthController@login")->name("login");
         Route::post("logout","AuthController@logout");
+        Route::middleware('auth:api')->group(function (){
+            Route::get("users","AuthController@all");
+        });
     });
 });
