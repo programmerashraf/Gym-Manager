@@ -14,8 +14,7 @@ class UserObserver
      */
     public function created(User $user)
     {
-        $user->role = "user";
-        $user->save();
+        $user->admin = false;
     }
 
     /**
