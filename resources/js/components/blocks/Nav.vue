@@ -153,8 +153,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$main-red: rgb(242, 58, 46);
 nav {
-	background-color: rgb(242, 58, 46);
+	background-color: $main-red;
 
 	button.navbar-toggler {
 		outline: none;

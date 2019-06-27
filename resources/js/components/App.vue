@@ -7,6 +7,15 @@
 </template>
 
 <style lang="scss">
+$main-red: rgb(242, 58, 46);
+
+hr{
+    width: 25%;
+    background-color: $main-red;
+    height: 2px;
+    position: relative;
+    left: 37%;
+}
 .fade-enter-active,
 .fade-leave-active {
   transition-duration: 0.3s;

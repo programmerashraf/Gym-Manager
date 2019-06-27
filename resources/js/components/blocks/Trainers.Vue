@@ -79,9 +79,6 @@
     }
     hr{
         width: 10%;
-        background-color: rgb(242, 58, 46);
-        height: 2px;
-        position: relative;
         left: 0;
     }
 
