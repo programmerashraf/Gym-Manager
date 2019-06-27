@@ -1,19 +1,29 @@
 <template>
-<div class="jumbotron">
-    <h1 class="display-4">Hello, world!</h1>
-    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+<div class="jumbotron rounded-none mt-5">
+    <h1 class="display-4">أهلاً {{ user.name }}</h1>
+    <p class="lead">باق على انتهاء الإشتراك : </p>
     <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
 </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
-    
+    computed: {
+        ...mapState([
+            'registerState',
+            'user',
+            'loged'
+        ])
+    },
 }
 </script>
 
 <style lang="scss" scoped>
-
+.jumbotron{
+    text-align: right;
+    background-color: rgb(242, 58, 46);
+    color: white
+}
 </style>
