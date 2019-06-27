@@ -70,13 +70,7 @@
         padding:0;
     }
     text-align: right;
-    hr{
-        width: 25%;
-        background-color: rgb(242, 58, 46);
-        height: 2px;
-        position: relative;
-        left: 40%;
-    }
+
     .card{
         transition:all 0.4s ease;
 

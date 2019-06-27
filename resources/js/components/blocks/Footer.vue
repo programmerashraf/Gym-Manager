@@ -29,8 +29,9 @@
 </template>
 
 <style lang="scss" scoped>
+$main-red: rgb(242, 58, 46);
 h6{
-    color: rgb(242, 58, 46);
+    color: $main-red;
 }
 a{
     color: black;
