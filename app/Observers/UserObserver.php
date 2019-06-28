@@ -3,6 +3,8 @@
 namespace App\Observers;
 
 use App\User;
+use Carbon\Carbon;
+use App\Subscription;
 
 class UserObserver
 {
@@ -15,6 +17,11 @@ class UserObserver
     public function created(User $user)
     {
         $user->admin = false;
+        Subscription::create([
+            "start" => $user->created_at,
+            "end" => $user->created_at->addMonth(),
+            "user_id"   => $user->id,
+        ]);
     }
 
     /**
@@ -58,6 +65,6 @@ class UserObserver
      */
     public function forceDeleted(User $user)
     {
-        //
+
     }
 }

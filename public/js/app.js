@@ -22406,8 +22406,13 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! E:\WEB\Gym-Manager\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! E:\WEB\Gym-Manager\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! D:\ashraf\study\web\laravel\working\gym\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\ashraf\study\web\laravel\working\gym\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> c27f1ff4ec4fe13bc1a715778ae8b6c84f5af788
 
 
 /***/ })

@@ -35,16 +35,4 @@ class AuthController extends Controller
         ]);
     }
 
-    public function logout(){
-        if (auth()->check()){
-            auth()->logout();
-            return $this->ApiResponse(200, "تم تسجيل الخروج بنجاح");
-        }
-        return $this->ApiResponse(404, "خطأ");
-    }
-
-    public function all(){
-        return response(User::all());
-    }
-
 }

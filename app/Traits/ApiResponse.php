@@ -6,7 +6,7 @@ trait ApiResponse{
         return response()->json([
             "code"    => $code,
             "message" => $message,
-            "data"    => $data
+            "data"    => $data,
         ]);
     }
 }
