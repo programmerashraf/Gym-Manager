@@ -20,15 +20,13 @@
 					</li>
 					<li class="nav-item" v-if="!loged">
 						<form class="form-inline my-2 my-lg-0">
-							<button class="btn btn-secondary rounded-pill ml-3" @click="changeRegisterState"
-								data-toggle="modal" data-target="#myModal" type="button" >سجل دخول</button>
-							<button class="btn btn-success rounded-pill" data-toggle="modal" data-target="#myModal"
-								@click="changeRegisterState" type="button">سجل حساب</button>
+							<button class="btn btn-secondary rounded-pill ml-3" @click="changeRegisterState('l')" data-toggle="modal" data-target="#myModal" type="button" >سجل دخول</button>
+							<button class="btn btn-success rounded-pill" @click="changeRegisterState('r')" data-toggle="modal" data-target="#myModal" type="button">سجل حساب</button>
 						</form>
 					</li>
 					<li class="nav-item" v-if="loged">
 						<span>{{ user.name }}</span>
-						<button class="btn btn-danger rounded-pill mr-2">تسجيل الخروج</button>
+						<button class="btn btn-danger rounded-pill mr-2" @click="logout()">تسجيل الخروج</button>
 					</li>
 				</ul>
 			</div>
@@ -49,7 +47,7 @@
 				<!-- Modal body -->
 				<div class="modal-body">
 					<div class="login">
-						<input class="form-control mb-4" v-model.lazy="get_user_name" v-if="registerState" type="text" placeholder="الاسم" />
+						<input class="form-control mb-4" v-model.lazy="get_user_name" v-if="register" type="text" placeholder="الاسم" />
 						<input class="form-control mb-4" v-model.lazy="get_user_email" type="email" placeholder="البريد الإلكتروني" />
 						<input class="form-control mb-4" v-model.lazy="get_user_password" type="password" placeholder="كلمة المرور" />
 					</div>
@@ -57,10 +55,8 @@
 
 				<!-- Modal footer -->
 				<div class="modal-footer">
-					<button class="btn btn-secondary rounded-pill ml-3" v-if="!registerState" @click="login()"
-						data-dismiss="modal" type="button">سجل دخول</button>
-					<button class="btn btn-success rounded-pill" v-if="registerState" @click="register()"
-						data-dismiss="modal" type="button">سجل حساب</button>
+					<button class="btn btn-secondary rounded-pill ml-3" @click="login()" v-if="!register" data-dismiss="modal" type="button">سجل دخول</button>
+					<button class="btn btn-success rounded-pill" @click="register()" v-if="register" data-dismiss="modal" type="button">سجل حساب</button>
 				</div>
 			</div>
 		</div>
@@ -105,7 +101,7 @@ export default {
 			}
 		},
 		...mapState([
-			'registerState',
+			'register',
 			'user',
 			'loged'
 		])
@@ -114,8 +110,8 @@ export default {
 		show() {
 			$('nav .collapse').toggleClass('show');
 		},
-		changeRegisterState(){
-			this.$store.commit('changeRegisterState')
+		changeRegisterState(button){
+			this.$store.commit('changeRegisterState', button)
 		},
 		register() {
 			// Send the request
@@ -132,6 +128,8 @@ export default {
 					this.$store.state.user.email = res.data.data.user.email;
 
 					this.$store.state.loged = true;
+					
+
 				}
 				console.log(res.data);
 			})
@@ -145,8 +143,19 @@ export default {
 			.then( res => {
 				this.$store.state.user.name = res.data.data.user.name;
 				this.$store.state.loged = true;
-				console.log(res.data.data.user.name);
+				if (res.data.data == null){
+
+				}
+				console.log(res.data);
 			})
+		},
+		logout(){
+			this.$store.state.user.name = '';
+			this.$store.state.user.password= '';
+			this.$store.state.user.emial = '';
+
+			this.$store.state.loged = false;
+
 		}
 	}
 }

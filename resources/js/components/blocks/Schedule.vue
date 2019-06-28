@@ -3,7 +3,7 @@
     <div class="container">
         <p class="h1 text-white">جدولك الأسبوعي</p>
         <hr>
-        <ul class="nav nav-pills mb-3 pr-0" id="pills-tab" role="tablist">
+        <ul class="nav nav-pills mb-3 p-0" id="pills-tab" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">السبت</a>
             </li>
@@ -23,7 +23,7 @@
                 <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">الخميس</a>
             </li>
         </ul>
-        <div class="tab-content pr-0" id="pills-tabContent">
+        <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                 <ul>
                     <li class="p-3">
@@ -95,7 +95,8 @@ $main-red: rgb(242, 58, 46);
         .tab-pane{
             ul {
                 list-style: none;
-                padding: none;
+                padding: 0;
+
                 li{
                     background-color: #fff;
                     transition: all 0.2s ease;

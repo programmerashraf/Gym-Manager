@@ -1885,7 +1885,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['registerState', 'user', 'loged']))
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['register', 'user', 'loged']))
 });
 
 /***/ }),
@@ -1908,10 +1908,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
-//
-//
 //
 //
 //
@@ -2011,13 +2007,13 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(axios__WEBPACK_IMPORTED_MODULE_1_
         this.$store.commit('get_user_password', value);
       }
     }
-  }, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])(['registerState', 'user', 'loged'])),
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])(['register', 'user', 'loged'])),
   methods: {
     show: function show() {
       $('nav .collapse').toggleClass('show');
     },
-    changeRegisterState: function changeRegisterState() {
-      this.$store.commit('changeRegisterState');
+    changeRegisterState: function changeRegisterState(button) {
+      this.$store.commit('changeRegisterState', button);
     },
     register: function register() {
       var _this = this;
@@ -2049,8 +2045,17 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(axios__WEBPACK_IMPORTED_MODULE_1_
       }).then(function (res) {
         _this2.$store.state.user.name = res.data.data.user.name;
         _this2.$store.state.loged = true;
-        console.log(res.data.data.user.name);
+
+        if (res.data.data == null) {}
+
+        console.log(res.data);
       });
+    },
+    logout: function logout() {
+      this.$store.state.user.name = '';
+      this.$store.state.user.password = '';
+      this.$store.state.user.emial = '';
+      this.$store.state.loged = false;
     }
   }
 });
@@ -2355,7 +2360,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 var getUrl = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
 var ___CSS_LOADER_URL___0___ = getUrl(__webpack_require__(/*! ../../assets/hero_bg_1.jpg */ "./resources/js/assets/hero_bg_1.jpg"));
 // Module
-exports.push([module.i, "#Schedule[data-v-610b15a5] {\n  background-image: url(" + ___CSS_LOADER_URL___0___ + ");\n  background-position: top center;\n  background-attachment: fixed;\n  text-align: right;\n}\n#Schedule ul .nav-link[data-v-610b15a5] {\n  color: white;\n}\n#Schedule ul .nav-link.active[data-v-610b15a5] {\n  background-color: #f23a2e;\n}\n#Schedule .tab-content .tab-pane ul[data-v-610b15a5] {\n  list-style: none;\n  padding: none;\n}\n#Schedule .tab-content .tab-pane ul li[data-v-610b15a5] {\n  background-color: #fff;\n  -webkit-transition: all 0.2s ease;\n  transition: all 0.2s ease;\n}\n#Schedule .tab-content .tab-pane ul li[data-v-610b15a5]:hover {\n  border-left: 10px solid #f23a2e;\n  border-right: 10px solid #f23a2e;\n}", ""]);
+exports.push([module.i, "#Schedule[data-v-610b15a5] {\n  background-image: url(" + ___CSS_LOADER_URL___0___ + ");\n  background-position: top center;\n  background-attachment: fixed;\n  text-align: right;\n}\n#Schedule ul .nav-link[data-v-610b15a5] {\n  color: white;\n}\n#Schedule ul .nav-link.active[data-v-610b15a5] {\n  background-color: #f23a2e;\n}\n#Schedule .tab-content .tab-pane ul[data-v-610b15a5] {\n  list-style: none;\n  padding: 0;\n}\n#Schedule .tab-content .tab-pane ul li[data-v-610b15a5] {\n  background-color: #fff;\n  -webkit-transition: all 0.2s ease;\n  transition: all 0.2s ease;\n}\n#Schedule .tab-content .tab-pane ul li[data-v-610b15a5]:hover {\n  border-left: 10px solid #f23a2e;\n  border-right: 10px solid #f23a2e;\n}", ""]);
 
 
 /***/ }),
@@ -3393,7 +3398,11 @@ var render = function() {
                           "data-target": "#myModal",
                           type: "button"
                         },
-                        on: { click: _vm.changeRegisterState }
+                        on: {
+                          click: function($event) {
+                            return _vm.changeRegisterState("l")
+                          }
+                        }
                       },
                       [_vm._v("سجل دخول")]
                     ),
@@ -3407,7 +3416,11 @@ var render = function() {
                           "data-target": "#myModal",
                           type: "button"
                         },
-                        on: { click: _vm.changeRegisterState }
+                        on: {
+                          click: function($event) {
+                            return _vm.changeRegisterState("r")
+                          }
+                        }
                       },
                       [_vm._v("سجل حساب")]
                     )
@@ -3421,7 +3434,14 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "button",
-                    { staticClass: "btn btn-danger rounded-pill mr-2" },
+                    {
+                      staticClass: "btn btn-danger rounded-pill mr-2",
+                      on: {
+                        click: function($event) {
+                          return _vm.logout()
+                        }
+                      }
+                    },
                     [_vm._v("تسجيل الخروج")]
                   )
                 ])
@@ -3438,7 +3458,7 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "modal-body" }, [
             _c("div", { staticClass: "login" }, [
-              _vm.registerState
+              _vm.register
                 ? _c("input", {
                     directives: [
                       {
@@ -3503,7 +3523,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "modal-footer" }, [
-            !_vm.registerState
+            !_vm.register
               ? _c(
                   "button",
                   {
@@ -3519,7 +3539,7 @@ var render = function() {
                 )
               : _vm._e(),
             _vm._v(" "),
-            _vm.registerState
+            _vm.register
               ? _c(
                   "button",
                   {
@@ -3596,7 +3616,7 @@ var staticRenderFns = [
         _c(
           "ul",
           {
-            staticClass: "nav nav-pills mb-3 pr-0",
+            staticClass: "nav nav-pills mb-3 p-0",
             attrs: { id: "pills-tab", role: "tablist" }
           },
           [
@@ -3712,10 +3732,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c(
           "div",
-          {
-            staticClass: "tab-content pr-0",
-            attrs: { id: "pills-tabContent" }
-          },
+          { staticClass: "tab-content", attrs: { id: "pills-tabContent" } },
           [
             _c(
               "div",
@@ -22343,16 +22360,18 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
       admin: false,
       password: ''
     },
-    registerState: true,
-    loged: false
+    register: false,
+    loged: false,
+    date: 0
   },
   mutations: {
     // Check if loged
     loged: function loged(state) {
       state.loged = !state.loged;
     },
-    changeRegisterState: function changeRegisterState(state) {
-      state.registerState = !state.registerState;
+    changeRegisterState: function changeRegisterState(state, payload) {
+      state.register = payload == 'l' ? false : true;
+      console.log(payload);
     },
     // Get User
     get_user_name: function get_user_name(state, value) {
@@ -22387,8 +22406,8 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Ashraf\Study\Web\laravel\Working\gym\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Ashraf\Study\Web\laravel\Working\gym\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! E:\WEB\Gym-Manager\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! E:\WEB\Gym-Manager\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

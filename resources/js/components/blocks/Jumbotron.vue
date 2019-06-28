@@ -11,7 +11,7 @@ import { mapState } from 'vuex';
 export default {
     computed: {
         ...mapState([
-            'registerState',
+            'register',
             'user',
             'loged'
         ])
