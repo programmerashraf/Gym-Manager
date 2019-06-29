@@ -2007,7 +2007,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(axios__WEBPACK_IMPORTED_MODULE_1_
         this.$store.commit('get_user_password', value);
       }
     }
-  }, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])(['register', 'user', 'loged'])),
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])(['inp', 'user', 'loged'])),
   methods: {
     show: function show() {
       $('nav .collapse').toggleClass('show');
@@ -3458,7 +3458,7 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "modal-body" }, [
             _c("div", { staticClass: "login" }, [
-              _vm.register
+              _vm.inp
                 ? _c("input", {
                     directives: [
                       {
@@ -3523,7 +3523,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "modal-footer" }, [
-            !_vm.register
+            !_vm.inp
               ? _c(
                   "button",
                   {
@@ -3539,7 +3539,7 @@ var render = function() {
                 )
               : _vm._e(),
             _vm._v(" "),
-            _vm.register
+            _vm.inp
               ? _c(
                   "button",
                   {
@@ -22360,9 +22360,8 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
       admin: false,
       password: ''
     },
-    register: false,
-    loged: false,
-    date: 0
+    inp: false,
+    loged: false
   },
   mutations: {
     // Check if loged
@@ -22370,8 +22369,7 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
       state.loged = !state.loged;
     },
     changeRegisterState: function changeRegisterState(state, payload) {
-      state.register = payload == 'l' ? false : true;
-      console.log(payload);
+      state.inp = payload == 'l' ? false : true;
     },
     // Get User
     get_user_name: function get_user_name(state, value) {
@@ -22406,13 +22404,8 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
 __webpack_require__(/*! E:\WEB\Gym-Manager\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! E:\WEB\Gym-Manager\resources\sass\app.scss */"./resources/sass/app.scss");
-=======
-__webpack_require__(/*! D:\ashraf\study\web\laravel\working\gym\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\ashraf\study\web\laravel\working\gym\resources\sass\app.scss */"./resources/sass/app.scss");
->>>>>>> c27f1ff4ec4fe13bc1a715778ae8b6c84f5af788
 
 
 /***/ })

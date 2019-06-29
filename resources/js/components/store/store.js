@@ -11,9 +11,8 @@ export const store = new Vuex.Store({
             admin: false,
             password: '',
         },
-        register: false,
+        inp: false,
         loged: false,
-        date: 0
     },
     mutations:{
         // Check if loged
@@ -21,9 +20,7 @@ export const store = new Vuex.Store({
             state.loged = !state.loged;
         },
         changeRegisterState: (state, payload) => {
-            state.register = (payload=='l') ? false : true
-
-            console.log(payload)
+            state.inp = (payload=='l') ? false : true
         },
         // Get User
         get_user_name: (state, value) => {

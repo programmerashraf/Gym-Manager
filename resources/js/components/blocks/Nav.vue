@@ -47,7 +47,7 @@
 				<!-- Modal body -->
 				<div class="modal-body">
 					<div class="login">
-						<input class="form-control mb-4" v-model.lazy="get_user_name" v-if="register" type="text" placeholder="الاسم" />
+						<input class="form-control mb-4" v-model.lazy="get_user_name" v-if="inp" type="text" placeholder="الاسم" />
 						<input class="form-control mb-4" v-model.lazy="get_user_email" type="email" placeholder="البريد الإلكتروني" />
 						<input class="form-control mb-4" v-model.lazy="get_user_password" type="password" placeholder="كلمة المرور" />
 					</div>
@@ -55,8 +55,8 @@
 
 				<!-- Modal footer -->
 				<div class="modal-footer">
-					<button class="btn btn-secondary rounded-pill ml-3" @click="login()" v-if="!register" data-dismiss="modal" type="button">سجل دخول</button>
-					<button class="btn btn-success rounded-pill" @click="register()" v-if="register" data-dismiss="modal" type="button">سجل حساب</button>
+					<button class="btn btn-secondary rounded-pill ml-3" @click="login()" v-if="!inp" data-dismiss="modal" type="button">سجل دخول</button>
+					<button class="btn btn-success rounded-pill" @click="register()" v-if="inp" data-dismiss="modal" type="button">سجل حساب</button>
 				</div>
 			</div>
 		</div>
@@ -101,7 +101,7 @@ export default {
 			}
 		},
 		...mapState([
-			'register',
+			'inp',
 			'user',
 			'loged'
 		])
