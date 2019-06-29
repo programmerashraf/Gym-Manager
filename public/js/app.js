@@ -1885,7 +1885,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['register', 'user', 'loged']))
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['user', 'loged'])),
+  methods: {
+    mido: function mido() {
+      this.$store.state.user.subscription.remain = Math.round((new Date(this.$store.getters.subscriptionDateEnd) - new Date(this.$store.getters.subscriptionDateStart)) * (1.15740741 * Math.pow(10, -8)));
+    }
+  }
 });
 
 /***/ }),
@@ -1908,8 +1913,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
 //
 //
 //
@@ -2031,8 +2034,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(axios__WEBPACK_IMPORTED_MODULE_1_
           _this.$store.state.user.email = res.data.data.user.email;
           _this.$store.state.loged = true;
         }
-
-        console.log(res.data);
+      })["catch"](function (err) {
+        return console.log(err.message);
       });
     },
     login: function login() {
@@ -2043,12 +2046,17 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(axios__WEBPACK_IMPORTED_MODULE_1_
         email: this.$store.state.user.email,
         password: this.$store.state.user.password
       }).then(function (res) {
+        // Get user
         _this2.$store.state.user.name = res.data.data.user.name;
+        _this2.$store.state.user.id = res.data.data.user.id;
+        _this2.$store.state.user.subscription.start = res.data.data.user.subscription.start;
+        _this2.$store.state.user.subscription.end = res.data.data.user.subscription.end; // Make it 
+
         _this2.$store.state.loged = true;
 
         if (res.data.data == null) {}
-
-        console.log(res.data);
+      })["catch"](function (err) {
+        return console.log(err.message);
       });
     },
     logout: function logout() {
@@ -3252,13 +3260,30 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "jumbotron mt-5 pb0" }, [
-    _c("h1", { staticClass: "display-4" }, [
-      _vm._v("أهلاً " + _vm._s(_vm.user.name))
-    ]),
-    _vm._v(" "),
-    _c("p", { staticClass: "lead" }, [_vm._v("باق على انتهاء الإشتراك : ")])
-  ])
+  return _c(
+    "div",
+    {
+      staticClass: "jumbotron mt-5 pb0",
+      on: {
+        click: function($event) {
+          return _vm.mido()
+        }
+      }
+    },
+    [
+      _c("h1", { staticClass: "display-4" }, [
+        _vm._v("أهلاً " + _vm._s(_vm.user.name))
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "lead" }, [
+        _vm._v(
+          "باق على انتهاء الإشتراك : " +
+            _vm._s(_vm.user.subscription.remain) +
+            " يوم"
+        )
+      ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -22355,10 +22380,16 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {
     user: {
+      id: 0,
       name: '',
       email: '',
       admin: false,
-      password: ''
+      password: '',
+      subscription: {
+        start: 0,
+        end: 0,
+        remain: 0
+      }
     },
     inp: false,
     loged: false
@@ -22380,6 +22411,14 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
     },
     get_user_password: function get_user_password(state, value) {
       state.user.password = value;
+    }
+  },
+  getters: {
+    subscriptionDateStart: function subscriptionDateStart(state) {
+      return state.user.subscription.start.split(' ')[0];
+    },
+    subscriptionDateEnd: function subscriptionDateEnd(state) {
+      return state.user.subscription.end.split(' ')[0];
     }
   }
 });

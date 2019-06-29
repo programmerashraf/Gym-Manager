@@ -3,7 +3,6 @@
 	<nav class="navbar navbar-expand-xl navbar-dark">
 		<div class="container"><a class="navbar-brand" href="#">لوجو</a>
 			<button class="navbar-toggler" @click="show()"><span class="navbar-toggler-icon"></span></button>
-
 			<div class="collapse justify-content-end d-lg-flex">
 				<button type="button" @click="show()" class="close d-xl-none" data-dismiss="modal">&times;</button>
 				<ul class="navbar-nav">
@@ -61,7 +60,6 @@
 			</div>
 		</div>
 	</div>
-
 </div>
 </template>
 
@@ -128,11 +126,8 @@ export default {
 					this.$store.state.user.email = res.data.data.user.email;
 
 					this.$store.state.loged = true;
-					
-
 				}
-				console.log(res.data);
-			})
+			}).catch( err => console.log( err.message ) )
 		},
 		login() {
 			// Send the request
@@ -141,13 +136,18 @@ export default {
 				password: this.$store.state.user.password
 			})
 			.then( res => {
+				// Get user
 				this.$store.state.user.name = res.data.data.user.name;
+				this.$store.state.user.id = res.data.data.user.id;
+				
+				this.$store.state.user.subscription.start = res.data.data.user.subscription.start;
+				this.$store.state.user.subscription.end = res.data.data.user.subscription.end;
+
+				// Make it 
 				this.$store.state.loged = true;
 				if (res.data.data == null){
-
 				}
-				console.log(res.data);
-			})
+			}).catch( err => console.log( err.message ) )
 		},
 		logout(){
 			this.$store.state.user.name = '';

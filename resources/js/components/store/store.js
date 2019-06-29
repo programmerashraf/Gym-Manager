@@ -6,10 +6,16 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
     state:{
         user: {
+            id: 0,
             name: '',
             email: '',
             admin: false,
             password: '',
+            subscription: {
+                start: 0,
+                end: 0,
+                remain: 0
+            },
         },
         inp: false,
         loged: false,
@@ -32,5 +38,13 @@ export const store = new Vuex.Store({
         get_user_password: (state, value) => {
             state.user.password = value;
         },
+    },
+    getters:{
+        subscriptionDateStart: state => {
+            return state.user.subscription.start.split(' ')[0];
+        },
+        subscriptionDateEnd: state => {
+            return state.user.subscription.end.split(' ')[0];
+        }
     }
 });
