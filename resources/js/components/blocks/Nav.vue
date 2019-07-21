@@ -1,10 +1,10 @@
 <template>
 <div id="navbar">
-	<nav class="navbar navbar-expand-xl navbar-dark">
+	<nav class="navbar navbar-expand-lg navbar-dark">
 		<div class="container"><a class="navbar-brand" href="#">لوجو</a>
 			<button class="navbar-toggler" @click="show()"><span class="navbar-toggler-icon"></span></button>
 			<div class="collapse justify-content-end d-lg-flex">
-				<button type="button" @click="show()" class="close d-xl-none" data-dismiss="modal">&times;</button>
+				<button type="button" @click="show()" class="close d-xl-none d-lg-none" data-dismiss="modal">&times;</button>
 				<ul class="navbar-nav">
 					<li class="nav-item ml-3">
 						<router-link to="/" active-class="active" class="nav-link" exact>الرئيسية<span
@@ -14,18 +14,22 @@
 								class="sr-only">(current)</span></router-link>
 					</li>
 					<li class="nav-item ml-3">
-						<router-link to="/lo" active-class="active" class="nav-link" exact>آخر الأخبار<span
+						<router-link to="/news" active-class="active" class="nav-link" exact>آخر الأخبار<span
+								class="sr-only">(current)</span></router-link>
+					</li>
+					<li class="nav-item ml-3">
+						<router-link to="/dash" active-class="active" class="nav-link" exact>لوحة التحكم<span
 								class="sr-only">(current)</span></router-link>
 					</li>
 					<li class="nav-item" v-if="!loged">
 						<form class="form-inline my-2 my-lg-0">
-							<button class="btn btn-secondary rounded-pill ml-3" @click="changeRegisterState('l')" data-toggle="modal" data-target="#myModal" type="button" >سجل دخول</button>
-							<button class="btn btn-success rounded-pill" @click="changeRegisterState('r')" data-toggle="modal" data-target="#myModal" type="button">سجل حساب</button>
+							<button class="btn btn-secondary rounded-pill ml-3" @click="changeRegisterState('l'); show()" data-toggle="modal" data-target="#myModal" type="button" >سجل دخول</button>
+							<button class="btn btn-success rounded-pill" @click="changeRegisterState('r'); show()" data-toggle="modal" data-target="#myModal" type="button">سجل حساب</button>
 						</form>
 					</li>
-					<li class="nav-item" v-if="loged">
-						<span>{{ user.name }}</span>
-						<button class="btn btn-danger rounded-pill mr-2" @click="logout()">تسجيل الخروج</button>
+					<li class="mt-1 nav-item" v-if="loged">
+						<span class="font-weight-bold">{{ user.name }}</span>
+						<button class="btn btn-danger rounded-pill mt-xl-0 mt-lg-0 mr-2 d-md-block mt-sm-1 d-sm-block" @click="logout()">تسجيل الخروج</button>
 					</li>
 				</ul>
 			</div>
@@ -126,6 +130,7 @@ export default {
 					this.$store.state.user.email = res.data.data.user.email;
 
 					this.$store.state.loged = true;
+					console.log('done');
 				}
 			}).catch( err => console.log( err.message ) )
 		},
@@ -165,6 +170,7 @@ export default {
 $main-red: rgb(242, 58, 46);
 nav {
 	background-color: $main-red;
+	min-height: 70px;
 
 	button.navbar-toggler {
 		outline: none;
@@ -218,7 +224,7 @@ nav {
 	text-align: right
 }
 
-@media (max-width: 1025px) {
+@media (max-width: 991px) {
 	.active {
 		color: black !important;
 	}

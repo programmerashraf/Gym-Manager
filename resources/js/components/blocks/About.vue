@@ -23,7 +23,7 @@
                     <p>دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا .</p>
                 </li>
                 </ul>
-                <button class="btn our-btn px-3 mt-5">اقرأ المزيد</button>
+                <button class="btn btn-danger rounded-pill px-3 mt-5">اقرأ المزيد</button>
             </div>
             <div class="col-md-6 my-5"><img class="img-fluid" height="200" src="../../assets/about.jpg"/></div>
         </div>

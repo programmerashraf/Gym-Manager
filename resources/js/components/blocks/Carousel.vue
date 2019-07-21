@@ -27,7 +27,7 @@ export default {
 .bd-example{
     .carousel-inner{
         .carousel-item{
-            height: 100vh !important;
+            height: 90vh !important;
             background-position: top center;
             background-size: cover;
             background-attachment: fixed;

@@ -1,10 +1,16 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+
 import axios from 'axios';
 import { store } from './components/store/store';
+
 import App from './components/App.vue';
 import Home from "./components/pages/Home.vue";
 import Profile from "./components/pages/Profile.vue";
+import News from "./components/pages/News.vue";
+import dash from "./components/dash/dash_home"
+
+// import A from "./component/dash/blocks"
 
 Vue.use(axios);
 Vue.use(VueRouter);
@@ -22,6 +28,24 @@ const router = new VueRouter({
             name: "profile",
             component: Profile
         },
+        {
+            path: "/dash",
+            name: "dash",
+            component: dash,
+            children: [
+                {
+                  // A will be rendered in the second <router-view>
+                  // when /your-sidebar-url/a is matched
+                  path: 'a',
+                  component: dash
+                },
+            ]
+        },
+        {
+            path: "/news",
+            name: "news",
+            component: News
+        }
     ]
 })
 
