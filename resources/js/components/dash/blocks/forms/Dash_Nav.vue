@@ -1,6 +1,7 @@
 <template>
     <div>
-        <h2> Navbar </h2>
+        <h2 class="font-weight-bold"> شريط التنقل </h2>
+        <hr>
         <form>
             <div class="form-group">
                 <label class="font-weight-bold" for="image-upload">أضف صورة</label>

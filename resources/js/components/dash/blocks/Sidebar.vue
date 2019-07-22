@@ -23,7 +23,7 @@
                 </div>
             </div>
 
-            <div class="pt-3 mr-3">
+            <div class="col-8 pt-3 mr-3">
                 <div class="tab-content" id="v-pills-tabContent">
 
                     <div class="tab-pane fade show" id="NavbarDash" role="tabpanel" aria-labelledby="NavbarDash-tab">
@@ -31,7 +31,7 @@
                     </div>
 
                     <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                        
+                        <dashAbout></dashAbout>
                     </div>
                 </div>
             </div>
@@ -41,7 +41,8 @@
 </template>
 
 <script>
-import dashNav from "../blocks/Dash_Nav"; 
+import dashNav from "../blocks/forms/Dash_Nav"; 
+import dashAbout from "../blocks/forms/Dash_About"; 
 
 export default {
     data(){
@@ -50,7 +51,8 @@ export default {
         }
     },
     components: {
-        dashNav
+        dashNav,
+        dashAbout
     },
     methods:{
         toggleDrop(){
@@ -89,7 +91,6 @@ export default {
     position: fixed;
     left: 10px;
     top: 10px;
-
     &.left{
         top: 90px;
         left: 10px;
@@ -102,9 +103,9 @@ hr{
     height: auto;
     position: static;
     left: 0;
-
 }
 .row .sidebar{
+    min-height: 700px !important;
     color: white;
     background: #7386D5;
     .btn-group{
@@ -114,10 +115,10 @@ hr{
             cursor: pointer;
             transition: all 0.2s ease-in;
             outline: none;
+            color: white;
             background-color: transparent;
             
             &:hover,&:active{
-                color: white;
                 background-color: #6d7fcc;
             }
         }
@@ -128,7 +129,7 @@ hr{
     }
 }
 
-@media (max-width: 425px){
+@media (max-width: 426px){
     
     .sidebar{
         width: 100%;
@@ -139,7 +140,7 @@ hr{
         transform: translateX(0)
     }
 }
-@media (min-width: 426px) and (max-width: 1024px){
+@media (min-width: 427px) and (max-width: 1024px){
     .opened-sidebar{
         transform: translateX(104%) !important
     }
