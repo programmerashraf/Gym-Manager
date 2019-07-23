@@ -2599,20 +2599,14 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _blocks_Sidebar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./blocks/Sidebar */ "./resources/js/components/dash/blocks/Sidebar.vue");
-/* harmony import */ var _blocks_Nav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../blocks/Nav */ "./resources/js/components/blocks/Nav.vue");
 //
 //
 //
 //
-//
-//
-//
-
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    sidebar: _blocks_Sidebar__WEBPACK_IMPORTED_MODULE_0__["default"],
-    Nav3: _blocks_Nav__WEBPACK_IMPORTED_MODULE_1__["default"]
+    sidebar: _blocks_Sidebar__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 });
 
@@ -6707,7 +6701,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_c("Nav3"), _vm._v(" "), _c("sidebar")], 1)
+  return _c("p", [_vm._v("hello world       ")])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -22710,6 +22704,13 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   store: _components_store_store__WEBPACK_IMPORTED_MODULE_3__["store"],
   components: {
     App: _components_App_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+  }
+});
+var dash = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
+  el: '#dash',
+  store: _components_store_store__WEBPACK_IMPORTED_MODULE_3__["store"],
+  components: {
+    dashboard: _components_dash_dash_home__WEBPACK_IMPORTED_MODULE_8__["default"]
   }
 });
 

@@ -4,14 +4,14 @@ import VueRouter from 'vue-router';
 import axios from 'axios';
 import { store } from './components/store/store';
 
-import dash from "./components/dash/dash_home.vue";
+import dashboard from "./components/dash/dash_home.vue";
 
 Vue.use(axios);
 Vue.use(VueRouter);
 
 
-const app = new Vue({
+const dash = new Vue({
     el: '#dash',
     store,
-    components: {dash}
+    components: {dashboard}
 });
