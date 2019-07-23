@@ -18,8 +18,7 @@
 								class="sr-only">(current)</span></router-link>
 					</li>
 					<li class="nav-item ml-3">
-						<a href="dash">لوحة التحكم
-						</a>
+						<a href="dash">لوحة التحكم</a>
 					</li>
 					<li class="nav-item" v-if="!loged">
 						<form class="form-inline my-2 my-lg-0">

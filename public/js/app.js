@@ -1985,7 +1985,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 
@@ -2599,6 +2598,342 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _blocks_Sidebar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./blocks/Sidebar */ "./resources/js/components/dash/blocks/Sidebar.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5410,9 +5745,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("li", { staticClass: "nav-item ml-3" }, [
-      _c("a", { attrs: { href: "dash" } }, [
-        _vm._v("لوحة التحكم\r\n\t\t\t\t\t\t")
-      ])
+      _c("a", { attrs: { href: "dash" } }, [_vm._v("لوحة التحكم")])
     ])
   },
   function() {
@@ -6701,9 +7034,595 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("p", [_vm._v("hello world       ")])
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "wrapper" }, [
+      _c("header", { staticClass: "main-header" }, [
+        _c("a", { staticClass: "logo", attrs: { href: "index2.html" } }, [
+          _c("span", { staticClass: "logo-mini" }, [
+            _c("b", [_vm._v("A")]),
+            _vm._v("LT")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "logo-lg" }, [
+            _c("b", [_vm._v("Admin")]),
+            _vm._v("LTE")
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "nav",
+          {
+            staticClass: "navbar navbar-static-top",
+            attrs: { role: "navigation" }
+          },
+          [
+            _c(
+              "a",
+              {
+                staticClass: "sidebar-toggle",
+                attrs: { href: "#", "data-toggle": "push-menu", role: "button" }
+              },
+              [
+                _c("span", { staticClass: "sr-only" }, [
+                  _vm._v("Toggle navigation")
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "navbar-custom-menu" }, [
+              _c("ul", { staticClass: "nav navbar-nav" }, [
+                _c("li", { staticClass: "dropdown messages-menu" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "dropdown-toggle",
+                      attrs: { href: "#", "data-toggle": "dropdown" }
+                    },
+                    [
+                      _c("i", { staticClass: "fa fa-envelope-o" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "label label-success" }, [
+                        _vm._v("4")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("ul", { staticClass: "dropdown-menu" }, [
+                    _c("li", { staticClass: "header" }, [
+                      _vm._v("You have 4 messages")
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [
+                      _c("ul", { staticClass: "menu" }, [
+                        _c("li", [
+                          _c("a", { attrs: { href: "#" } }, [
+                            _c("div", { staticClass: "pull-left" }, [
+                              _c("img", {
+                                staticClass: "img-circle",
+                                attrs: {
+                                  src: "dist/img/user2-160x160.jpg",
+                                  alt: "User Image"
+                                }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("h4", [
+                              _vm._v(
+                                "\n                        Support Team\n                        "
+                              ),
+                              _c("small", [
+                                _c("i", { staticClass: "fa fa-clock-o" }),
+                                _vm._v(" 5 mins")
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _vm._v("Why not buy a new awesome theme?")
+                            ])
+                          ])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "footer" }, [
+                      _c("a", { attrs: { href: "#" } }, [
+                        _vm._v("See All Messages")
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "dropdown notifications-menu" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "dropdown-toggle",
+                      attrs: { href: "#", "data-toggle": "dropdown" }
+                    },
+                    [
+                      _c("i", { staticClass: "fa fa-bell-o" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "label label-warning" }, [
+                        _vm._v("10")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("ul", { staticClass: "dropdown-menu" }, [
+                    _c("li", { staticClass: "header" }, [
+                      _vm._v("You have 10 notifications")
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [
+                      _c("ul", { staticClass: "menu" }, [
+                        _c("li", [
+                          _c("a", { attrs: { href: "#" } }, [
+                            _c("i", { staticClass: "fa fa-users text-aqua" }),
+                            _vm._v(
+                              " 5 new members joined today\n                    "
+                            )
+                          ])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "footer" }, [
+                      _c("a", { attrs: { href: "#" } }, [_vm._v("View all")])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "dropdown tasks-menu" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "dropdown-toggle",
+                      attrs: { href: "#", "data-toggle": "dropdown" }
+                    },
+                    [
+                      _c("i", { staticClass: "fa fa-flag-o" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "label label-danger" }, [
+                        _vm._v("9")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("ul", { staticClass: "dropdown-menu" }, [
+                    _c("li", { staticClass: "header" }, [
+                      _vm._v("You have 9 tasks")
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [
+                      _c("ul", { staticClass: "menu" }, [
+                        _c("li", [
+                          _c("a", { attrs: { href: "#" } }, [
+                            _c("h3", [
+                              _vm._v(
+                                "\n                        Design some buttons\n                        "
+                              ),
+                              _c("small", { staticClass: "pull-right" }, [
+                                _vm._v("20%")
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "progress xs" }, [
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "progress-bar progress-bar-aqua",
+                                  staticStyle: { width: "20%" },
+                                  attrs: {
+                                    role: "progressbar",
+                                    "aria-valuenow": "20",
+                                    "aria-valuemin": "0",
+                                    "aria-valuemax": "100"
+                                  }
+                                },
+                                [
+                                  _c("span", { staticClass: "sr-only" }, [
+                                    _vm._v("20% Complete")
+                                  ])
+                                ]
+                              )
+                            ])
+                          ])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "footer" }, [
+                      _c("a", { attrs: { href: "#" } }, [
+                        _vm._v("View all tasks")
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "dropdown user user-menu" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "dropdown-toggle",
+                      attrs: { href: "#", "data-toggle": "dropdown" }
+                    },
+                    [
+                      _c("img", {
+                        staticClass: "user-image",
+                        attrs: {
+                          src: "dist/img/user2-160x160.jpg",
+                          alt: "User Image"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "hidden-xs" }, [
+                        _vm._v("Alexander Pierce")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("ul", { staticClass: "dropdown-menu" }, [
+                    _c("li", { staticClass: "user-header" }, [
+                      _c("img", {
+                        staticClass: "img-circle",
+                        attrs: {
+                          src: "dist/img/user2-160x160.jpg",
+                          alt: "User Image"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v(
+                          "\n                  Alexander Pierce - Web Developer\n                  "
+                        ),
+                        _c("small", [_vm._v("Member since Nov. 2012")])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "user-body" }, [
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-xs-4 text-center" }, [
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v("Followers")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-xs-4 text-center" }, [
+                          _c("a", { attrs: { href: "#" } }, [_vm._v("Sales")])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-xs-4 text-center" }, [
+                          _c("a", { attrs: { href: "#" } }, [_vm._v("Friends")])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "user-footer" }, [
+                      _c("div", { staticClass: "pull-left" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-default btn-flat",
+                            attrs: { href: "#" }
+                          },
+                          [_vm._v("Profile")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "pull-right" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-default btn-flat",
+                            attrs: { href: "#" }
+                          },
+                          [_vm._v("Sign out")]
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "a",
+                    { attrs: { href: "#", "data-toggle": "control-sidebar" } },
+                    [_c("i", { staticClass: "fa fa-gears" })]
+                  )
+                ])
+              ])
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("aside", { staticClass: "main-sidebar" }, [
+        _c("section", { staticClass: "sidebar" }, [
+          _c("div", { staticClass: "user-panel" }, [
+            _c("div", { staticClass: "pull-left image" }, [
+              _c("img", {
+                staticClass: "img-circle",
+                attrs: { src: "dist/img/user2-160x160.jpg", alt: "User Image" }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "pull-left info" }, [
+              _c("p", [_vm._v("Alexander Pierce")]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "#" } }, [
+                _c("i", { staticClass: "fa fa-circle text-success" }),
+                _vm._v(" Online")
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "form",
+            {
+              staticClass: "sidebar-form",
+              attrs: { action: "#", method: "get" }
+            },
+            [
+              _c("div", { staticClass: "input-group" }, [
+                _c("input", {
+                  staticClass: "form-control",
+                  attrs: { type: "text", name: "q", placeholder: "Search..." }
+                }),
+                _vm._v(" "),
+                _c("span", { staticClass: "input-group-btn" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-flat",
+                      attrs: {
+                        type: "submit",
+                        name: "search",
+                        id: "search-btn"
+                      }
+                    },
+                    [_c("i", { staticClass: "fa fa-search" })]
+                  )
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "ul",
+            { staticClass: "sidebar-menu", attrs: { "data-widget": "tree" } },
+            [
+              _c("li", { staticClass: "header" }, [_vm._v("HEADER")]),
+              _vm._v(" "),
+              _c("li", { staticClass: "active" }, [
+                _c("a", { attrs: { href: "#" } }, [
+                  _c("i", { staticClass: "fa fa-link" }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Link")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "#" } }, [
+                  _c("i", { staticClass: "fa fa-link" }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Another Link")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "treeview" }, [
+                _c("a", { attrs: { href: "#" } }, [
+                  _c("i", { staticClass: "fa fa-link" }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Multilevel")]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "pull-right-container" }, [
+                    _c("i", { staticClass: "fa fa-angle-left pull-right" })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "treeview-menu" }, [
+                  _c("li", [
+                    _c("a", { attrs: { href: "#" } }, [
+                      _vm._v("Link in level 2")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "#" } }, [
+                      _vm._v("Link in level 2")
+                    ])
+                  ])
+                ])
+              ])
+            ]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "content-wrapper" }, [
+        _c("section", { staticClass: "content-header" }, [
+          _c("h1", [
+            _vm._v("\n        Page Header\n        "),
+            _c("small", [_vm._v("Optional description")])
+          ]),
+          _vm._v(" "),
+          _c("ol", { staticClass: "breadcrumb" }, [
+            _c("li", [
+              _c("a", { attrs: { href: "#" } }, [
+                _c("i", { staticClass: "fa fa-dashboard" }),
+                _vm._v(" Level")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "active" }, [_vm._v("Here")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("section", { staticClass: "content container-fluid" })
+      ]),
+      _vm._v(" "),
+      _c("footer", { staticClass: "main-footer" }, [
+        _c("div", { staticClass: "pull-right hidden-xs" }, [
+          _vm._v("\n      Anything you want\n    ")
+        ]),
+        _vm._v(" "),
+        _c("strong", [
+          _vm._v("Copyright © 2016 "),
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Company")]),
+          _vm._v(".")
+        ]),
+        _vm._v(" All rights reserved.\n  ")
+      ]),
+      _vm._v(" "),
+      _c("aside", { staticClass: "control-sidebar control-sidebar-dark" }, [
+        _c(
+          "ul",
+          { staticClass: "nav nav-tabs nav-justified control-sidebar-tabs" },
+          [
+            _c("li", { staticClass: "active" }, [
+              _c(
+                "a",
+                {
+                  attrs: {
+                    href: "#control-sidebar-home-tab",
+                    "data-toggle": "tab"
+                  }
+                },
+                [_c("i", { staticClass: "fa fa-home" })]
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c(
+                "a",
+                {
+                  attrs: {
+                    href: "#control-sidebar-settings-tab",
+                    "data-toggle": "tab"
+                  }
+                },
+                [_c("i", { staticClass: "fa fa-gears" })]
+              )
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "tab-content" }, [
+          _c(
+            "div",
+            {
+              staticClass: "tab-pane active",
+              attrs: { id: "control-sidebar-home-tab" }
+            },
+            [
+              _c("h3", { staticClass: "control-sidebar-heading" }, [
+                _vm._v("Recent Activity")
+              ]),
+              _vm._v(" "),
+              _c("ul", { staticClass: "control-sidebar-menu" }, [
+                _c("li", [
+                  _c("a", { attrs: { href: "javascript:;" } }, [
+                    _c("i", {
+                      staticClass: "menu-icon fa fa-birthday-cake bg-red"
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "menu-info" }, [
+                      _c("h4", { staticClass: "control-sidebar-subheading" }, [
+                        _vm._v("Langdon's Birthday")
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("Will be 23 on April 24th")])
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("h3", { staticClass: "control-sidebar-heading" }, [
+                _vm._v("Tasks Progress")
+              ]),
+              _vm._v(" "),
+              _c("ul", { staticClass: "control-sidebar-menu" }, [
+                _c("li", [
+                  _c("a", { attrs: { href: "javascript:;" } }, [
+                    _c("h4", { staticClass: "control-sidebar-subheading" }, [
+                      _vm._v(
+                        "\n                Custom Template Design\n                "
+                      ),
+                      _c("span", { staticClass: "pull-right-container" }, [
+                        _c(
+                          "span",
+                          { staticClass: "label label-danger pull-right" },
+                          [_vm._v("70%")]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "progress progress-xxs" }, [
+                      _c("div", {
+                        staticClass: "progress-bar progress-bar-danger",
+                        staticStyle: { width: "70%" }
+                      })
+                    ])
+                  ])
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "tab-pane",
+              attrs: { id: "control-sidebar-stats-tab" }
+            },
+            [_vm._v("Stats Tab Content")]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "tab-pane",
+              attrs: { id: "control-sidebar-settings-tab" }
+            },
+            [
+              _c("form", { attrs: { method: "post" } }, [
+                _c("h3", { staticClass: "control-sidebar-heading" }, [
+                  _vm._v("General Settings")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { staticClass: "control-sidebar-subheading" }, [
+                    _vm._v(
+                      "\n              Report panel usage\n              "
+                    ),
+                    _c("input", {
+                      staticClass: "pull-right",
+                      attrs: { type: "checkbox", checked: "" }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "\n              Some information about this general settings option\n            "
+                    )
+                  ])
+                ])
+              ])
+            ]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "control-sidebar-bg" })
+    ])
+  }
+]
 render._withStripped = true
 
 
