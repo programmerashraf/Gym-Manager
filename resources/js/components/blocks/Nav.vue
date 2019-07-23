@@ -23,7 +23,6 @@
 					<li class="nav-item" v-if="!loged">
 						<form class="form-inline my-2 my-lg-0">
 							<button class="btn btn-secondary rounded-pill ml-3" @click="changeRegisterState('l'); show()" data-toggle="modal" data-target="#myModal" type="button" >سجل دخول</button>
-							<button class="btn btn-success rounded-pill" @click="changeRegisterState('r'); show()" data-toggle="modal" data-target="#myModal" type="button">سجل حساب</button>
 						</form>
 					</li>
 					<li class="mt-1 nav-item" v-if="loged">
@@ -58,7 +57,6 @@
 				<!-- Modal footer -->
 				<div class="modal-footer">
 					<button class="btn btn-secondary rounded-pill ml-3" @click="login()" v-if="!inp" data-dismiss="modal" type="button">سجل دخول</button>
-					<button class="btn btn-success rounded-pill" @click="register()" v-if="inp" data-dismiss="modal" type="button">سجل حساب</button>
 				</div>
 			</div>
 		</div>
@@ -113,25 +111,6 @@ export default {
 		},
 		changeRegisterState(button){
 			this.$store.commit('changeRegisterState', button)
-		},
-		register() {
-			// Send the request
-			axios.post('/api/register', {
-				name: this.$store.state.user.name,
-				email: this.$store.state.user.email,
-				password: this.$store.state.user.password
-			})
-			.then(res => {
-				// Todo
-				if(res.data.code == 200){
-					this.$store.state.user.name = res.data.data.user.name;
-					this.$store.state.user.admin = res.data.data.user.admin;
-					this.$store.state.user.email = res.data.data.user.email;
-
-					this.$store.state.loged = true;
-					console.log('done');
-				}
-			}).catch( err => console.log( err.message ) )
 		},
 		login() {
 			// Send the request
