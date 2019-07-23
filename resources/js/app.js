@@ -29,19 +29,6 @@ const router = new VueRouter({
             component: Profile
         },
         {
-            path: "/dash",
-            name: "dash",
-            component: dash,
-            children: [
-                {
-                  // A will be rendered in the second <router-view>
-                  // when /your-sidebar-url/a is matched
-                  path: 'a',
-                  component: dash
-                },
-            ]
-        },
-        {
             path: "/news",
             name: "news",
             component: News

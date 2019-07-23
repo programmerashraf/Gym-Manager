@@ -63,6 +63,7 @@
         "webpack-merge": "^4.2.1"
     },
     "dependencies": {
+        "admin-lte": "^2.4.15",
         "moment": "^2.24.0",
         "vue-resource": "^1.5.1",
         "vuex": "^3.1.1"

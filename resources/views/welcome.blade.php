@@ -4,6 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <link rel="stylesheet" type="text/css" href="./src/assets/css/animate.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -17,6 +18,7 @@
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
         integrity="sha256-kksNxjDRxd/5+jGurZUJd1sdR2v+ClrCl3svESBaJqw=" crossorigin="anonymous" />
+
     <title>GYM</title>
     <style>
         #app{
@@ -33,14 +35,17 @@
             outline: none;
             background-color: rgb(242, 58, 46) !important;
         }
-    </style></head>
+    </style>
+</head>
 <body>
 
     <div id="app">
         <App></App>
     </div>
+</body>
 
     <script src="{{ asset('js/app.js') }}"></script>
+
     <script src="https://kit.fontawesome.com/7ccf14bcd9.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
@@ -82,7 +87,5 @@
                 }
             })
         });
-
     </script>
-</body>
 </html>
