@@ -1,5 +1,5 @@
 <template>
-   <div class="wrapper">
+    <div class="wrapper">
 
   <!-- Main Header -->
   <header class="main-header">
@@ -337,17 +337,3 @@
   <div class="control-sidebar-bg"></div>
 </div>
 </template>
-
-<script>
-import sidebar from "./blocks/Sidebar";
-
-export default {
-    components: {
-        sidebar,
-    }
-}
-</script>
-
-<style <style lang="scss" scoped>
-
-</style>
