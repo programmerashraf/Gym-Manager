@@ -11,9 +11,6 @@ import News from "./components/pages/News.vue";
 
 import dashboard from "./components/dash/dashboard.vue"
 
-
-// import A from "./component/dash/blocks"
-
 Vue.use(axios);
 Vue.use(VueRouter);
 

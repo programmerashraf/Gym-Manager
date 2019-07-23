@@ -19,6 +19,10 @@ export const store = new Vuex.Store({
         },
         inp: false,
         loged: false,
+        // Start Admin Panel
+        AdminPanel: {
+            currentPage: 'userAdd'
+        }
     },
     mutations:{
         // Check if loged
@@ -38,6 +42,9 @@ export const store = new Vuex.Store({
         get_user_password: (state, value) => {
             state.user.password = value;
         },
+        change_current_page: (state, payload) => {
+            state.AdminPanel.currentPage = payload
+         }
     },
     getters:{
         subscriptionDateStart: state => {

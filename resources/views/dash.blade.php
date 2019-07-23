@@ -7,7 +7,6 @@
 
     <link rel="stylesheet" href=" {{ asset('Admin/css/bootstrap.min.css') }} ">
     
-    <link rel="stylesheet" href=" {{ URL::asset('Admin/font-awesome/css/font-awesome.min.css') }}  ">
     <link rel="stylesheet" href=" {{ URL::asset('Admin/css/AdminLTE.min.css') }}  ">
     <link rel="stylesheet" href=" {{ URL::asset('Admin/css/ionicons.min.css') }}  ">
     <link rel="stylesheet" href=" {{ URL::asset('Admin/css/skin-blue.min.css') }}  ">
@@ -26,7 +25,8 @@
 
     <script src="{{ asset('js/app.js') }}"></script>
 
-  
+    <script src="https://kit.fontawesome.com/7ccf14bcd9.js"></script>
+
     <script src="{{ asset('Admin/js/jquery.min.js') }}"></script>
     <script src="{{ asset('Admin/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('Admin/js/adminlte.min.js') }}"></script>
