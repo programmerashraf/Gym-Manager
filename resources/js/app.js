@@ -8,7 +8,14 @@ import App from './components/App.vue';
 import Home from "./components/pages/Home.vue";
 import Profile from "./components/pages/Profile.vue";
 import News from "./components/pages/News.vue";
+
+
+
+
+import dash from "./components/dash/dash_home.vue";
+
 import dashboard from "./components/dash/dash_home"
+
 
 // import A from "./component/dash/blocks"
 
@@ -43,8 +50,18 @@ const app = new Vue({
     components: {App}
 });
 
+<<<<<<< HEAD
+
+const app = new Vue({
+    el: '#dash',
+    store,
+    components: {dash}
+});
+
+
 const dash = new Vue({
     el: '#dash',
     store,
     components: {dashboard}
 });
+

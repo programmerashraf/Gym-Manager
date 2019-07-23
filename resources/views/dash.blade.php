@@ -6,14 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="stylesheet" href=" {{ asset('Admin/css/bootstrap.min.css') }} ">
-
+    
+    <link rel="stylesheet" href=" {{ URL::asset('Admin/font-awesome/css/font-awesome.min.css') }}  ">
     <link rel="stylesheet" href=" {{ URL::asset('Admin/css/AdminLTE.min.css') }}  ">
     <link rel="stylesheet" href=" {{ URL::asset('Admin/css/ionicons.min.css') }}  ">
     <link rel="stylesheet" href=" {{ URL::asset('Admin/css/skin-blue.min.css') }}  ">
+      <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
     <title>Dashboard</title>
 </head>
-<body>
+<body class="hold-transition skin-blue sidebar-mini">
 
     <div id="dash">
         <dashboard></dashboard>
