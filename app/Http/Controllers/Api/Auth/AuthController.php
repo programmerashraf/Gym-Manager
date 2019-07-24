@@ -23,8 +23,8 @@ class AuthController extends Controller
                 "email"=> $request->email,
                 "password"=> $request->password,
                 'api_token' => Str::random(60),
-                'start'=> '2013-3-23',
-                'end'=> '2013-3-23', 
+                'start'=> $request->date_start,
+                'end'=> $request->date_end, 
             ]);
         //$token = $user->]('token')->accessToken;
         return $this->ApiResponse(200, "تم الستجيل بنجاح", [

@@ -33,4 +33,3 @@ Route::group(["namespace"=>"Api"], function (){
     });
 
 });
-

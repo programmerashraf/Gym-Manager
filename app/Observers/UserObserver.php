@@ -4,7 +4,7 @@ namespace App\Observers;
 
 use App\User;
 use Carbon\Carbon;
-use App\Subscription;
+
 
 class UserObserver
 {
