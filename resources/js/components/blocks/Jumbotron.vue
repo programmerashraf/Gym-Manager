@@ -16,10 +16,10 @@ export default {
         ])
     },
     methods:{
-        mido(){
-            this.$store.state.user.subscription.remain = 
-            (Math.round ( (new Date(this.$store.getters.subscriptionDateEnd) - new Date(this.$store.getters.subscriptionDateStart) ) * (1.15740741*10**-8)));
-        }
+        // mido(){
+        //     this.$store.state.user.subscription.remain = 
+        //     (Math.round ( (new Date(this.$store.getters.subscriptionDateEnd) - new Date(this.$store.getters.subscriptionDateStart) ) * (1.15740741*10**-8)));
+        // }
     }
 }
 </script>

@@ -32,6 +32,7 @@
 				</ul>
 			</div>
 		</div>
+		<button @click="userew">adladnsopfnaif</button>
 	</nav>
 
 	<!-- The Modal -->
@@ -48,7 +49,6 @@
 				<!-- Modal body -->
 				<div class="modal-body">
 					<div class="login">
-						<input class="form-control mb-4" v-model.lazy="get_user_name" v-if="inp" type="text" placeholder="الاسم" />
 						<input class="form-control mb-4" v-model.lazy="get_user_email" type="email" placeholder="البريد الإلكتروني" />
 						<input class="form-control mb-4" v-model.lazy="get_user_password" type="password" placeholder="كلمة المرور" />
 					</div>
@@ -75,14 +75,6 @@ export default {
 	name: 'Nav',
 	computed: {
 		// Get user
-		get_user_name:{
-			get() {
-				return this.$store.state.user.name;
-			},
-			set(value){
-				this.$store.commit('get_user_name', value)
-			}
-		},
 		get_user_email:{
 			get() {
 				return this.$store.state.user.email;
@@ -121,16 +113,25 @@ export default {
 			.then( res => {
 				// Get user
 				this.$store.state.user.name = res.data.data.user.name;
+				this.$store.state.user.token = res.data.data.token;
 				this.$store.state.user.id = res.data.data.user.id;
 				
 				this.$store.state.user.subscription.start = res.data.data.user.subscription.start;
 				this.$store.state.user.subscription.end = res.data.data.user.subscription.end;
-
+				
+				console.log(this.$store.state.user.token);
+				
 				// Make it 
 				this.$store.state.loged = true;
 				if (res.data.data == null){
 				}
 			}).catch( err => console.log( err.message ) )
+		},
+		userew(){
+			axios.get(`/api/users?api_token=${this.$store.state.user.token}`)
+		 	.then( res => {
+                 console.log(res)
+		 	}).catch( err => console.log( err.message ));
 		},
 		logout(){
 			this.$store.state.user.name = '';

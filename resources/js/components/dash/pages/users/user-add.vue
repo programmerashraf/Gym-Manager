@@ -12,7 +12,7 @@
                 <div class="box-body">
 
                     <div class="form-group">
-                        <label class="font-wieght-bold"  >User name</label>
+                        <label class="font-wieght-bold">User name</label>
                         <input type="text" class="form-control" v-model.lazy="get_user_name" placeholder="User Name">
                     </div>
 
@@ -24,6 +24,48 @@
                     <div class="form-group">
                         <label for="inputPassword3" class="font-wieght-bold control-label">Password</label>
                         <input type="password" class="form-control" id="inputPassword3" v-model.lazy="get_user_password" placeholder="Password">
+                    </div>
+
+
+                    <div class="bootstrap-iso">
+                        <div class="container-fluid">
+                            <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                <!-- Form code begins -->
+                                <form method="post">
+                                <div class="form-group"> <!-- Date input -->
+                                    <label class="control-label" for="date1">Start date</label>
+                                    <input class="form-control" id="date1" name="date" placeholder="MM/DD/YYY" type="text" v-model="user_subscription_start"/>
+                                </div>
+
+                                </form>
+                                <!-- Form code ends --> 
+
+                                </div>
+                            </div>    
+                        </div>
+                    </div>
+
+
+                    <div class="bootstrap-iso">
+                        <div class="container-fluid">
+                            <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                <!-- Form code begins -->
+                                <form>
+                                <div class="form-group"> <!-- Date input -->
+                                    <label class="control-label" for="date2">End Date</label>
+                                    <input class="form-control" id="date2" name="date" placeholder="MM/DD/YYY" type="text" v-model="user_subscription_end"/>
+                                </div>
+
+                                </form>
+                                <!-- Form code ends --> 
+
+                                </div>
+                            </div>    
+                        </div>
                     </div>
 
                 </div>
@@ -42,6 +84,7 @@
 import Vue from 'vue';
 import axios from 'axios';
 import { mapState } from 'vuex'
+
 
 Vue.use(axios);
 
@@ -70,7 +113,23 @@ export default {
 			set(value){
 				this.$store.commit('get_user_password', value)
 			}
-		}
+        },
+        user_subscription_start:{
+            get() {
+                return this.$store.state.user.subscription.start
+            },
+            set(value){
+                this.$store.commit('subscriptionDateStart', value)
+            }
+        },
+        user_subscription_end:{
+            get() {
+                return this.$store.state.user.subscription.end
+            },
+            set(value){
+                this.$store.commit('subscriptionDateStart', value)
+            }
+        }
     },
     methods: {
 		register() {
@@ -92,6 +151,17 @@ export default {
 				}
 			}).catch( err => console.log( err.message ) )
 		}
+    },
+    mounted(){
+      var date_input=$('input[name="date"]'); //our date input has the name "date"
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      var options={
+        format: 'mm/dd/yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+      date_input.datepicker(options);
     }
 }
 </script>

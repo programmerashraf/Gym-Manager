@@ -125,6 +125,9 @@ export default {
     computed: {
         currentPage(){
             return this.$store.state.AdminPanel.currentPage
+        },
+        user_data(){
+          return this.$store.state.user
         }
     }
 }

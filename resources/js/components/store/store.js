@@ -6,15 +6,15 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
     state:{
         user: {
+            token: '',
             id: 0,
             name: '',
             email: '',
             admin: false,
             password: '',
             subscription: {
-                start: 0,
-                end: 0,
-                remain: 0
+                start: '' ,
+                end: '',
             },
         },
         inp: false,
@@ -44,14 +44,17 @@ export const store = new Vuex.Store({
         },
         change_current_page: (state, payload) => {
             state.AdminPanel.currentPage = payload
+         },
+         subscriptionDateStart: (state, payload) => {
+             state.user.subscription.start = payload
          }
     },
-    getters:{
-        subscriptionDateStart: state => {
-            return state.user.subscription.start.split(' ')[0];
-        },
-        subscriptionDateEnd: state => {
-            return state.user.subscription.end.split(' ')[0];
-        }
-    }
+    // getters:{
+    //     subscriptionDateStart: state => {
+    //         return state.user.subscription.start.split(' ')[0];
+    //     },
+    //     subscriptionDateEnd: state => {
+    //         return state.user.subscription.end.split(' ')[0];
+    //     }
+    // }
 });
