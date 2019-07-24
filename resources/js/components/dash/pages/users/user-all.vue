@@ -1,37 +1,51 @@
 <template>
-    <div class='container'>
-        <button @click="get_user">add</button>    
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+        </tr>
+        </thead>
 
-        <date label="Start"></date>
-    </div>
-
+        <tbody>
+        <tr>
+            <td>John</td>
+            <td>Doe</td>
+            <td>john@example.com</td>
+        </tr>
+        <tr>
+            <td>Mary</td>
+            <td>Moe</td>
+            <td>mary@example.com</td>
+        </tr>
+        <tr>
+            <td>July</td>
+            <td>Dooley</td>
+            <td>july@example.com</td>
+        </tr>
+        </tbody>
+        <button @click="userew">adladnsopfnaif</button>
+  </table>
 </template>
-
-<style lang="scss" scoped>
-
-
-</style>
-
 
 <script>
 import Vue from 'vue';
 import axios from 'axios';
+import { mapState } from 'vuex'
+
 
 Vue.use(axios);
-import date from '../../blocks/datepicker' 
 
 export default {
-    components: {
-        date
-    },
-    methods: {
-       get_user(){
-           console.log(user_data)
-            // axios.get(`/api/users?token=${this.$store.state.user.token}`)
-		 	// .then( res => {
-            //      console.log(res.data.data)
-		 	// }).catch( err => console.log( err.message ));
-       }
+    methods:{
+		userew(){
+			let x = this.$store.state.user.token;
+			axios.get(`/api/users?api_token=r6uBZ3Ue4lPuwJ4NMjFTgJmiXfxbyB8rF213ff6hpk6YecHgHnQmhfzCfkoC`)
+		 	.then( res => {
+                 console.log(res.data.data)
+		 	}).catch( err => console.log( err.message ));
+		},
     }
 }
 </script>

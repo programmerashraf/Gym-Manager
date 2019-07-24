@@ -13,8 +13,8 @@ export const store = new Vuex.Store({
             admin: false,
             password: '',
             subscription: {
-                start: '' ,
-                end: '',
+                start: 0 ,
+                end: 0,
             },
         },
         inp: false,
@@ -47,14 +47,9 @@ export const store = new Vuex.Store({
          },
          subscriptionDateStart: (state, payload) => {
              state.user.subscription.start = payload
-         }
-    },
-    // getters:{
-    //     subscriptionDateStart: state => {
-    //         return state.user.subscription.start.split(' ')[0];
-    //     },
-    //     subscriptionDateEnd: state => {
-    //         return state.user.subscription.end.split(' ')[0];
-    //     }
-    // }
+         },
+         subscriptionDateEnd: (state, payload) => {
+             state.user.subscription.end = payload
+         },
+    }
 });

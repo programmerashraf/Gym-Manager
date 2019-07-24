@@ -12,8 +12,8 @@
     <link rel="stylesheet" href=" {{ URL::asset('Admin/css/skin-blue.min.css') }}  ">
       <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-        
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+    <link href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
 
     <title>Admin Panel</title>
 </head>
@@ -31,7 +31,5 @@
     <script src="{{ asset('Admin/js/jquery.min.js') }}"></script>
     <script src="{{ asset('Admin/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('Admin/js/adminlte.min.js') }}"></script>
-    
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 
 </html>

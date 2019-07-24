@@ -18,21 +18,20 @@
 								class="sr-only">(current)</span></router-link>
 					</li>
 					<li class="nav-item ml-3">
-						<a href="dash">لوحة التحكم</a>
+						<a class="nav-link" href="dash">لوحة التحكم</a>
 					</li>
-					<li class="nav-item" v-if="!loged">
+					<li class="nav-item ml-3" v-if="!loged">
 						<form class="form-inline my-2 my-lg-0">
 							<button class="btn btn-secondary rounded-pill ml-3" @click="changeRegisterState('l'); show()" data-toggle="modal" data-target="#myModal" type="button" >سجل دخول</button>
 						</form>
 					</li>
-					<li class="mt-1 nav-item" v-if="loged">
+					<li class="mt-1 nav-item ml-3" v-if="loged">
 						<span class="font-weight-bold">{{ user.name }}</span>
 						<button class="btn btn-danger rounded-pill mt-xl-0 mt-lg-0 mr-2 d-md-block mt-sm-1 d-sm-block" @click="logout()">تسجيل الخروج</button>
 					</li>
 				</ul>
 			</div>
 		</div>
-		<button @click="userew">adladnsopfnaif</button>
 	</nav>
 
 	<!-- The Modal -->
@@ -113,12 +112,10 @@ export default {
 			.then( res => {
 				// Get user
 				this.$store.state.user.name = res.data.data.user.name;
-				this.$store.state.user.token = res.data.data.token;
+				this.$store.state.user.token = res.data.data.user.token;
+
 				this.$store.state.user.id = res.data.data.user.id;
-				
-				this.$store.state.user.subscription.start = res.data.data.user.subscription.start;
-				this.$store.state.user.subscription.end = res.data.data.user.subscription.end;
-				
+
 				console.log(this.$store.state.user.token);
 				
 				// Make it 
@@ -126,12 +123,6 @@ export default {
 				if (res.data.data == null){
 				}
 			}).catch( err => console.log( err.message ) )
-		},
-		userew(){
-			axios.get(`/api/users?api_token=${this.$store.state.user.token}`)
-		 	.then( res => {
-                 console.log(res)
-		 	}).catch( err => console.log( err.message ));
 		},
 		logout(){
 			this.$store.state.user.name = '';

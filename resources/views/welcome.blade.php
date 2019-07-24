@@ -22,7 +22,7 @@
     <title>GYM</title>
     <style>
         #app{
-            font-family: 'Tajawal', sans-serif;
+            font-family: 'Tajawal', sans-serif !important;
             /* font-family: 'Quicksand', sans-serif; */
         }
         .owl-dots .owl-dot span{
