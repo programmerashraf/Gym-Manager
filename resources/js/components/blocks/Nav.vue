@@ -23,7 +23,6 @@
 					<li class="nav-item" v-if="!loged">
 						<form class="form-inline my-2 my-lg-0">
 							<button class="btn btn-secondary rounded-pill ml-3" @click="changeRegisterState('l'); show()" data-toggle="modal" data-target="#myModal" type="button" >سجل دخول</button>
-							<button class="btn btn-success rounded-pill" @click="changeRegisterState('r'); show()" data-toggle="modal" data-target="#myModal" type="button">سجل حساب</button>
 						</form>
 					</li>
 					<li class="mt-1 nav-item" v-if="loged">
@@ -33,6 +32,7 @@
 				</ul>
 			</div>
 		</div>
+		<button @click="userew">adladnsopfnaif</button>
 	</nav>
 
 	<!-- The Modal -->
@@ -49,7 +49,6 @@
 				<!-- Modal body -->
 				<div class="modal-body">
 					<div class="login">
-						<input class="form-control mb-4" v-model.lazy="get_user_name" v-if="inp" type="text" placeholder="الاسم" />
 						<input class="form-control mb-4" v-model.lazy="get_user_email" type="email" placeholder="البريد الإلكتروني" />
 						<input class="form-control mb-4" v-model.lazy="get_user_password" type="password" placeholder="كلمة المرور" />
 					</div>
@@ -58,7 +57,6 @@
 				<!-- Modal footer -->
 				<div class="modal-footer">
 					<button class="btn btn-secondary rounded-pill ml-3" @click="login()" v-if="!inp" data-dismiss="modal" type="button">سجل دخول</button>
-					<button class="btn btn-success rounded-pill" @click="register()" v-if="inp" data-dismiss="modal" type="button">سجل حساب</button>
 				</div>
 			</div>
 		</div>
@@ -77,14 +75,6 @@ export default {
 	name: 'Nav',
 	computed: {
 		// Get user
-		get_user_name:{
-			get() {
-				return this.$store.state.user.name;
-			},
-			set(value){
-				this.$store.commit('get_user_name', value)
-			}
-		},
 		get_user_email:{
 			get() {
 				return this.$store.state.user.email;
@@ -114,25 +104,6 @@ export default {
 		changeRegisterState(button){
 			this.$store.commit('changeRegisterState', button)
 		},
-		register() {
-			// Send the request
-			axios.post('/api/register', {
-				name: this.$store.state.user.name,
-				email: this.$store.state.user.email,
-				password: this.$store.state.user.password
-			})
-			.then(res => {
-				// Todo
-				if(res.data.code == 200){
-					this.$store.state.user.name = res.data.data.user.name;
-					this.$store.state.user.admin = res.data.data.user.admin;
-					this.$store.state.user.email = res.data.data.user.email;
-
-					this.$store.state.loged = true;
-					console.log('done');
-				}
-			}).catch( err => console.log( err.message ) )
-		},
 		login() {
 			// Send the request
 			axios.post('/api/login', {
@@ -142,16 +113,25 @@ export default {
 			.then( res => {
 				// Get user
 				this.$store.state.user.name = res.data.data.user.name;
+				this.$store.state.user.token = res.data.data.token;
 				this.$store.state.user.id = res.data.data.user.id;
 				
 				this.$store.state.user.subscription.start = res.data.data.user.subscription.start;
 				this.$store.state.user.subscription.end = res.data.data.user.subscription.end;
-
+				
+				console.log(this.$store.state.user.token);
+				
 				// Make it 
 				this.$store.state.loged = true;
 				if (res.data.data == null){
 				}
 			}).catch( err => console.log( err.message ) )
+		},
+		userew(){
+			axios.get(`/api/users?api_token=${this.$store.state.user.token}`)
+		 	.then( res => {
+                 console.log(res)
+		 	}).catch( err => console.log( err.message ));
 		},
 		logout(){
 			this.$store.state.user.name = '';
