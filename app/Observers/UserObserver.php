@@ -16,12 +16,13 @@ class UserObserver
      */
     public function created(User $user)
     {
+        /*
         $user->admin = false;
         Subscription::create([
             "start" => $user->created_at,
             "end" => $user->created_at->addMonth(),
             "user_id"   => $user->id,
-        ]);
+        ]);*/
     }
 
     /**

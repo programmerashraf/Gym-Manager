@@ -25,7 +25,6 @@ Route::group(["namespace"=>"Api"], function (){
     });
 
     Route::group(["middleware"=>"auth:api"], function (){
-
 		Route::get("users","UserController@all");
 		Route::get("user","UserController@get");
 		Route::post('subscriptions/update', "SubscriptionsController@update");
