@@ -6,7 +6,6 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
     state:{
         user: {
-            token: '',
             id: 0,
             name: '',
             email: '',
@@ -21,7 +20,9 @@ export const store = new Vuex.Store({
         loged: false,
         // Start Admin Panel
         AdminPanel: {
-            currentPage: 'userAdd'
+            currentPage: 'userAdd',
+            loged: false,
+            token: '',  
         }
     },
     mutations:{
