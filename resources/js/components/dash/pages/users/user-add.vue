@@ -104,14 +104,28 @@ export default {
 			.then(res => {
 				// Todo
 				if(res.data.code == 200){
-					 this.$store.state.user.name = res.data.data.user.name;
-					 this.$store.state.user.admin = res.data.data.user.admin;
-                     this.$store.state.user.email = res.data.data.user.email;
-                     
-					 this.$store.state.loged = true;
+					Swal.fire({
+                        title: 'you add user',
+                        text: null,
+                        type: 'success',
+                        confirmButtonText: 'Cool!'
+                    });
+
+                    this.$store.state.user.name = '';
+                    this.$store.state.user.email = '';
+                    this.$store.state.user.password = '';
+                    this.date_start = '';
+                    this.date_end = '';
+
 					console.log(res);
 				}
-			}).catch( err => console.log( err.message ) )
+			}).catch(
+                Swal.fire({
+                     title: 'Something Wrong',
+                    text: 'Make sure you inserted the data in right way' ,
+                    type: 'error',
+                    confirmButtonText: 'ok'
+                }))
 		}
     }
 }

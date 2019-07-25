@@ -2441,16 +2441,15 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(axios__WEBPACK_IMPORTED_MODULE_1_
         password: this.$store.state.user.password
       }).then(function (res) {
         // Get user
-        _this.$store.state.user.name = res.data.data.user.name;
         _this.$store.state.AdminPanel.token = res.data.data.user.token;
         _this.$store.state.AdminPanel.loged = true;
-        _this.$store.state.user.id = res.data.data.user.id; // Make it 
-
-        _this.$store.state.loged = true;
-
-        if (res.data.data == null) {}
       })["catch"](function (err) {
-        return console.log(err.message);
+        Swal.fire({
+          title: 'email or password is un correct',
+          text: 'Please make sure you are signed up',
+          type: 'error',
+          confirmButtonText: 'ok'
+        });
       });
     }
   }
@@ -2575,15 +2574,25 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(axios__WEBPACK_IMPORTED_MODULE_1_
       }).then(function (res) {
         // Todo
         if (res.data.code == 200) {
-          _this.$store.state.user.name = res.data.data.user.name;
-          _this.$store.state.user.admin = res.data.data.user.admin;
-          _this.$store.state.user.email = res.data.data.user.email;
-          _this.$store.state.loged = true;
+          Swal.fire({
+            title: 'you add user',
+            text: null,
+            type: 'success',
+            confirmButtonText: 'Cool!'
+          });
+          _this.$store.state.user.name = '';
+          _this.$store.state.user.email = '';
+          _this.$store.state.user.password = '';
+          _this.date_start = '';
+          _this.date_end = '';
           console.log(res);
         }
-      })["catch"](function (err) {
-        return console.log(err.message);
-      });
+      })["catch"](Swal.fire({
+        title: 'Something Wrong',
+        text: 'Make sure you inserted the data in right way',
+        type: 'error',
+        confirmButtonText: 'ok'
+      }));
     }
   }
 });
@@ -2603,6 +2612,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -7008,7 +7030,9 @@ var render = function() {
           _vm._v(" "),
           _c("td", [_vm._v(_vm._s(row.email))]),
           _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(row.start))])
+          _c("td", [_vm._v(_vm._s(row.start))]),
+          _vm._v(" "),
+          _vm._m(1, true)
         ])
       }),
       0
@@ -7031,6 +7055,33 @@ var staticRenderFns = [
         _c("th", [_vm._v("Date Start")]),
         _vm._v(" "),
         _c("th", [_vm._v("Options")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-success tooltip2",
+          attrs: {
+            "data-toggle": "tooltip",
+            "data-placement": "top",
+            title: "Tooltip on top"
+          }
+        },
+        [_c("i", { staticClass: "far fa-edit" })]
+      ),
+      _vm._v(" "),
+      _c("button", { staticClass: "btn btn-danger tooltip2" }, [
+        _c("i", { staticClass: "fas fa-user-slash" })
+      ]),
+      _vm._v(" "),
+      _c("button", { staticClass: "btn btn-warning tooltip2" }, [
+        _c("i", { staticClass: "fas fa-plus-circle" })
       ])
     ])
   }

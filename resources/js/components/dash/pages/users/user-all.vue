@@ -16,6 +16,19 @@
                 <td>{{row.name}}</td>
                 <td>{{row.email}}</td>
                 <td>{{row.start}}</td>
+                <td>
+                    <button class="btn btn-success tooltip2" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                        <i class="far fa-edit"></i>
+                    </button>
+
+                    <button class="btn btn-danger tooltip2">
+                        <i class="fas fa-user-slash"></i>
+                    </button>
+
+                    <button class="btn btn-warning tooltip2">
+                        <i class="fas fa-plus-circle"></i>
+                    </button>
+                </td>
             </tr>
         </tbody>
   </table>
@@ -40,7 +53,7 @@ export default {
                 this.rows.push(user)
             });
             
-        }).catch(err => err.message)
+        }).catch(err => err.message);
     }
 }
 </script>

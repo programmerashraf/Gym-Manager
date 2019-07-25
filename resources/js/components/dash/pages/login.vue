@@ -64,18 +64,16 @@ export default {
 			})
 			.then( res => {
 				// Get user
-				this.$store.state.user.name = res.data.data.user.name;
                 this.$store.state.AdminPanel.token = res.data.data.user.token;
-                
 				this.$store.state.AdminPanel.loged = true;
-
-				this.$store.state.user.id = res.data.data.user.id;
-				
-				// Make it 
-				this.$store.state.loged = true;
-				if (res.data.data == null){
-				}
-			}).catch( err => console.log( err.message ) )
+			}).catch( err => {
+                Swal.fire({
+                    title: 'email or password is un correct',
+                    text: 'Please make sure you are signed up',
+                    type: 'error',
+                    confirmButtonText: 'ok'
+                });
+            })
 		}
     }
 }
