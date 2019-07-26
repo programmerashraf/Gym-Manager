@@ -1,8 +1,8 @@
 <template>
-<div class="jumbotron mt-5 pb0" @click="mido()">
-    <h1 class="display-4">أهلاً {{ user.name }}</h1>
-    <p class="lead">باق على انتهاء الإشتراك : {{ user.subscription.remain }} يوم</p>
-</div>
+    <div class="jumbotron mt-5 pb0">
+        <h1 class="display-4">أهلاً {{ user.name }}</h1>
+        <p class="lead">ينتهي اشتراكك يوم : {{ user.subscription.end }} </p>
+    </div>
 </template>
 
 <script>
@@ -14,12 +14,6 @@ export default {
             'user',
             'loged',
         ])
-    },
-    methods:{
-        // mido(){
-        //     this.$store.state.user.subscription.remain = 
-        //     (Math.round ( (new Date(this.$store.getters.subscriptionDateEnd) - new Date(this.$store.getters.subscriptionDateStart) ) * (1.15740741*10**-8)));
-        // }
     }
 }
 </script>

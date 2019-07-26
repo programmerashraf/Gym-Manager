@@ -101,8 +101,8 @@ export default {
         top: 50%;
         left: 50%;
         padding: 20px;
-        transform: translate(-50%, -50%);
         width: 50%;
+        transform: translate(-50%, -50%);
         min-height: 400px;
         background: rgba(0,0,0,0.7);
         border-radius: 40px;
@@ -129,5 +129,9 @@ export default {
         
     }
 
+}
+
+@media (max-width: 425px){
+    .login-form{ width: 80% !important}
 }
 </style>

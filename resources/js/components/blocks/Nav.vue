@@ -113,8 +113,10 @@ export default {
 				// Get user
 				this.$store.state.user.name = res.data.data.user.name;
 				this.$store.state.user.token = res.data.data.user.token;
-
 				this.$store.state.user.id = res.data.data.user.id;
+
+				this.$store.state.user.subscription.start = res.data.data.user.start;
+				this.$store.state.user.subscription.end = res.data.data.user.end;
 
 				console.log(this.$store.state.user.token);
 				
@@ -126,8 +128,11 @@ export default {
 		},
 		logout(){
 			this.$store.state.user.name = '';
-			this.$store.state.user.password= '';
-			this.$store.state.user.emial = '';
+			this.$store.state.user.token = '';
+			this.$store.state.user.id = '';
+
+			this.$store.state.user.subscription.start = '';
+			this.$store.state.user.subscription.end = '';
 
 			this.$store.state.loged = false;
 
