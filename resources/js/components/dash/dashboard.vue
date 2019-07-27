@@ -125,6 +125,9 @@ import Sidebar from './blocks/Sidebar';
 import loginPage from './pages/login'
 import userAdd from './pages/users/user-add';
 import userAll from './pages/users/user-all';
+import userEdit from './pages/users/user-edit';
+import articleAll from './pages/articles/article-all';
+import articleAdd from './pages/articles/article-add';
 
 export default {
     components: {
@@ -132,7 +135,10 @@ export default {
         Sidebar,
         loginPage,
         userAdd,
-        userAll
+        userAll,
+        userEdit,
+        articleAdd,
+        articleAll
     },
     computed: {
         admin(){

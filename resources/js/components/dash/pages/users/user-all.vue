@@ -13,6 +13,7 @@
             <tr v-bind:key="row[0]" v-for="row in get_rows()">
                 <td v-bind:key="col[0]" v-for="col in columns">{{row[col]}}</td>
                 <td>
+                    <button class="btn btn-success" @click="change_component($event, 'userEdit')"><i class="fas fa-plus"></i></button>
                     <button class="btn btn-danger"><i class="fas fa-user-minus"></i></button>
                     <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
                 </td>
@@ -87,43 +88,58 @@ export default {
     },
     methods: {
         "sortTable": function sortTable(col) {
-        if (this.sortColumn === col) {
-            this.ascending = !this.ascending;
-        } else {
-            this.ascending = true;
-            this.sortColumn = col;
-        }
-
-        var ascending = this.ascending;
-
-        this.rows.sort(function(a, b) {
-            if (a[col] > b[col]) {
-            return ascending ? 1 : -1
-            } else if (a[col] < b[col]) {
-            return ascending ? -1 : 1
+            if (this.sortColumn === col) {
+                this.ascending = !this.ascending;
+            } else {
+                this.ascending = true;
+                this.sortColumn = col;
             }
-            return 0;
-        })
+
+            var ascending = this.ascending;
+
+            this.rows.sort(function(a, b) {
+                if (a[col] > b[col]) {
+                return ascending ? 1 : -1
+                } else if (a[col] < b[col]) {
+                return ascending ? -1 : 1
+                }
+                return 0;
+            })
         },
         "num_pages": function num_pages() {
-        return Math.ceil(this.rows.length / this.elementsPerPage);
+            return Math.ceil(this.rows.length / this.elementsPerPage);
         },
         "get_rows": function get_rows() {
-        var start = (this.currentPage-1) * this.elementsPerPage;
-        var end = start + this.elementsPerPage;
-        return this.rows.slice(start, end);
+            var start = (this.currentPage-1) * this.elementsPerPage;
+            var end = start + this.elementsPerPage;
+            return this.rows.slice(start, end);
         },
         "change_page": function change_page(page) {
-        this.currentPage = page;
+            this.currentPage = page;
+        },
+        change_component(e, payload){
+            let id = $(e.target).parents('tr').first().children()[0].innerText;
+            let users = this.rows;
+
+            users.forEach(user => {
+                for(let key in user) {
+                    if(user[key] == id){
+                        Object.assign(this.$store.state.AdminPanel.userEdit , user);
+                        console.log( user);
+                    }
+                }
+            });
+            
+            this.$store.commit('change_current_page', payload);
         }
     },
     computed: {
         "columns": function columns() {
-        if (this.rows.length == 0) {
-            return [];
-        }
-        return Object.keys(this.rows[0])
-        }
+            if (this.rows.length == 0) {
+                return [];
+            }
+            return Object.keys(this.rows[0])
+            }
     },
     mounted(){
         axios.get(`/api/users?api_token=${this.$store.state.AdminPanel.token}`).then(res =>  {

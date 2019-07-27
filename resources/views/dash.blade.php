@@ -18,7 +18,7 @@
 
     <title>Admin Panel</title>
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini wysihtml5-supported">
 
     <div id="dash">
         <dashboard></dashboard>

@@ -27,6 +27,9 @@
 					</li>
 					<li class="mt-1 nav-item ml-3" v-if="loged">
 						<span class="font-weight-bold">{{ user.name }}</span>
+					</li>
+
+					<li class="mt-1 nav-item ml-3" v-if="loged">
 						<button class="btn btn-danger rounded-pill mt-xl-0 mt-lg-0 mr-2 d-md-block mt-sm-1 d-sm-block" @click="logout()">تسجيل الخروج</button>
 					</li>
 				</ul>

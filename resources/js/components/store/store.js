@@ -22,7 +22,8 @@ export const store = new Vuex.Store({
         AdminPanel: {
             currentPage: 'userAdd',
             loged: false,
-            token: '',  
+            token: '',
+            userEdit: {}
         }
     },
     mutations:{

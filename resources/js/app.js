@@ -10,7 +10,7 @@ import Profile from "./components/pages/Profile.vue";
 import News from "./components/pages/News.vue";
 
 import dashboard from "./components/dash/dashboard.vue"
-
+    
 Vue.use(axios);
 Vue.use(VueRouter);
 
@@ -42,34 +42,10 @@ const app = new Vue({
     components: {App}
 });
 
-Vue.component('date-picker', {
-    template: '<input/>',
-    props: [ 'dateFormat' ],
-    mounted: function() {
-    var self = this;
-    $(this.$el).datepicker({
-      dateFormat: this.dateFormat,
-      onSelect: function(date) {
-        self.$emit('update-date', date);
-      }
-    });
-    },
-    beforeDestroy: function() {
-      $(this.$el).datepicker('hide').datepicker('destroy');
-    }
-});
 
 const dash = new Vue({
     el: '#dash',
     store,
-    data: {
-        date: null
-      },
-      methods: {
-        updateDate: function(date) {
-          this.date = date;
-        }
-      },
     components: {dashboard}
 });
 
