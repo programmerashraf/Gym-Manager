@@ -4,19 +4,18 @@
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
 
-
             <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
-            <ul class="sidebar-menu" data-widget="tree">
-                <li class="header">Header</li>
+            <ul class="sidebar-menu" data-widget="tree"   >
+                <li class="header" v-if='admin'>Header</li>
 
-                <li>
+                <li v-if='admin'>
                     <a role="button" @click="change_page('dashboard')"><i class="fas fa-tachometer-alt"></i>
                         <span>Dashboard</span></a>
                 </li>
 
-                <li class="treeview">
-                    <a href="#">
+                <li class="treeview" v-if='admin'>
+                    <a role="button">
                         <i class="fa fa-files-o"></i>
                         <span>Users</span>
                         <span class="pull-right-container">
@@ -31,7 +30,7 @@
                     </ul>
                 </li>
 
-                <li class="treeview">
+                <li class="treeview" v-if='admin'>
                     <a href="#">
                         <i class="fa fa-pie-chart"></i>
                         <span>Articles</span>
@@ -65,6 +64,10 @@
             change_page(payload) {
                 this.$store.commit('change_current_page', payload)
             }
+        },computed: {
+            admin() {
+                return this.$store.state.AdminPanel.loged
+            },
         }
     }
 

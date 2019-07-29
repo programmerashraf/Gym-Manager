@@ -2189,7 +2189,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -2295,11 +2294,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
     change_page: function change_page(payload) {
       this.$store.commit('change_current_page', payload);
+    }
+  },
+  computed: {
+    admin: function admin() {
+      return this.$store.state.AdminPanel.loged;
     }
   }
 });
@@ -3321,7 +3324,7 @@ exports.push([module.i, "#news[data-v-1b491be9] {\n  text-align: right;\n}\n.art
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, "\n.content-header {\n    padding: 0 !important;\n    margin-bottom: 20px;\n}\n\n", ""]);
+exports.push([module.i, "\n.content-header {\n    padding: 0 !important;\n    margin-bottom: 20px;\n}\n", ""]);
 
 
 /***/ }),
@@ -6543,29 +6546,44 @@ var render = function() {
   return _c(
     "div",
     [
-      _vm.admin ? _c("loginPage") : _vm._e(),
+      !_vm.admin ? _c("loginPage") : _vm._e(),
       _vm._v(" "),
-      _c("Header"),
-      _vm._v(" "),
-      _c("Sidebar"),
-      _vm._v(" "),
-      _c("div", { staticClass: "content-wrapper" }, [
-        _c(
-          "section",
-          { staticClass: "content" },
-          [
-            _c(
-              "transition",
-              { attrs: { name: "fade", mode: "out-in" } },
-              [_c(_vm.currentPage, { tag: "component" })],
-              1
-            )
-          ],
-          1
-        )
-      ]),
-      _vm._v(" "),
-      _vm._m(0)
+      _c(
+        "div",
+        [
+          _vm.admin ? _c("Header") : _vm._e(),
+          _vm._v(" "),
+          _c("Sidebar"),
+          _vm._v(" "),
+          _vm.admin
+            ? _c("div", { staticClass: "content-wrapper" }, [
+                _c(
+                  "section",
+                  { staticClass: "content" },
+                  [
+                    _c(
+                      "transition",
+                      { attrs: { name: "fade", mode: "out-in" } },
+                      [_c(_vm.currentPage, { tag: "component" })],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.admin
+            ? _c("footer", { staticClass: "main-footer" }, [
+                _vm._m(0),
+                _vm._v(" "),
+                _vm._m(1),
+                _vm._v(" All rights\r\n            reserved.\r\n        ")
+              ])
+            : _vm._e()
+        ],
+        1
+      )
     ],
     1
   )
@@ -6575,20 +6593,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("footer", { staticClass: "main-footer" }, [
-      _c("div", { staticClass: "pull-right hidden-xs" }, [
-        _c("b", [_vm._v("Version")]),
-        _vm._v(" 2.4.13\n        ")
-      ]),
-      _vm._v(" "),
-      _c("strong", [
-        _vm._v("Copyright © 2014-2019 "),
-        _c("a", { attrs: { href: "https://adminlte.io" } }, [
-          _vm._v("AdminLTE")
-        ]),
-        _vm._v(".")
-      ]),
-      _vm._v(" All rights\n        reserved.\n    ")
+    return _c("div", { staticClass: "pull-right hidden-xs" }, [
+      _c("b", [_vm._v("Version")]),
+      _vm._v(" 2.4.13\r\n            ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("strong", [
+      _vm._v("Copyright © 2014-2019 "),
+      _c("a", { attrs: { href: "https://adminlte.io" } }, [_vm._v("AdminLTE")]),
+      _vm._v(".")
     ])
   }
 ]
@@ -6874,110 +6891,118 @@ var render = function() {
         "ul",
         { staticClass: "sidebar-menu", attrs: { "data-widget": "tree" } },
         [
-          _c("li", { staticClass: "header" }, [_vm._v("Header")]),
+          _vm.admin
+            ? _c("li", { staticClass: "header" }, [_vm._v("Header")])
+            : _vm._e(),
           _vm._v(" "),
-          _c("li", [
-            _c(
-              "a",
-              {
-                attrs: { role: "button" },
-                on: {
-                  click: function($event) {
-                    return _vm.change_page("dashboard")
-                  }
-                }
-              },
-              [
-                _c("i", { staticClass: "fas fa-tachometer-alt" }),
+          _vm.admin
+            ? _c("li", [
+                _c(
+                  "a",
+                  {
+                    attrs: { role: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.change_page("dashboard")
+                      }
+                    }
+                  },
+                  [
+                    _c("i", { staticClass: "fas fa-tachometer-alt" }),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Dashboard")])
+                  ]
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.admin
+            ? _c("li", { staticClass: "treeview" }, [
+                _vm._m(0),
                 _vm._v(" "),
-                _c("span", [_vm._v("Dashboard")])
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "treeview" }, [
-            _vm._m(0),
-            _vm._v(" "),
-            _c("ul", { staticClass: "treeview-menu" }, [
-              _c("li", [
-                _c(
-                  "a",
-                  {
-                    attrs: { role: "button" },
-                    on: {
-                      click: function($event) {
-                        return _vm.change_page("userAll")
-                      }
-                    }
-                  },
-                  [
-                    _c("i", { staticClass: "far fa-circle" }),
-                    _vm._v(" all users")
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c(
-                  "a",
-                  {
-                    attrs: { role: "button" },
-                    on: {
-                      click: function($event) {
-                        return _vm.change_page("userAdd")
-                      }
-                    }
-                  },
-                  [
-                    _c("i", { staticClass: "far fa-circle" }),
-                    _vm._v(" add user")
-                  ]
-                )
+                _c("ul", { staticClass: "treeview-menu" }, [
+                  _c("li", [
+                    _c(
+                      "a",
+                      {
+                        attrs: { role: "button" },
+                        on: {
+                          click: function($event) {
+                            return _vm.change_page("userAll")
+                          }
+                        }
+                      },
+                      [
+                        _c("i", { staticClass: "far fa-circle" }),
+                        _vm._v(" all users")
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c(
+                      "a",
+                      {
+                        attrs: { role: "button" },
+                        on: {
+                          click: function($event) {
+                            return _vm.change_page("userAdd")
+                          }
+                        }
+                      },
+                      [
+                        _c("i", { staticClass: "far fa-circle" }),
+                        _vm._v(" add user")
+                      ]
+                    )
+                  ])
+                ])
               ])
-            ])
-          ]),
+            : _vm._e(),
           _vm._v(" "),
-          _c("li", { staticClass: "treeview" }, [
-            _vm._m(1),
-            _vm._v(" "),
-            _c("ul", { staticClass: "treeview-menu" }, [
-              _c("li", [
-                _c(
-                  "a",
-                  {
-                    attrs: { role: "button" },
-                    on: {
-                      click: function($event) {
-                        return _vm.change_page("articleAll")
-                      }
-                    }
-                  },
-                  [
-                    _c("i", { staticClass: "far fa-circle" }),
-                    _vm._v(" All\n                            articles")
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c(
-                  "a",
-                  {
-                    attrs: { role: "button" },
-                    on: {
-                      click: function($event) {
-                        return _vm.change_page("articleAdd")
-                      }
-                    }
-                  },
-                  [
-                    _c("i", { staticClass: "far fa-circle" }),
-                    _vm._v(" add\n                            article")
-                  ]
-                )
+          _vm.admin
+            ? _c("li", { staticClass: "treeview" }, [
+                _vm._m(1),
+                _vm._v(" "),
+                _c("ul", { staticClass: "treeview-menu" }, [
+                  _c("li", [
+                    _c(
+                      "a",
+                      {
+                        attrs: { role: "button" },
+                        on: {
+                          click: function($event) {
+                            return _vm.change_page("articleAll")
+                          }
+                        }
+                      },
+                      [
+                        _c("i", { staticClass: "far fa-circle" }),
+                        _vm._v(" All\n                            articles")
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c(
+                      "a",
+                      {
+                        attrs: { role: "button" },
+                        on: {
+                          click: function($event) {
+                            return _vm.change_page("articleAdd")
+                          }
+                        }
+                      },
+                      [
+                        _c("i", { staticClass: "far fa-circle" }),
+                        _vm._v(" add\n                            article")
+                      ]
+                    )
+                  ])
+                ])
               ])
-            ])
-          ])
+            : _vm._e()
         ]
       )
     ])
@@ -6988,7 +7013,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("a", { attrs: { href: "#" } }, [
+    return _c("a", { attrs: { role: "button" } }, [
       _c("i", { staticClass: "fa fa-files-o" }),
       _vm._v(" "),
       _c("span", [_vm._v("Users")]),
@@ -7041,124 +7066,58 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "content" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-12" }, [
-          _c("div", { staticClass: "box box-info" }, [
-            _c("div", { staticClass: "box-header" }, [
-              _c("h3", { staticClass: "box-title" }, [
-                _vm._v("CK Editor\n                "),
-                _c("small", [_vm._v("Advanced and full of features")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "pull-right box-tools" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-info btn-sm",
-                    attrs: {
-                      type: "button",
-                      "data-widget": "collapse",
-                      "data-toggle": "tooltip",
-                      title: "Collapse"
-                    }
-                  },
-                  [_c("i", { staticClass: "fa fa-minus" })]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-info btn-sm",
-                    attrs: {
-                      type: "button",
-                      "data-widget": "remove",
-                      "data-toggle": "tooltip",
-                      title: "Remove"
-                    }
-                  },
-                  [_c("i", { staticClass: "fa fa-times" })]
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "box-body pad" }, [
-              _c("form", [
-                _c(
-                  "textarea",
-                  {
-                    attrs: {
-                      id: "editor1",
-                      name: "editor1",
-                      rows: "10",
-                      cols: "80"
-                    }
-                  },
-                  [
-                    _vm._v(
-                      "                                            This is my textarea to be replaced with CKEditor.\n                    "
-                    )
-                  ]
-                )
-              ])
-            ])
-          ]),
+    return _c("div", { staticClass: "box" }, [
+      _c("div", { staticClass: "box-header" }, [
+        _c("h3", { staticClass: "box-title" }, [
+          _vm._v("Bootstrap WYSIHTML5\n            "),
+          _c("small", [_vm._v("Simple and fast")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "pull-right box-tools" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-default btn-sm",
+              attrs: {
+                type: "button",
+                "data-widget": "collapse",
+                "data-toggle": "tooltip",
+                title: "Collapse"
+              }
+            },
+            [_c("i", { staticClass: "fa fa-minus" })]
+          ),
           _vm._v(" "),
-          _c("div", { staticClass: "box" }, [
-            _c("div", { staticClass: "box-header" }, [
-              _c("h3", { staticClass: "box-title" }, [
-                _vm._v("Bootstrap WYSIHTML5\n                "),
-                _c("small", [_vm._v("Simple and fast")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "pull-right box-tools" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-default btn-sm",
-                    attrs: {
-                      type: "button",
-                      "data-widget": "collapse",
-                      "data-toggle": "tooltip",
-                      title: "Collapse"
-                    }
-                  },
-                  [_c("i", { staticClass: "fa fa-minus" })]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-default btn-sm",
-                    attrs: {
-                      type: "button",
-                      "data-widget": "remove",
-                      "data-toggle": "tooltip",
-                      title: "Remove"
-                    }
-                  },
-                  [_c("i", { staticClass: "fa fa-times" })]
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "box-body pad" }, [
-              _c("form", [
-                _c("textarea", {
-                  staticClass: "textarea",
-                  staticStyle: {
-                    width: "100%",
-                    height: "200px",
-                    "font-size": "14px",
-                    "line-height": "18px",
-                    border: "1px solid #dddddd",
-                    padding: "10px"
-                  },
-                  attrs: { placeholder: "Place some text here" }
-                })
-              ])
-            ])
-          ])
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-default btn-sm",
+              attrs: {
+                type: "button",
+                "data-widget": "remove",
+                "data-toggle": "tooltip",
+                title: "Remove"
+              }
+            },
+            [_c("i", { staticClass: "fa fa-times" })]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "box-body pad" }, [
+        _c("form", [
+          _c("textarea", {
+            staticClass: "textarea",
+            staticStyle: {
+              width: "100%",
+              height: "200px",
+              "font-size": "14px",
+              "line-height": "18px",
+              border: "1px solid #dddddd",
+              padding: "10px"
+            },
+            attrs: { placeholder: "Place some text here" }
+          })
         ])
       ])
     ])

@@ -1,14 +1,13 @@
 <template>
-    <div v-if="!admin">
-        <loginPage ></loginPage>
+<div>
+    <loginPage v-if="!admin"></loginPage>
 
-
-        <Header></Header>
+    <div>
+        <Header v-if='admin' ></Header>
         <!-- Left side column. contains the logo and sidebar -->
-        <Sidebar ></Sidebar>
-
+        <Sidebar></Sidebar>
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
+        <div v-if='admin' class="content-wrapper">
             <!-- Main content -->
             <section class="content">
                 <transition name="fade" mode="out-in">
@@ -18,7 +17,7 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-        <footer class="main-footer">
+        <footer v-if='admin' class="main-footer">
             <div class="pull-right hidden-xs">
                 <b>Version</b> 2.4.13
             </div>
@@ -28,6 +27,7 @@
 
     </div>
     <!-- ./wrapper -->
+</div>
 </template>
 
 <style>
@@ -35,7 +35,6 @@
         padding: 0 !important;
         margin-bottom: 20px;
     }
-
 </style>
 
 
