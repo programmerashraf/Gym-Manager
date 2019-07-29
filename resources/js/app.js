@@ -9,7 +9,7 @@ import Home from "./components/pages/Home.vue";
 import Profile from "./components/pages/Profile.vue";
 import News from "./components/pages/News.vue";
 
-import dashboard from "./components/dash/dashboard.vue"
+import Admin from "./components/dash/admin.vue"
     
 Vue.use(axios);
 Vue.use(VueRouter);
@@ -44,8 +44,8 @@ const app = new Vue({
 
 
 const dash = new Vue({
-    el: '#dash',
+    el: '#admin',
     store,
-    components: {dashboard}
+    components: {Admin}
 });
 
