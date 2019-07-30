@@ -24,7 +24,33 @@ export const store = new Vuex.Store({
             loged: false,
             token: '',
             userEdit: {}
-        }
+        },
+        articles:[
+            {
+                img: 'https://imgplaceholder.com/420x320',
+				adress: 'This is headerd',
+				body: 'This is body This is body This is body This is body This is body',
+				info: 'This is some info',
+            },
+            {
+                img: 'https://imgplaceholder.com/420x320',
+				adress: 'This is headerd',
+				body: 'This is body This is body This is body This is body This is body',
+				info: 'This is some info',
+            },
+            {
+                img: 'https://imgplaceholder.com/420x320',
+				adress: 'This is headerd',
+				body: 'This is body This is body This is body This is body This is body',
+				info: 'This is some info',
+            },
+            {
+                img: 'https://imgplaceholder.com/420x320',
+				adress: 'This is headerd',
+				body: 'This is body This is body This is body This is body This is body',
+				info: 'This is some info',
+            }
+        ]
     },
     mutations:{
         // Check if loged

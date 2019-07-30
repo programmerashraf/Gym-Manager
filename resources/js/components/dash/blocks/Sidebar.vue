@@ -1,12 +1,12 @@
 <template>
 
-    <aside class="main-sidebar">
+    <aside class="main-sidebar" >
         <!-- sidebar: style can be found in sidebar.less -->
-        <section class="sidebar">
+        <section class="sidebar" >
 
             <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
-            <ul class="sidebar-menu" data-widget="tree"   >
+            <ul class="sidebar-menu" data-widget="tree">
                 <li class="header" v-if='admin'>Header</li>
 
                 <li v-if='admin'>
@@ -16,7 +16,23 @@
 
                 <li class="treeview" v-if='admin'>
                     <a role="button">
-                        <i class="fa fa-files-o"></i>
+                        <i class="fas fa-edit"></i>
+                        <span>Sections</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a role="button" @click="change_page('userAll')"><i class="far fa-circle"></i> all users</a>
+                        </li>
+                        <li><a role="button" @click="change_page('userAdd')"><i class="far fa-circle"></i> add user</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="treeview" v-if='admin'>
+                    <a role="button">
+                        <i class="fas fa-users"></i>
                         <span>Users</span>
                         <span class="pull-right-container">
                             <i class="fa fa-angle-left pull-right"></i>
@@ -32,7 +48,7 @@
 
                 <li class="treeview" v-if='admin'>
                     <a href="#">
-                        <i class="fa fa-pie-chart"></i>
+                        <i class="fas fa-newspaper"></i>
                         <span>Articles</span>
                         <span class="pull-right-container">
                             <i class="fa fa-angle-left pull-right"></i>
@@ -70,5 +86,4 @@
             },
         }
     }
-
 </script>
