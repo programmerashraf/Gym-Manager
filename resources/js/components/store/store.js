@@ -28,25 +28,25 @@ export const store = new Vuex.Store({
         articles:[
             {
                 img: 'https://imgplaceholder.com/420x320',
-				adress: 'This is headerd',
+				title: 'This is headerd',
 				body: 'This is body This is body This is body This is body This is body',
 				info: 'This is some info',
             },
             {
                 img: 'https://imgplaceholder.com/420x320',
-				adress: 'This is headerd',
+				title: 'This is headerd',
 				body: 'This is body This is body This is body This is body This is body',
 				info: 'This is some info',
             },
             {
                 img: 'https://imgplaceholder.com/420x320',
-				adress: 'This is headerd',
+				title: 'This is headerd',
 				body: 'This is body This is body This is body This is body This is body',
 				info: 'This is some info',
             },
             {
                 img: 'https://imgplaceholder.com/420x320',
-				adress: 'This is headerd',
+				title: 'This is headerd',
 				body: 'This is body This is body This is body This is body This is body',
 				info: 'This is some info',
             }

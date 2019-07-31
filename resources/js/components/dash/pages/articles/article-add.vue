@@ -3,7 +3,7 @@
         <div class="box-body pad">
 			<div class="input-group">
 				<label for="articleName">Article Name</label>
-				<input v-model="article.adress" type="text" class="form-control" placeholder="Article Name" aria-describedby="basic-addon1">
+				<input v-model="article.title" type="text" class="form-control" placeholder="Article Name" aria-describedby="basic-addon1">
 			</div>
 
 			<div class="input-group">
@@ -38,7 +38,7 @@
 						<img :src="article.img" class="img-responsive" alt="img">
 					</div>
 					<div class="article-info col-xs-8">
-						<h1>{{ article.adress }}</h1>
+						<h1>{{ article.title }}</h1>
 						<p>{{ article.info }}</p>
 						<button class="btn btn-success">READ MORE</button>
 					</div>
@@ -76,7 +76,7 @@ export default {
 			perview: true,
 			article:{
 				img: '',
-				adress: '',
+				title: '',
 				body: '',
 				info: '',
 			}

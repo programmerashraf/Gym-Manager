@@ -1,63 +1,21 @@
 <template>
 <div class="mt-5" id="featClass">
 <div class="container">
-    <p class="h1">خدمات مستقبلية</p>
+    <p class="h1">أخر الأخبار</p>
     <hr/>
     <div class="owl-carousel owl-theme">
-    <div class="item">
-        <div class="card"><img class="card-img-top" src="../../assets/img (1).jpg"/>
+    
+    <div class="item" :key="article.title" v-for="article in articles">
+        <div class="card"><img class="card-img-top" :src="article.img"/>
         <div class="card-body border">
-            <h5 class="card-title">يوجا</h5>
-            <hr/>
-            <p class="card-text">دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم.</p><i class="fas fa-user"></i><span class="mr-2"> محمد أيمن - مصر</span>
+            <h5 class="card-title">{{ article.title  }}</h5>
+            <hr>
+            <p class="card-text">{{ article.info }}</p><i class="fas fa-user"></i><span class="mr-2"> محمد أيمن - مصر</span>
         </div>
         </div>
     </div>
-    <div class="item">
-        <div class="card"><img class="card-img-top" src="../../assets/img (2).jpg"/>
-        <div class="card-body border">
-            <h5 class="card-title">ركض</h5>
-            <hr/>
-            <p class="card-text">دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم.</p><i class="fas fa-user"></i><span class="mr-2"> محمد أيمن - مصر</span>
-        </div>
-        </div>
-    </div>
-    <div class="item">
-        <div class="card"><img class="card-img-top" src="../../assets/img (1).jpg"/>
-        <div class="card-body border">
-            <h5 class="card-title">يوجا</h5>
-            <hr/>
-            <p class="card-text">دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم.</p><i class="fas fa-user"></i><span class="mr-2"> محمد أيمن - مصر</span>
-        </div>
-        </div>
-    </div>
-    <div class="item">
-        <div class="card"><img class="card-img-top" src="../../assets/img (2).jpg"/>
-        <div class="card-body border">
-            <h5 class="card-title">ركض</h5>
-            <hr/>
-            <p class="card-text">دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم.</p><i class="fas fa-user"></i><span class="mr-2"> محمد أيمن - مصر</span>
-        </div>
-        </div>
-    </div>
-    <div class="item">
-        <div class="card"><img class="card-img-top" src="../../assets/img (1).jpg"/>
-        <div class="card-body border">
-            <h5 class="card-title">يوجا</h5>
-            <hr/>
-            <p class="card-text">دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم.</p><i class="fas fa-user"></i><span class="mr-2"> محمد أيمن - مصر</span>
-        </div>
-        </div>
-    </div>
-    <div class="item">
-        <div class="card"><img class="card-img-top" src="../../assets/img (2).jpg"/>
-        <div class="card-body border">
-            <h5 class="card-title">ركض</h5>
-            <hr/>
-            <p class="card-text">دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم.</p><i class="fas fa-user"></i><span class="mr-2"> محمد أيمن - مصر</span>
-        </div>
-        </div>
-    </div>
+    
+    
     </div>
 </div>
 </div>
@@ -85,3 +43,13 @@
 }
 
 </style>
+
+<script>
+export default {
+    computed:{
+        articles(){
+            return this.$store.state.articles
+        }
+    }
+}
+</script>

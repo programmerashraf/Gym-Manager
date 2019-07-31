@@ -23,9 +23,15 @@
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a role="button" @click="change_page('userAll')"><i class="far fa-circle"></i> all users</a>
+                        <li><a role="button" @click="change_page('userAll')"><i class="far fa-circle"></i> Navbar</a>
                         </li>
-                        <li><a role="button" @click="change_page('userAdd')"><i class="far fa-circle"></i> add user</a>
+                        <li><a role="button" @click="change_page('userAdd')"><i class="far fa-circle"></i> Slieders</a>
+                        </li>
+                        <li><a role="button" @click="change_page('userAdd')"><i class="far fa-circle"></i> About us</a>
+                        </li>
+                        <li><a role="button" @click="change_page('userAdd')"><i class="far fa-circle"></i> Our trainers</a>
+                        </li>
+                        <li><a role="button" @click="change_page('userAdd')"><i class="far fa-circle"></i> Footer</a>
                         </li>
                     </ul>
                 </li>
@@ -70,7 +76,9 @@
 </template>
 
 <style lang="scss" scoped>
-
+    i{
+        margin-right: 10px;
+    }
 </style>
 
 

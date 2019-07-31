@@ -42,9 +42,20 @@ export default {
 #news{
     text-align: right
 }
-    .article{
-        border: 1px solid #000;
-        border-radius: 40px;
-        
-    }
+.preview{
+	border-radius: 20px;
+	overflow: hidden;
+	background-color: #FFF;
+	max-height: 200px;
+	-webkit-box-shadow: 7px -2px 17px 0px rgba(0,0,0,0.41);
+	-moz-box-shadow: 7px -2px 17px 0px rgba(0,0,0,0.41);
+	box-shadow: 0px -2px 17px 0px rgba(0,0,0,0.41);
+
+	.article-info , .box-body {
+		button{
+			float: right;
+		}
+	}
+
+}
 </style>
