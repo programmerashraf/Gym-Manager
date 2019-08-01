@@ -1,24 +1,24 @@
 <template>
 <div id="navbar">
-	<nav class="navbar navbar-expand-lg navbar-dark">
-		<div class="container"><a class="navbar-brand" href="#">لوجو</a>
+	<nav class="navbar navbar-expand-lg navbar-dark" :style="{ backgroundColor: Navbar.colors.background }">
+		<div class="container"><a class="navbar-brand" href="#">{{ Navbar.logo.name }}</a>
 			<button class="navbar-toggler" @click="show()"><span class="navbar-toggler-icon"></span></button>
 			<div class="collapse justify-content-end d-lg-flex">
 				<button type="button" @click="show()" class="close d-xl-none d-lg-none" data-dismiss="modal">&times;</button>
 				<ul class="navbar-nav">
 					<li class="nav-item ml-3">
-						<router-link to="/" active-class="active" class="nav-link" exact>الرئيسية<span
+						<router-link to="/" active-class="active" class="nav-link" :style="{color: Navbar.colors.font }" exact>الرئيسية<span
 								class="sr-only">(current)</span></router-link>
 					<li class="nav-item ml-3" v-if="loged">
-						<router-link to="/profile" active-class="active" class="nav-link" exact>حسابك<span
+						<router-link to="/profile" active-class="active" class="nav-link" :style="{color: Navbar.colors.font }" exact>حسابك<span
 								class="sr-only">(current)</span></router-link>
 					</li>
 					<li class="nav-item ml-3">
-						<router-link to="/news" active-class="active" class="nav-link" exact>آخر الأخبار<span
+						<router-link to="/news" active-class="active" class="nav-link" :style="{color: Navbar.colors.font }" exact>آخر الأخبار<span
 								class="sr-only">(current)</span></router-link>
 					</li>
 					<li class="nav-item ml-3">
-						<a class="nav-link" href="dash">لوحة التحكم</a>
+						<a class="nav-link" :style="{color: Navbar.colors.font }" href="dash">لوحة التحكم</a>
 					</li>
 					<li class="nav-item ml-3" v-if="!loged">
 						<form class="form-inline my-2 my-lg-0">
@@ -26,7 +26,7 @@
 						</form>
 					</li>
 					<li class="mt-1 nav-item ml-3" v-if="loged">
-						<span class="font-weight-bold">{{ user.name }}</span>
+						<span class="font-weight-bold" :style="{color: Navbar.colors.font }" >{{ user.name }}</span>
 					</li>
 
 					<li class="mt-1 nav-item ml-3" v-if="loged">
@@ -93,6 +93,9 @@ export default {
 				this.$store.commit('get_user_password', value)
 			}
 		},
+		Navbar(){
+			return this.$store.state.sections.Navbar
+		},
 		...mapState([
 			'inp',
 			'user',
@@ -147,7 +150,6 @@ export default {
 <style lang="scss" scoped>
 $main-red: rgb(242, 58, 46);
 nav {
-	background-color: $main-red;
 	min-height: 70px;
 
 	button.navbar-toggler {

@@ -19,13 +19,13 @@
 					<input v-model="article.img" type="text" class="form-control" placeholder="Enter URL">
 				</div>
 
-				<div class="form-group">
+				<div class="form-group col-xs-6">
 					<label for="articleinfo">Article Info</label>
 					<textarea v-model="article.info" class="form-control" placeholder="Article info" id="articleinfo"
-						rows="2" style="resize: vertical"></textarea>
+						rows="2" style="resize: none"></textarea>
 				</div>
 
-				<div class="col-md-12">
+				<div class="col-md-12 box">
 					<div class="box" @click="get_body($event)">
 						<div class="box-header">
 							<h3 class="box-title">Article body</h3>
@@ -49,7 +49,7 @@
         </div>
         <!-- /.content-wrapper -->
 
-        <button class="btn btn-warning" @click="get_body">Preview</button>
+        <button class="btn btn-warning" @click="perview=!perview">Preview</button>
         <button class="btn btn-success" @click="sendArticle">Done</button>
 
      <div class="row" v-if="perview">
@@ -62,6 +62,7 @@
                 <div class="article-info col-xs-10">
                     <h1>{{ article.title }}</h1>
                     <p>{{ article.body }}</p>
+                    <span>{{ article.auther }} - time</span>
                     <button class="btn btn-success">READ MORE</button>
                 </div>
 
@@ -83,12 +84,25 @@
         -moz-box-shadow: 7px -2px 17px 0px rgba(0, 0, 0, 0.41);
         box-shadow: 0px -2px 17px 0px rgba(0, 0, 0, 0.41);
 
+        .article-thumb {
+            padding: 0;
+            margin: 0
+        }
+
         .article-info,
         .box-body {
             button {
                 float: right;
             }
         }
+
+    }
+
+    .form-group, .input-group{
+        margin-top: 20px;
+    }
+    .form-group, .box{
+        padding: 0;
 
     }
 
@@ -99,7 +113,7 @@
     export default {
         data() {
             return {
-                perview: true,
+                perview: false,
                 article: {
                     img: '',
                     title: '',

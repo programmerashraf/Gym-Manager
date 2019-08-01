@@ -10,7 +10,7 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th v-bind:key="col[0]" v-for="col in columns" v-on:click="sortTable(col)">{{col}}
+                        <th v-bind:key="index" v-for="(col, index) in columns" v-on:click="sortTable(col)">{{col}}
                             <i class="arrow" v-if="col == sortColumn"
                                 v-bind:class="[ascending ? 'fas fa-sort-down' : 'fas fa-sort-up']"></i>
                         </th>
@@ -18,11 +18,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-bind:key="row[0]" v-for="row in get_rows()">
-                        <td v-bind:key="col[0]" v-for="col in columns">{{row[col]}}</td>
+                    <tr v-bind:key="index" v-for="(row, index) in get_rows()">
+                        <td v-bind:key="index" v-for="(col, index) in columns">{{row[col]}}</td>
                         <td>
                             <button class="btn btn-success"  title="Edit user" @click="change_component($event, 'userEdit')"><i class="fas fa-plus"></i></button>                            
-                            <button class="btn btn-danger" title="Delete user"><i class="fas fa-user-minus"></i></button>
+                            <button class="btn btn-danger" title="Delete user"  @click="deleteUser($event)" ><i class="fas fa-user-minus"></i></button>
                             <button class="btn btn-warning" title="Add tasks" @click="change_component($event, 'tasks')"><i class="fas fa-edit"></i></button>
                         </td>
                     </tr>
@@ -140,6 +140,13 @@
                 });
 
                 this.$store.commit('change_current_page', payload);
+            },
+            deleteUser(e){
+
+                axios.delete('/deleteUser', {
+                    id: $(e.target).parents('tr').first().children()[0].innerText
+                })
+                .then( res => {console.log(res)}).catch( err => console.log( err.message ) )
             }
         },
         computed: {

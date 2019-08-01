@@ -59,10 +59,11 @@ export default {
 	-moz-box-shadow: 7px -2px 17px 0px rgba(0,0,0,0.41);
 	box-shadow: 0px -2px 17px 0px rgba(0,0,0,0.41);
 
-    .article-thumb{
-        padding-right: 0px;
+    .article-thumb {
+        padding: 0;
+        margin: 0
     }
-
+    
 	.article-info  {
 
 		button{
