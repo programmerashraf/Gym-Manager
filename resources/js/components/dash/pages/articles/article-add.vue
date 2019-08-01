@@ -17,6 +17,8 @@
 				<div class="input-group col-xs-5">
 					<label for="articleName">Article image</label>
 					<input v-model="article.img" type="text" class="form-control" placeholder="Enter URL">
+                    <br>
+                    <input type="file" accept="image/*">
 				</div>
 
 				<div class="form-group col-xs-6">
@@ -110,6 +112,7 @@
 
 
 <script>
+import Axios from 'axios';
     export default {
         data() {
             return {
@@ -129,12 +132,20 @@
                 this.article.img = e.target.value
             },
             sendArticle() {
-                this.$store.state.articles.push(this.article);
-                console.log(this.$store.state.articles)
+                Axios.post('/addArticle', {
+                    article: this.article
+                }).then(res => console.log(res)).catch(err => console.log(err))
             },
             get_body(e) {
 				let text = $('.mohammed').val();
 				this.article.body = text;
+            },
+            deleteUser(e){
+                axios.post('/deleteUser', {
+                    id: $(e.target).parents('tr').first().children()[0].innerText,
+                    _token: this.csrf
+                })
+                .then( res => {console.log(res)}).catch( err => console.log( err.message ) )
             }
         },
         mounted() {

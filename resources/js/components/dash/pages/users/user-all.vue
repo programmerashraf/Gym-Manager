@@ -21,9 +21,10 @@
                     <tr v-bind:key="index" v-for="(row, index) in get_rows()">
                         <td v-bind:key="index" v-for="(col, index) in columns">{{row[col]}}</td>
                         <td>
-                            <button class="btn btn-success"  title="Edit user" @click="change_component($event, 'userEdit')"><i class="fas fa-plus"></i></button>                            
+                            <button class="btn btn-success"  title="Edit user" @click="change_component($event, 'userEdit')"><i class="fas fa-edit"></i></button>
+
                             <button class="btn btn-danger" title="Delete user"  @click="deleteUser($event)" ><i class="fas fa-user-minus"></i></button>
-                            <button class="btn btn-warning" title="Add tasks" @click="change_component($event, 'tasks')"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-warning" title="Add tasks" @click="change_component($event, 'tasks')"><i class="fas fa-plus"></i></button>
                         </td>
                     </tr>
                 </tbody>
@@ -84,14 +85,14 @@
     Vue.use(axios);
 
     export default {
-        el: '#userTable',
         data() {
             return {
+                csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
                 currentPage: 1,
                 elementsPerPage: 3,
                 ascending: false,
                 sortColumn: '',
-                rows: []
+                rows: [],
             }
 
         },
@@ -142,9 +143,9 @@
                 this.$store.commit('change_current_page', payload);
             },
             deleteUser(e){
-
-                axios.delete('/deleteUser', {
-                    id: $(e.target).parents('tr').first().children()[0].innerText
+                axios.post('/deleteUser', {
+                    id: $(e.target).parents('tr').first().children()[0].innerText,
+                    _token: this.csrf
                 })
                 .then( res => {console.log(res)}).catch( err => console.log( err.message ) )
             }

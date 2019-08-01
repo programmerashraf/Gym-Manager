@@ -102,17 +102,15 @@ export const store = new Vuex.Store({
         change_current_page: (state, payload) => {
             state.AdminPanel.currentPage = payload
          },
-         subscriptionDateStart: (state, payload) => {
-             state.user.subscription.start = payload
-         },
-         subscriptionDateEnd: (state, payload) => {
-             state.user.subscription.end = payload
-         },
-
-
-        // Edit_Navbar: (state, payload){
-
-        //  }
+        subscriptionDateStart: (state, payload) => {
+            state.user.subscription.start = payload
+        },
+        subscriptionDateEnd: (state, payload) => {
+            state.user.subscription.end = payload
+        },
+        // Edit_Navbar: (state, payload) => {
+        //     state.sections.Navbar.
+        // }
     },
     getters: {
         article: (state) => (id) => {

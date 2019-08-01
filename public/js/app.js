@@ -2451,6 +2451,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2562,6 +2564,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2581,12 +2586,27 @@ __webpack_require__.r(__webpack_exports__);
       this.article.img = e.target.value;
     },
     sendArticle: function sendArticle() {
-      this.$store.state.articles.push(this.article);
-      console.log(this.$store.state.articles);
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/addArticle', {
+        article: this.article
+      }).then(function (res) {
+        return console.log(res);
+      })["catch"](function (err) {
+        return console.log(err);
+      });
     },
     get_body: function get_body(e) {
       var text = $('.mohammed').val();
       this.article.body = text;
+    },
+    deleteUser: function deleteUser(e) {
+      axios.post('/deleteUser', {
+        id: $(e.target).parents('tr').first().children()[0].innerText,
+        _token: this.csrf
+      }).then(function (res) {
+        console.log(res);
+      })["catch"](function (err) {
+        return console.log(err.message);
+      });
     }
   },
   mounted: function mounted() {
@@ -2895,6 +2915,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -3046,6 +3068,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3080,6 +3103,11 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     add_task: function add_task(event, list) {
       this.$store.state.tasks[list].lists.push(event.target.value);
+    },
+    send: function send() {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/addExercises', {
+        tasks: this.$store.state.tasks
+      });
     }
   },
   mounted: function mounted() {
@@ -3323,13 +3351,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(axios__WEBPACK_IMPORTED_MODULE_1___default.a);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  el: '#userTable',
   data: function data() {
     return {
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
       currentPage: 1,
       elementsPerPage: 3,
       ascending: false,
@@ -3384,8 +3413,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(axios__WEBPACK_IMPORTED_MODULE_1_
       this.$store.commit('change_current_page', payload);
     },
     deleteUser: function deleteUser(e) {
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a["delete"]('/deleteUser', {
-        id: $(e.target).parents('tr').first().children()[0].innerText
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/deleteUser', {
+        id: $(e.target).parents('tr').first().children()[0].innerText,
+        _token: this.csrf
       }).then(function (res) {
         console.log(res);
       })["catch"](function (err) {
@@ -7943,7 +7973,11 @@ var render = function() {
                 _vm.$set(_vm.article, "img", $event.target.value)
               }
             }
-          })
+          }),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("input", { attrs: { type: "file", accept: "image/*" } })
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-xs-6" }, [
@@ -8763,7 +8797,13 @@ var render = function() {
               }
             })
           ])
-        ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-default", on: { click: _vm.send } },
+          [_vm._v("Submit")]
+        )
       ])
     ])
   ])
@@ -9083,7 +9123,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_c("i", { staticClass: "fas fa-plus" })]
+                    [_c("i", { staticClass: "fas fa-edit" })]
                   ),
                   _vm._v(" "),
                   _c(
@@ -9111,7 +9151,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_c("i", { staticClass: "fas fa-edit" })]
+                    [_c("i", { staticClass: "fas fa-plus" })]
                   )
                 ])
               ],
@@ -27893,8 +27933,9 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
     },
     subscriptionDateEnd: function subscriptionDateEnd(state, payload) {
       state.user.subscription.end = payload;
-    } // Edit_Navbar: (state, payload){
-    //  }
+    } // Edit_Navbar: (state, payload) => {
+    //     state.sections.Navbar.
+    // }
 
   },
   getters: {
