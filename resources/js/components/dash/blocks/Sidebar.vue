@@ -10,13 +10,13 @@
                 <li class="header" v-if='admin'>Header</li>
 
                 <li v-if='admin'>
-                    <a role="button" @click="change_page('dashboard')"><i class="fas fa-tachometer-alt"></i>
-                        <span>Dashboard</span></a>
-                </li>
-                
-                <li v-if='admin'>
                     <a role="button" href="/"><i class="fas fa-home"></i>
                         <span>HOME</span></a>
+                </li>
+
+                <li v-if='admin'>
+                    <a role="button" @click="change_page('dashboard')"><i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span></a>
                 </li>
 
                 <li class="treeview" v-if='admin'>
@@ -28,15 +28,15 @@
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a role="button" @click="change_page('userAll')"><i class="far fa-circle"></i> Navbar</a>
+                        <li><a role="button" @click="change_page('NavEdit')"><i class="far fa-circle"></i> Navbar</a>
                         </li>
-                        <li><a role="button" @click="change_page('userAdd')"><i class="far fa-circle"></i> Slieders</a>
+                        <li><a role="button" @click="change_page('SlidersEdit')"><i class="far fa-circle"></i> Slieders</a>
                         </li>
-                        <li><a role="button" @click="change_page('userAdd')"><i class="far fa-circle"></i> About us</a>
+                        <li><a role="button" @click="change_page('AboutusEdit')"><i class="far fa-circle"></i> About us</a>
                         </li>
-                        <li><a role="button" @click="change_page('userAdd')"><i class="far fa-circle"></i> Our trainers</a>
+                        <li><a role="button" @click="change_page('TrainersEdit')"><i class="far fa-circle"></i> Our trainers</a>
                         </li>
-                        <li><a role="button" @click="change_page('userAdd')"><i class="far fa-circle"></i> Footer</a>
+                        <li><a role="button" @click="change_page('FooterEdit')"><i class="far fa-circle"></i> Footer</a>
                         </li>
                     </ul>
                 </li>
@@ -83,6 +83,9 @@
 <style lang="scss" scoped>
     i{
         margin-right: 10px;
+    }
+    .main-sidebar{
+        min-height: 124%;
     }
 </style>
 

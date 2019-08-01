@@ -4,9 +4,9 @@
             
             <div class="row">
                 <div class="col-8">
-                    <p>
-                        {{ article[0] }}    
-                    </p>
+                    <h1>
+                        {{ article[0].title }} 
+                    </h1>
                     
                     <div class="article-body">
                         

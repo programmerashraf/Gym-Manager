@@ -110,7 +110,7 @@
                     </div><!-- /input-group -->
                 </div><!-- /.col-lg-6 -->
 
-
+                <button class="btn btn-default" @click="send">Submit</button>
             </div><!-- /.row -->
         </div>
     </div>
@@ -150,6 +150,7 @@
 
 
 <script>
+import Axios from 'axios';
 export default {
     
     data(){
@@ -185,6 +186,11 @@ export default {
     methods:{
         add_task(event, list){
             this.$store.state.tasks[list].lists.push(event.target.value)
+        },
+        send(){
+            Axios.post('/addExercises', {
+                tasks: this.$store.state.tasks
+            })
         }
     },
     mounted(){

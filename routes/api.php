@@ -30,5 +30,5 @@ Route::group(["namespace"=>"Api"], function (){
 		Route::get('subscription', "SubscriptionsController@show");
 	
     });
-      
+    
 });

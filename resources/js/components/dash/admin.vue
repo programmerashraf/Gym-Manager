@@ -19,7 +19,7 @@
         <!-- /.content-wrapper -->
         <footer v-if='admin' class="main-footer">
             <div class="pull-right hidden-xs">
-                <b>Version</b> 2.4.13
+                <b>Version</b> 1.0
             </div>
             <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
             reserved.
@@ -49,8 +49,15 @@
     import userAll from './pages/users/user-all';
     import userEdit from './pages/users/user-edit';
     import tasks from './pages/users/Tasks';
+
     import articleAll from './pages/articles/article-all';
     import articleAdd from './pages/articles/article-add';
+
+    import NavEdit from './pages/sections/Navbar_Edit';
+    import FooterEdit from './pages/sections/Footer_Edit';
+    import SlidersEdit from './pages/sections/Sliders_Edit';
+    import TrainersEdit from './pages/sections/Trainers_Edit';
+    import AboutusEdit from './pages/sections/Aboutus_Edit';
 
     export default {
         components: {
@@ -63,7 +70,12 @@
             userEdit,
             tasks,
             articleAdd,
-            articleAll
+            articleAll,
+            NavEdit,
+            FooterEdit,
+            SlidersEdit,
+            TrainersEdit,
+            AboutusEdit
         },
         computed: {
             admin() {

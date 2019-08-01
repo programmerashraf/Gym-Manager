@@ -25,6 +25,7 @@ export const store = new Vuex.Store({
             token: '',
             userEdit: {}
         },
+        // Start Articles
         articles:[
             {
                 id: 1,
@@ -55,6 +56,7 @@ export const store = new Vuex.Store({
 				info: 'This is some info',
             }
         ],
+        // Start Tasks
         tasks: [
             
             {day: 0, lists: ['Some thing98','Some thing15','Some thing1']},
@@ -64,7 +66,20 @@ export const store = new Vuex.Store({
             {day: 4, lists: ['Some thing98','Some thing15','Some thing5']},
             {day: 5, lists: ['Some thing98','Some thing15','Some thing6']},
      
-        ]
+        ],
+        // Start Sections
+        sections:{
+            Navbar: {
+                logo: {
+                    name: 'لوجو',
+                    img: ''
+                },
+                colors:{
+                    background: '#f23a2e',
+                    font: 'white'
+                } 
+            }
+        }
     },
     mutations:{
         // Check if loged
@@ -87,17 +102,19 @@ export const store = new Vuex.Store({
         change_current_page: (state, payload) => {
             state.AdminPanel.currentPage = payload
          },
-         subscriptionDateStart: (state, payload) => {
-             state.user.subscription.start = payload
-         },
-         subscriptionDateEnd: (state, payload) => {
-             state.user.subscription.end = payload
-         },
+        subscriptionDateStart: (state, payload) => {
+            state.user.subscription.start = payload
+        },
+        subscriptionDateEnd: (state, payload) => {
+            state.user.subscription.end = payload
+        },
+        // Edit_Navbar: (state, payload) => {
+        //     state.sections.Navbar.
+        // }
     },
     getters: {
         article: (state) => (id) => {
             return state.articles.filter(function(v){ return v["id"] == id })
         }
-
     }
 });
