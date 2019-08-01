@@ -20,31 +20,35 @@ export const store = new Vuex.Store({
         loged: false,
         // Start Admin Panel
         AdminPanel: {
-            currentPage: 'tasks',
+            currentPage: 'articleAdd',
             loged: false,
             token: '',
             userEdit: {}
         },
         articles:[
             {
+                id: 1,
+                img: 'https://imgplaceholder.com/420x320',
+				title: 'This is headerd',
+				body: '<p><b>This is body This is body This is body This is body This is body</b></p>',
+				info: 'This is some info',
+            },
+            {
+                id: 2,
                 img: 'https://imgplaceholder.com/420x320',
 				title: 'This is headerd',
 				body: 'This is body This is body This is body This is body This is body',
 				info: 'This is some info',
             },
             {
+                id: 3,
                 img: 'https://imgplaceholder.com/420x320',
 				title: 'This is headerd',
 				body: 'This is body This is body This is body This is body This is body',
 				info: 'This is some info',
             },
             {
-                img: 'https://imgplaceholder.com/420x320',
-				title: 'This is headerd',
-				body: 'This is body This is body This is body This is body This is body',
-				info: 'This is some info',
-            },
-            {
+                id: 4,
                 img: 'https://imgplaceholder.com/420x320',
 				title: 'This is headerd',
 				body: 'This is body This is body This is body This is body This is body',
@@ -89,5 +93,11 @@ export const store = new Vuex.Store({
          subscriptionDateEnd: (state, payload) => {
              state.user.subscription.end = payload
          },
+    },
+    getters: {
+        article: (state) => (id) => {
+            return state.articles.filter(function(v){ return v["id"] == id })
+        }
+
     }
 });

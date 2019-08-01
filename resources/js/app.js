@@ -8,6 +8,7 @@ import App from './components/App.vue';
 import Home from "./components/pages/Home.vue";
 import Profile from "./components/pages/Profile.vue";
 import News from "./components/pages/News.vue";
+import articles from "./components/pages/articles.vue";
 
 import Admin from "./components/dash/admin.vue"
     
@@ -31,6 +32,11 @@ const router = new VueRouter({
             path: "/news",
             name: "news",
             component: News
+        },
+        {
+            path: '/articles/:id',
+            name: 'articles',
+            component: articles
         }
     ]
 })

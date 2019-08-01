@@ -87,6 +87,7 @@ export default {
     width: 100%;
     height: 100%;
     background-color: #367fa9;
+    z-index: 99999999;
 
     .login-form{
         hr{
