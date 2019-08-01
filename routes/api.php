@@ -18,19 +18,17 @@ $router->pattern('id', '[0-9]+');
 Route::group(["namespace"=>"Api"], function (){
 
     Route::group(['namespace'=>'Auth'], function (){
-
         Route::post("register","AuthController@register");
         Route::post("login","AuthController@login")->name("login");
-
     });
 
     Route::group(["middleware"=>"auth:api"], function (){
 		Route::get("users","UserController@all");
 		Route::get("user","UserController@get");
-        Route::delete("deleteUser", "UserController@destroy")
+        Route::delete("deleteUser", "UserController@destroy");
 		Route::post('subscriptions/update', "SubscriptionsController@update");
 		Route::get('subscription', "SubscriptionsController@show");
-			
+	
     });
-
+      
 });

@@ -39,7 +39,7 @@
     </div>
 
 </body>
-
+    
     <script src="{{ asset('js/app.js') }}"></script>
 
     <script src="https://kit.fontawesome.com/7ccf14bcd9.js"></script>
@@ -60,5 +60,7 @@
    
     <!-- Bootstrap WYSIHTML5 -->
     <script src="{{ asset('Admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"></script>
-
+      <script>
+         var token = '<?php echo csrf_token() ?>';
+      </script>
 </html>
