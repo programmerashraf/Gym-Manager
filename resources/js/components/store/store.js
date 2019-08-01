@@ -20,7 +20,7 @@ export const store = new Vuex.Store({
         loged: false,
         // Start Admin Panel
         AdminPanel: {
-            currentPage: 'dashboard',
+            currentPage: 'tasks',
             loged: false,
             token: '',
             userEdit: {}
@@ -50,6 +50,16 @@ export const store = new Vuex.Store({
 				body: 'This is body This is body This is body This is body This is body',
 				info: 'This is some info',
             }
+        ],
+        tasks: [
+            
+            {day: 0, lists: ['Some thing98','Some thing15','Some thing1']},
+            {day: 1, lists: ['Some thing98','Some thing15','Some thing2']},
+            {day: 2, lists: ['Some thing98','Some thing15','Some thing3']},
+            {day: 3, lists: ['Some thing98','Some thing15','Some thing4']},
+            {day: 4, lists: ['Some thing98','Some thing15','Some thing5']},
+            {day: 5, lists: ['Some thing98','Some thing15','Some thing6']},
+     
         ]
     },
     mutations:{

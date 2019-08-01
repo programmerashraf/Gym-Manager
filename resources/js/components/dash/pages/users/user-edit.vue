@@ -68,6 +68,33 @@ export default {
     methods: {
 		update_user(){
             
+            // Send the request
+			axios.post('/api/register', {
+				 name: this.$store.state.user.name,
+				 email: this.$store.state.user.email,
+                 password: this.$store.state.user.password,
+                 date_start: this.date_start,
+                 date_end: this.date_end,
+			})
+			.then(res => {
+				// Todo
+				if(res.data.code == 200){
+					Swal.fire({
+                        title: 'you Edited user',
+                        text: null,
+                        type: 'success',
+                        confirmButtonText: 'Cool!'
+                    });
+
+                    this.$store.state.user.name = '';
+                    this.$store.state.user.email = '';
+                    this.$store.state.user.password = '';
+                    this.date_start = '';
+                    this.date_end = '';
+
+                    console.log(res);
+                }
+            })
         }
     }
 }

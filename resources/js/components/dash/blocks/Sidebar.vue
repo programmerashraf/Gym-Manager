@@ -13,6 +13,11 @@
                     <a role="button" @click="change_page('dashboard')"><i class="fas fa-tachometer-alt"></i>
                         <span>Dashboard</span></a>
                 </li>
+                
+                <li v-if='admin'>
+                    <a role="button" href="/"><i class="fas fa-home"></i>
+                        <span>HOME</span></a>
+                </li>
 
                 <li class="treeview" v-if='admin'>
                     <a role="button">

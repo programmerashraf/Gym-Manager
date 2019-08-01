@@ -21,10 +21,9 @@
                     <tr v-bind:key="row[0]" v-for="row in get_rows()">
                         <td v-bind:key="col[0]" v-for="col in columns">{{row[col]}}</td>
                         <td>
-                            <button class="btn btn-success" @click="change_component($event, 'userEdit')"><i
-                                    class="fas fa-plus"></i></button>
-                            <button class="btn btn-danger"><i class="fas fa-user-minus"></i></button>
-                            <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-success"  title="Edit user" @click="change_component($event, 'userEdit')"><i class="fas fa-plus"></i></button>                            
+                            <button class="btn btn-danger" title="Delete user"><i class="fas fa-user-minus"></i></button>
+                            <button class="btn btn-warning" title="Add tasks" @click="change_component($event, 'tasks')"><i class="fas fa-edit"></i></button>
                         </td>
                     </tr>
                 </tbody>

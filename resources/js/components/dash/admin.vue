@@ -48,6 +48,7 @@
     import userAdd from './pages/users/user-add';
     import userAll from './pages/users/user-all';
     import userEdit from './pages/users/user-edit';
+    import tasks from './pages/users/Tasks';
     import articleAll from './pages/articles/article-all';
     import articleAdd from './pages/articles/article-add';
 
@@ -60,6 +61,7 @@
             userAdd,
             userAll,
             userEdit,
+            tasks,
             articleAdd,
             articleAll
         },
