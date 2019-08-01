@@ -26,5 +26,17 @@ class UserController extends Controller
         }
         return $this->ApiResponse(404,"not found");
     }
+    
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Request $request)
+    {
+        User::find($reques->$id)->delete();
+        return back();
+    }
 
 }
