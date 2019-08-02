@@ -17,7 +17,7 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::all();
-        return ApiResponse(200, 'success', $articles);
+        return $this->ApiResponse(200, 'success', $articles);
     }
 
 
