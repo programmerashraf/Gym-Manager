@@ -8,6 +8,7 @@ use App\Exercise;
 
 class ExerciseController extends Controller
 {
+    use ApiResponse;
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +17,7 @@ class ExerciseController extends Controller
     public function index($id)
     {
         $exercises = Exercise::find($id)->all();
-        return ApiResponse(200, 'success',  $exercise);
+        return $this->ApiResponse(200, 'success',  $exercise);
     }
 
 

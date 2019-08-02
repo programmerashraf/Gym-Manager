@@ -9,6 +9,7 @@ use App\Article;
 use Illuminate\Support\Str;
 class ArticleController extends Controller
 {
+     use ApiResponse;
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +18,7 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::all();
-        return ApiResponse(200, 'success', $articles);
+        return $this->ApiResponse(200, 'success', $articles);
     }
 
 
@@ -35,8 +36,12 @@ class ArticleController extends Controller
           $imgName = Str::random(50).'.'. $img->extension();
           $url = $img->move(public_path('uploads/articles'), $imgName); 
            $image = 'uploads/articles/'.$imgName ;
+<<<<<<< HEAD
         }
         
+=======
+        }else{ $image = null;}
+>>>>>>> 009b342d04fa4e223b6796b7c1e5355ea06d906f
        Article::create([
             'title' =>  $request->title,
             'shortDescription' => $request->info,
@@ -63,7 +68,11 @@ class ArticleController extends Controller
             $imgName = Str::random(50).'.'. $img->extension();
             $url = $img->move(public_path('uploads/articles'), $imgName); 
             $image = 'uploads/articles/'.$imgName ;
+<<<<<<< HEAD
         }
+=======
+        }else{ $image = null;}
+>>>>>>> 009b342d04fa4e223b6796b7c1e5355ea06d906f
         Article::find($id)->update([
            'title' =>  $request->title,
             'shortDescription' => $request->info,
