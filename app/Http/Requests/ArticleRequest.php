@@ -28,7 +28,7 @@ class ArticleRequest extends FormRequest
     {
         return [
             'article.title' => "required",
-            //'article.img' => 'image',
+            'article.img' => 'image',
             'article.info' => 'required',
             'article.body' => 'required'
         ];
@@ -37,7 +37,7 @@ class ArticleRequest extends FormRequest
        public function messages(){
         return [
             "article.title.required" => "عنوان المقال مطلوب"  ,
-          //  "article.img.image" => "مخصص للصور فقط",
+            "article.img.image" => "مخصص للصور فقط",
             "article.info.required"  => "هذا الحقل مطلوب",
             "article.body.required"  => "هذا الحقل مطلوب"
         ];
