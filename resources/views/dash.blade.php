@@ -54,6 +54,9 @@
     <script>
     $.widget.bridge('uibutton', $.ui.button);
     </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
     <!-- Bootstrap 3.3.7 -->
     <script src="{{ asset('Admin/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     <!-- AdminLTE App -->
@@ -64,11 +67,6 @@
     <!-- Bootstrap WYSIHTML5 -->
     <script src="{{ asset('Admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"></script>
 
-      <script>
-         var token = '<?php echo csrf_token() ?>';
-      </script>
-
-    
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>

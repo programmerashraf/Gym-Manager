@@ -2558,14 +2558,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2575,9 +2567,7 @@ __webpack_require__.r(__webpack_exports__);
         img: '',
         title: '',
         body: '',
-        info: '',
-        time: '',
-        auther: ''
+        info: ''
       }
     };
   },
@@ -2586,6 +2576,7 @@ __webpack_require__.r(__webpack_exports__);
       this.article.img = e.target.value;
     },
     sendArticle: function sendArticle() {
+      this.article.img = $('#imges').val();
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/addArticle', {
         article: this.article
       }).then(function (res) {
@@ -2713,7 +2704,6 @@ __webpack_require__.r(__webpack_exports__);
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(axios__WEBPACK_IMPORTED_MODULE_1___default.a);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  el: '#ArticlesTable',
   data: function data() {
     return {
       currentPage: 1,
@@ -2767,12 +2757,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(axios__WEBPACK_IMPORTED_MODULE_1_
   mounted: function mounted() {
     var _this = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/users?api_token=".concat(this.$store.state.AdminPanel.token)).then(function (res) {
-      res.data.data.forEach(function (user) {
-        delete user.token;
-      });
-      res.data.data.forEach(function (user) {
-        _this.rows.push(user);
+    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/articles').then(function (res) {
+      res.data.data.forEach(function (article) {
+        _this.rows.push(article);
       });
     })["catch"](function (err) {
       return err.message;
@@ -7894,7 +7881,7 @@ var render = function() {
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "input-group col-xs-5" }, [
           _c("label", { attrs: { for: "articleName" } }, [
-            _vm._v("Article Name")
+            _vm._v("Article title")
           ]),
           _vm._v(" "),
           _c("input", {
@@ -7907,7 +7894,7 @@ var render = function() {
               }
             ],
             staticClass: "form-control",
-            attrs: { type: "text", placeholder: "Article Name" },
+            attrs: { type: "text", placeholder: "Article title" },
             domProps: { value: _vm.article.title },
             on: {
               input: function($event) {
@@ -7920,65 +7907,7 @@ var render = function() {
           })
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "input-group col-xs-5" }, [
-          _c("label", { attrs: { for: "articleName" } }, [
-            _vm._v("Auther Name")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.article.auther,
-                expression: "article.auther"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "text", placeholder: "Auther Name" },
-            domProps: { value: _vm.article.auther },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.article, "auther", $event.target.value)
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "input-group col-xs-5" }, [
-          _c("label", { attrs: { for: "articleName" } }, [
-            _vm._v("Article image")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.article.img,
-                expression: "article.img"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "text", placeholder: "Enter URL" },
-            domProps: { value: _vm.article.img },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.article, "img", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c("input", { attrs: { type: "file", accept: "image/*" } })
-        ]),
+        _vm._m(0),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-xs-6" }, [
           _c("label", { attrs: { for: "articleinfo" } }, [
@@ -8024,7 +7953,7 @@ var render = function() {
                 }
               }
             },
-            [_vm._m(0), _vm._v(" "), _vm._m(1)]
+            [_vm._m(1), _vm._v(" "), _vm._m(2)]
           )
         ])
       ])
@@ -8078,6 +8007,16 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group col-xs-5" }, [
+      _c("label", { attrs: { for: "articleName" } }, [_vm._v("Article image")]),
+      _vm._v(" "),
+      _c("input", { attrs: { type: "file", accept: "image/*", id: "imges" } })
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -8138,11 +8077,11 @@ var render = function() {
           _c(
             "tr",
             [
-              _vm._l(_vm.columns, function(col) {
+              _vm._l(_vm.columns, function(col, index) {
                 return _c(
                   "th",
                   {
-                    key: col[0],
+                    key: index,
                     on: {
                       click: function($event) {
                         return _vm.sortTable(col)
@@ -8173,13 +8112,13 @@ var render = function() {
         _vm._v(" "),
         _c(
           "tbody",
-          _vm._l(_vm.get_rows(), function(row) {
+          _vm._l(_vm.get_rows(), function(row, index) {
             return _c(
               "tr",
-              { key: row[0] },
+              { key: index },
               [
-                _vm._l(_vm.columns, function(col) {
-                  return _c("td", { key: col[0] }, [_vm._v(_vm._s(row[col]))])
+                _vm._l(_vm.columns, function(col, index) {
+                  return _c("td", { key: index }, [_vm._v(_vm._s(row[col]))])
                 }),
                 _vm._v(" "),
                 _vm._m(1, true)

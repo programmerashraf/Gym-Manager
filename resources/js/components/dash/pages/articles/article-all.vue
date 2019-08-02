@@ -11,16 +11,16 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th v-bind:key="col[0]" v-for="col in columns" v-on:click="sortTable(col)">{{col}}
+                        <th :key="index" v-for="(col, index) in columns" v-on:click="sortTable(col)">{{col}}
                             <i class="arrow" v-if="col == sortColumn"
-                                v-bind:class="[ascending ? 'fas fa-sort-down' : 'fas fa-sort-up']"></i>
+                                :class="[ascending ? 'fas fa-sort-down' : 'fas fa-sort-up']"></i>
                         </th>
                         <th>Options</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-bind:key="row[0]" v-for="row in get_rows()">
-                        <td v-bind:key="col[0]" v-for="col in columns">{{row[col]}}</td>
+                    <tr :key="index" v-for="(row, index) in get_rows()">
+                        <td :key="index" v-for="(col, index) in columns">{{row[col]}}</td>
                         <td>
                             <button class="btn btn-danger"><i class="fas fa-user-minus"></i></button>
                             <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
@@ -30,7 +30,7 @@
             </table>
 
             <ul class="pagination">
-                <li :key="i" v-for="i in num_pages()" v-bind:class="[i == currentPage ? 'active' : '']"
+                <li :key="i" v-for="i in num_pages()" :class="[i == currentPage ? 'active' : '']"
                     v-on:click="change_page(i)">{{i}}</li>
             </ul>
 
@@ -84,7 +84,6 @@
     Vue.use(axios);
 
     export default {
-        el: '#ArticlesTable',
         data() {
             return {
                 currentPage: 1,
@@ -136,14 +135,11 @@
             }
         },
         mounted() {
-            axios.get(`/api/users?api_token=${this.$store.state.AdminPanel.token}`).then(res => {
+            axios.get('/articles').then(res => {
 
-                res.data.data.forEach(user => {
-                    delete user.token;
-                })
 
-                res.data.data.forEach(user => {
-                    this.rows.push(user)
+                res.data.data.forEach(article => {
+                    this.rows.push(article)
                 });
 
             }).catch(err => err.message);
