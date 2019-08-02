@@ -2,23 +2,15 @@
     <div id="box">
         <div class="box-body pad">
 			<div class="row">
-
-			
-				<div class="input-group col-xs-5">
-					<label for="articleName">Article Name</label>
-					<input v-model="article.title" type="text" class="form-control" placeholder="Article Name">
-				</div>
 				
 				<div class="input-group col-xs-5">
-					<label for="articleName">Auther Name</label>
-					<input v-model="article.auther" type="text" class="form-control" placeholder="Auther Name">
+					<label for="articleName">Article title</label>
+					<input v-model="article.title" type="text" class="form-control" placeholder="Article title">
 				</div>
 
 				<div class="input-group col-xs-5">
 					<label for="articleName">Article image</label>
-					<input v-model="article.img" type="text" class="form-control" placeholder="Enter URL">
-                    <br>
-                    <input type="file" accept="image/*">
+                    <input type="file" accept="image/*" id="imges">
 				</div>
 
 				<div class="form-group col-xs-6">
@@ -122,8 +114,6 @@ import Axios from 'axios';
                     title: '',
                     body: '',
                     info: '',
-                    time: '',
-                    auther: '',
                 }
             }
         },
@@ -132,6 +122,8 @@ import Axios from 'axios';
                 this.article.img = e.target.value
             },
             sendArticle() {
+                this.article.img = $('#imges').val();
+
                 Axios.post('/addArticle', {
                     article: this.article
                 }).then(res => console.log(res)).catch(err => console.log(err))
@@ -150,7 +142,7 @@ import Axios from 'axios';
         },
         mounted() {
             //bootstrap WYSIHTML5 - text editor
-            $('.mohammed').wysihtml5()
+            $('.mohammed').wysihtml5();
         }
     }
 
