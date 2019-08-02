@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
-use Illuminate\Http\Request\ArticleRequest;
 use App\Traits\ApiResponse;
 use App\Article;
 use Illuminate\Support\Str;
@@ -30,17 +31,19 @@ class ArticleController extends Controller
      */
     public function store(ArticleRequest $request)
     {
-    if($request->hasFile('img'))
+    return dd(auth());
+    if($request->hasFile('article.img'))
         {
           $img = $request->file('img');
           $imgName = Str::random(50).'.'. $img->extension();
           $url = $img->move(public_path('uploads/articles'), $imgName); 
            $image = 'uploads/articles/'.$imgName ;
         }else{ $image = null;}
+
        Article::create([
-            'title' =>  $request->title,
-            'shortDescription' => $request->info,
-            'longDescription' => $request->body,
+            'title' =>  $request->article['title'],
+            'shortDescription' => $request->article['info'],
+            'longDescription' => $request->article['body'],
             'author' => auth()->user()->id,
             'image'=>$image,
        ]); 

@@ -3,6 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator;
+
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class ArticleRequest extends FormRequest
 {
@@ -13,7 +16,7 @@ class ArticleRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,19 +27,19 @@ class ArticleRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => "required",
-            'img' => 'image',
-            'info' => 'required',
-            'body' => 'required'
+            'article.title' => "required",
+            //'article.img' => 'image',
+            'article.info' => 'required',
+            'article.body' => 'required'
         ];
     }
 
        public function messages(){
         return [
-            "title.required" => "عنوان المقال مطلوب"  ,
-            "img.image" => "مخصص للصور فقط",
-            "info.required"  => "هذا الحقل مطلوب",
-            "body.required"  => "هذا الحقل مطلوب"
+            "article.title.required" => "عنوان المقال مطلوب"  ,
+          //  "article.img.image" => "مخصص للصور فقط",
+            "article.info.required"  => "هذا الحقل مطلوب",
+            "article.body.required"  => "هذا الحقل مطلوب"
         ];
     }
 
