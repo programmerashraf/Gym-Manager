@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Request\ArticleRequest;
 use App\Traits\ApiResponse;
 use App\Article;
+use Illuminate\Support\Str;
 class ArticleController extends Controller
 {
      use ApiResponse;
