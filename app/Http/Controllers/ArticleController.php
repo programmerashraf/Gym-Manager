@@ -8,6 +8,7 @@ use App\Traits\ApiResponse;
 use App\Article;
 class ArticleController extends Controller
 {
+     use ApiResponse;
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +17,7 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::all();
-        return ApiResponse(200, 'success', $articles);
+        return $this->ApiResponse(200, 'success', $articles);
     }
 
 
@@ -34,7 +35,7 @@ class ArticleController extends Controller
           $imgName = Str::random(50).'.'. $img->extension();
           $url = $img->move(public_path('uploads/articles'), $imgName); 
            $image = 'uploads/articles/'.$imgName ;
-        }else{ $image = null}
+        }else{ $image = null;}
        Article::create([
             'title' =>  $request->title,
             'shortDescription' => $request->info,
@@ -61,7 +62,7 @@ class ArticleController extends Controller
             $imgName = Str::random(50).'.'. $img->extension();
             $url = $img->move(public_path('uploads/articles'), $imgName); 
             $image = 'uploads/articles/'.$imgName ;
-        }else{ $image = null}
+        }else{ $image = null;}
         Article::find($id)->update([
            'title' =>  $request->title,
             'shortDescription' => $request->info,
