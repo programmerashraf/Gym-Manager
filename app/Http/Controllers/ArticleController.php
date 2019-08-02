@@ -37,12 +37,7 @@ class ArticleController extends Controller
           $imgName = Str::random(50).'.'. $img->extension();
           $url = $img->move(public_path('uploads/articles'), $imgName); 
            $image = 'uploads/articles/'.$imgName ;
-<<<<<<< HEAD
-        }else{ $image = null;}
-
-=======
         }
->>>>>>> 2dfe78ccbbda92899b2af8b06250bea872fd0ec2
        Article::create([
             'title' =>  $request->article['title'],
             'shortDescription' => $request->article['info'],
