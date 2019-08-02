@@ -63,14 +63,14 @@
    
     <!-- Bootstrap WYSIHTML5 -->
     <script src="{{ asset('Admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"></script>
-<<<<<<< HEAD
+
       <script>
          var token = '<?php echo csrf_token() ?>';
       </script>
-=======
+
     
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
->>>>>>> 661d311da2e1279b14f4b79daa9681fe0a627ce9
+
 </html>
