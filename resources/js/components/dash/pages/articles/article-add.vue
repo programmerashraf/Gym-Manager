@@ -9,8 +9,8 @@
 				</div>
 
 				<div class="input-group col-xs-5">
-					<label for="articleName">Article image</label>
-                    <input type="file" accept="image/*" id="imges">
+					<label for="articleimage">Article image</label>
+                    <input type="file" id="img" accept="image/*" @change="get_image($event)">
 				</div>
 
 				<div class="form-group col-xs-6">
@@ -20,7 +20,7 @@
 				</div>
 
 				<div class="col-md-12 box">
-					<div class="box" @click="get_body($event)">
+					<div class="box">
 						<div class="box-header">
 							<h3 class="box-title">Article body</h3>
 						</div>
@@ -31,6 +31,7 @@
 									style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
 							</form>
 						</div>
+                        <button class="btn btn-primary" @click="get_body">Done</button>
 					</div>
 				</div>
 				<!-- /.col-->
@@ -43,15 +44,15 @@
         </div>
         <!-- /.content-wrapper -->
 
-        <button class="btn btn-warning" @click="perview=!perview">Preview</button>
+        <!-- <button class="btn btn-warning" @click="perview=!perview">Preview</button> -->
         <button class="btn btn-success" @click="sendArticle">Done</button>
 
-     <div class="row" v-if="perview">
+     <!-- <div class="row" v-if="perview">
         <div class="container">
             <div class="preview">
 
                 <div class="article-thumb col-xs-2">
-                    <img :src="article.img" class="img-responsive" alt="img">
+                    <image :src="article.image" class="image-responsive" alt="image">
                 </div>
                 <div class="article-info col-xs-10">
                     <h1>{{ article.title }}</h1>
@@ -62,7 +63,7 @@
 
             </div>
         </div>
-    </div> 
+    </div>  -->
 </div>
 
 </template>
@@ -118,27 +119,29 @@ import Axios from 'axios';
             }
         },
         methods: {
-            Upload_img(e) {
-                this.article.img = e.target.value
+            get_body(){
+                console.log($('.mohammed').val());
+                this.article.body = String($('.mohammed').val())
+            },
+            get_image(e){
+
+                let fileReader = new FileReader();
+
+                fileReader.readAsDataURL(e.target.files[0]);
+
+                fileReader.onload = (e) => {
+                    this.article.img = e.target.result;
+                }
+
             },
             sendArticle() {
-                this.article.img = $('#imges').val();
+                 Axios.post('/addArticle', {
 
-                Axios.post('/addArticle', {
-                    article: this.article
-                }).then(res => console.log(res)).catch(err => console.log(err))
+                    article: this.article,
+
+                 }).then(res => console.log(res)).catch(err => console.log(err))
             },
-            get_body(e) {
-				let text = $('.mohammed').val();
-				this.article.body = text;
-            },
-            deleteUser(e){
-                axios.post('/deleteUser', {
-                    id: $(e.target).parents('tr').first().children()[0].innerText,
-                    _token: this.csrf
-                })
-                .then( res => {console.log(res)}).catch( err => console.log( err.message ) )
-            }
+           
         },
         mounted() {
             //bootstrap WYSIHTML5 - text editor

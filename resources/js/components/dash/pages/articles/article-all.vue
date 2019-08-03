@@ -136,12 +136,7 @@
         },
         mounted() {
             axios.get('/articles').then(res => {
-
-
-                res.data.data.forEach(article => {
-                    this.rows.push(article)
-                });
-
+                console.log(res);
             }).catch(err => err.message);
         }
     }

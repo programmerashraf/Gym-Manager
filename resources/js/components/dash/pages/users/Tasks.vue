@@ -22,7 +22,7 @@
                     <div class="day">
                         <h1>Saturday</h1>
                         <ol>
-                            <li :key="taskc" v-for="taskc in User_tasks_1.lists ">{{ taskc }}</li>
+                            <li :key="taskc" @click="remove($event)" v-for="taskc in User_tasks_1.lists ">{{ taskc }}</li>
                         </ol>
                     </div>
                 </div>
@@ -164,6 +164,7 @@ export default {
         }
     },
     computed:{
+        
         User_tasks_1(){
             return this.$store.state.tasks[0]   
         },
@@ -180,21 +181,26 @@ export default {
             return this.$store.state.tasks[4]   
         },
         User_tasks_6(){
-            return this.$store.state.tasks[5]   
+            return this.$store.state.tasks[5]
         },
     },
     methods:{
+        remove(e){
+            console.log(e.target)
+        },
         add_task(event, list){
             this.$store.state.tasks[list].lists.push(event.target.value)
         },
         send(){
-            Axios.post('/addExercises', {
+            Axios.post('/addExerciese', {
                 tasks: this.$store.state.tasks
             })
         }
     },
     mounted(){
-        console.log(this.$store.state.tasks[0].lists)
+        Axios.get('/exercieses').then(res => console.log(res));
+
+        // console.log(this.$store.state.tasks[0].lists)
     }
 }
 </script>

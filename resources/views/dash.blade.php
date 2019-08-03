@@ -36,7 +36,7 @@
     <title>Admin Panel</title>
 </head>
 <body class="hold-transition skin-blue sidebar-mini wysihtml5-supported">
-ff{{auth()->user()}}
+
     <div id="admin">
         <admin></admin>
     </div>
