@@ -2684,19 +2684,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(axios__WEBPACK_IMPORTED_MODULE_1___default.a);
@@ -2998,116 +2985,49 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      lists: [{
+        day: 'Saturday',
+        listsq: ['Some thing98', 'Some thing15', 'Some thing1']
+      }],
       one: true,
-      two: true,
+      two: false,
       three: false,
       four: false,
       five: false,
       six: false
     };
   },
-  computed: {
-    User_tasks_1: function User_tasks_1() {
-      return this.$store.state.tasks[0];
-    },
-    User_tasks_2: function User_tasks_2() {
-      return this.$store.state.tasks[1];
-    },
-    User_tasks_3: function User_tasks_3() {
-      return this.$store.state.tasks[2];
-    },
-    User_tasks_4: function User_tasks_4() {
-      return this.$store.state.tasks[3];
-    },
-    User_tasks_5: function User_tasks_5() {
-      return this.$store.state.tasks[4];
-    },
-    User_tasks_6: function User_tasks_6() {
-      return this.$store.state.tasks[5];
-    }
-  },
   methods: {
-    remove: function remove(e) {
-      console.log(e.target);
+    get: function get() {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/exercieses').then(function (res) {
+        return console.log(res);
+      })["catch"](function (err) {
+        return console.log(err);
+      });
     },
-    add_task: function add_task(event, list) {
-      this.$store.state.tasks[list].lists.push(event.target.value);
-    },
-    send: function send() {
+    add: function add() {
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/addExerciese', {
-        tasks: this.$store.state.tasks
+        tasks: {
+          day: 0,
+          lists: ['Some thing98', 'Some thing15', 'Some thing1']
+        }
+      }).then(function (res) {
+        return console.log(res);
+      })["catch"](function (err) {
+        return console.log(err);
       });
     }
   },
   mounted: function mounted() {
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/exercieses').then(function (res) {
       return console.log(res);
-    }); // console.log(this.$store.state.tasks[0].lists)
+    })["catch"](function (err) {
+      return console.log(err);
+    });
   }
 });
 
@@ -3268,12 +3188,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -3947,7 +3861,7 @@ exports.push([module.i, ".preview {\n  margin-top: 20px;\n  border-radius: 20px;
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, ".table th[data-v-57fe7405] {\n  background-color: #3c8dbc;\n  color: white;\n  transition: all 0.4s ease;\n  cursor: pointer;\n}\n.table th[data-v-57fe7405]:hover {\n  background-color: #226e9b;\n}\n.table th .arrow[data-v-57fe7405] {\n  color: white;\n  float: right;\n}\n.pagination li[data-v-57fe7405] {\n  background-color: #3c8dbc;\n  color: white;\n  transition: all 0.4s ease;\n  cursor: pointer;\n  padding: 10px;\n  margin-left: 10px;\n}\n.pagination li.active[data-v-57fe7405], .pagination li[data-v-57fe7405]:hover {\n  background-color: #226e9b;\n}", ""]);
+exports.push([module.i, ".pagination li[data-v-57fe7405] {\n  background-color: #3c8dbc;\n  color: white;\n  transition: all 0.4s ease;\n  cursor: pointer;\n  padding: 10px;\n  margin-left: 10px;\n}\n.pagination li.active[data-v-57fe7405], .pagination li[data-v-57fe7405]:hover {\n  background-color: #226e9b;\n}", ""]);
 
 
 /***/ }),
@@ -3975,7 +3889,7 @@ exports.push([module.i, "#login[data-v-54fc882c] {\n  position: fixed;\n  width:
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, ".buttons[data-v-51c9d3ac] {\n  margin-bottom: 20px;\n}\n.days[data-v-51c9d3ac] {\n  background-color: #222d32;\n  padding: 10px;\n}\n.days .day[data-v-51c9d3ac] {\n  margin-bottom: 10px;\n  background-color: #fff;\n  border-radius: 10px;\n  text-align: center;\n  padding: 10px;\n  box-shadow: 0px 0px 25px 3px rgba(0, 0, 0, 0.44);\n}\n.days .day h1[data-v-51c9d3ac] {\n  margin-bottom: 10px;\n}\n.inputs[data-v-51c9d3ac] {\n  margin-top: 20px;\n}", ""]);
+exports.push([module.i, ".buttons[data-v-51c9d3ac] {\n  margin-bottom: 20px;\n}\n.days[data-v-51c9d3ac] {\n  background-color: #222d32;\n  padding: 10px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.days .day[data-v-51c9d3ac] {\n  background-color: #fff;\n  padding: 10px;\n  border-radius: 20px;\n}\n.days .day ul[data-v-51c9d3ac] {\n  padding: 0;\n}\n.days .day ul li[data-v-51c9d3ac] {\n  padding: 10px;\n  transition: all 0.4s ease;\n}\n.days .day ul li[data-v-51c9d3ac]:hover {\n  background-color: tomato;\n}\n.days .day ul li .buttonss[data-v-51c9d3ac] {\n  float: right;\n}\n.days .day ul li .buttonss[data-v-51c9d3ac]::after {\n  content: \"\";\n  display: block;\n  clear: both;\n}\n.inputs[data-v-51c9d3ac] {\n  margin-top: 20px;\n}", ""]);
 
 
 /***/ }),
@@ -3989,7 +3903,7 @@ exports.push([module.i, ".buttons[data-v-51c9d3ac] {\n  margin-bottom: 20px;\n}\
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, ".table th[data-v-51930613] {\n  background-color: #3c8dbc;\n  color: white;\n  transition: all 0.4s ease;\n  cursor: pointer;\n}\n.table th[data-v-51930613]:hover {\n  background-color: #226e9b;\n}\n.table th .arrow[data-v-51930613] {\n  color: white;\n  float: right;\n}\n.pagination li[data-v-51930613] {\n  background-color: #3c8dbc;\n  color: white;\n  transition: all 0.4s ease;\n  cursor: pointer;\n  padding: 10px;\n  margin-left: 10px;\n}\n.pagination li.active[data-v-51930613], .pagination li[data-v-51930613]:hover {\n  background-color: #226e9b;\n}", ""]);
+exports.push([module.i, "@media (max-width: 426px) {\n.table > tbody > tr > td[data-v-51930613], .table > tbody > tr > th[data-v-51930613], .table > tfoot > tr > td[data-v-51930613], .table > tfoot > tr > th[data-v-51930613], .table > thead > tr > td[data-v-51930613], .table > thead > tr > th[data-v-51930613] {\n    padding: 0;\n    border-right: 1px solid #ddd;\n}\n}\n.pagination li[data-v-51930613] {\n  background-color: #3c8dbc;\n  color: white;\n  transition: all 0.4s ease;\n  cursor: pointer;\n  padding: 10px;\n  margin-left: 10px;\n}\n.pagination li.active[data-v-51930613], .pagination li[data-v-51930613]:hover {\n  background-color: #226e9b;\n}", ""]);
 
 
 /***/ }),
@@ -8040,10 +7954,10 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { attrs: { id: "ArticlesTable" } }, [
-      _c("table", { staticClass: "table table-hover" }, [
+    _c("div", { staticClass: "panel panel-default" }, [
+      _c("div", { staticClass: "panel-heading" }, [_vm._v("All Articles")]),
+      _vm._v(" "),
+      _c("table", { staticClass: "table" }, [
         _c("thead", [
           _c(
             "tr",
@@ -8060,7 +7974,11 @@ var render = function() {
                     }
                   },
                   [
-                    _vm._v(_vm._s(col) + "\n                        "),
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(col) +
+                        "\n                        "
+                    ),
                     col == _vm.sortColumn
                       ? _c("i", {
                           staticClass: "arrow",
@@ -8092,65 +8010,81 @@ var render = function() {
                   return _c("td", { key: index }, [_vm._v(_vm._s(row[col]))])
                 }),
                 _vm._v(" "),
-                _vm._m(1, true)
+                _c("td", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-success",
+                      attrs: { title: "Edit user" },
+                      on: {
+                        click: function($event) {
+                          return _vm.change_component($event, "userEdit")
+                        }
+                      }
+                    },
+                    [_c("i", { staticClass: "fas fa-edit" })]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger",
+                      attrs: { title: "Delete user" },
+                      on: {
+                        click: function($event) {
+                          return _vm.deleteUser($event)
+                        }
+                      }
+                    },
+                    [_c("i", { staticClass: "fas fa-user-minus" })]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-warning",
+                      attrs: { title: "Add tasks" },
+                      on: {
+                        click: function($event) {
+                          return _vm.change_component($event, "tasks")
+                        }
+                      }
+                    },
+                    [_c("i", { staticClass: "fas fa-plus" })]
+                  )
+                ])
               ],
               2
             )
           }),
           0
         )
-      ]),
-      _vm._v(" "),
-      _c(
-        "ul",
-        { staticClass: "pagination" },
-        _vm._l(_vm.num_pages(), function(i) {
-          return _c(
-            "li",
-            {
-              key: i,
-              class: [i == _vm.currentPage ? "active" : ""],
-              on: {
-                click: function($event) {
-                  return _vm.change_page(i)
-                }
+      ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "ul",
+      { staticClass: "pagination" },
+      _vm._l(_vm.num_pages(), function(i) {
+        return _c(
+          "li",
+          {
+            key: i,
+            class: [i == _vm.currentPage ? "active" : ""],
+            on: {
+              click: function($event) {
+                return _vm.change_page(i)
               }
-            },
-            [_vm._v(_vm._s(i))]
-          )
-        }),
-        0
-      )
-    ])
+            }
+          },
+          [_vm._v(_vm._s(i))]
+        )
+      }),
+      0
+    )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "content-header" }, [
-      _c("h1", [
-        _vm._v("\n            Article\n            "),
-        _c("small", [_vm._v("all")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("button", { staticClass: "btn btn-danger" }, [
-        _c("i", { staticClass: "fas fa-user-minus" })
-      ]),
-      _vm._v(" "),
-      _c("button", { staticClass: "btn btn-warning" }, [
-        _c("i", { staticClass: "fas fa-edit" })
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -8537,219 +8471,44 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "days" }, [
-      _c("div", { staticClass: "row" }, [
-        _vm.one
-          ? _c("div", { staticClass: "col-xs-6 col-md-4 col-lg-3" }, [
-              _c("div", { staticClass: "day" }, [
-                _c("h1", [_vm._v("Saturday")]),
-                _vm._v(" "),
-                _c(
-                  "ol",
-                  _vm._l(_vm.User_tasks_1.lists, function(taskc) {
-                    return _c(
-                      "li",
-                      {
-                        key: taskc,
-                        on: {
-                          click: function($event) {
-                            return _vm.remove($event)
-                          }
-                        }
-                      },
-                      [_vm._v(_vm._s(taskc))]
-                    )
-                  }),
-                  0
-                )
-              ])
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.two
-          ? _c("div", { staticClass: "col-xs-6 col-md-4 col-lg-3" }, [
-              _c("div", { staticClass: "day" }, [
-                _c("h1", [_vm._v("Sunday")]),
-                _vm._v(" "),
-                _c(
-                  "ol",
-                  _vm._l(_vm.User_tasks_2.lists, function(taskc) {
-                    return _c("li", { key: taskc }, [_vm._v(_vm._s(taskc))])
-                  }),
-                  0
-                )
-              ])
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.three
-          ? _c("div", { staticClass: "col-xs-6 col-md-4 col-lg-3" }, [
-              _c("div", { staticClass: "day" }, [
-                _c("h1", [_vm._v("Monday")]),
-                _vm._v(" "),
-                _c(
-                  "ol",
-                  _vm._l(_vm.User_tasks_3.lists, function(taskc) {
-                    return _c("li", { key: taskc }, [_vm._v(_vm._s(taskc))])
-                  }),
-                  0
-                )
-              ])
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.four
-          ? _c("div", { staticClass: "col-xs-6 col-md-4 col-lg-3" }, [
-              _c("div", { staticClass: "day" }, [
-                _c("h1", [_vm._v("Tuesday")]),
-                _vm._v(" "),
-                _c(
-                  "ol",
-                  _vm._l(_vm.User_tasks_4.lists, function(taskc) {
-                    return _c("li", { key: taskc }, [_vm._v(_vm._s(taskc))])
-                  }),
-                  0
-                )
-              ])
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.five
-          ? _c("div", { staticClass: "col-xs-6 col-md-4 col-lg-3" }, [
-              _c("div", { staticClass: "day" }, [
-                _c("h1", [_vm._v("Wednesday")]),
-                _vm._v(" "),
-                _c(
-                  "ol",
-                  _vm._l(_vm.User_tasks_5.lists, function(taskc) {
-                    return _c("li", { key: taskc }, [_vm._v(_vm._s(taskc))])
-                  }),
-                  0
-                )
-              ])
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.six
-          ? _c("div", { staticClass: "col-xs-6 col-md-4 col-lg-3" }, [
-              _c("div", { staticClass: "day" }, [
-                _c("h1", [_vm._v("Thursday")]),
-                _vm._v(" "),
-                _c(
-                  "ol",
-                  _vm._l(_vm.User_tasks_6.lists, function(taskc) {
-                    return _c("li", { key: taskc }, [_vm._v(_vm._s(taskc))])
-                  }),
-                  0
-                )
-              ])
-            ])
-          : _vm._e()
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "inputs" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-lg-6" }, [
-          _c("label", { attrs: { for: "one" } }, [_vm._v("Saturday")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "input-group" }, [
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", id: "one", placeholder: "Add Task" },
-              on: {
-                change: function($event) {
-                  return _vm.add_task($event, 0)
-                }
-              }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-6" }, [
-          _c("label", { attrs: { for: "one" } }, [_vm._v("Sunday")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "input-group" }, [
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", id: "one", placeholder: "Add Task" },
-              on: {
-                change: function($event) {
-                  return _vm.add_task($event, 1)
-                }
-              }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-6" }, [
-          _c("label", { attrs: { for: "one" } }, [_vm._v("Monday")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "input-group" }, [
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", id: "one", placeholder: "Add Task" },
-              on: {
-                change: function($event) {
-                  return _vm.add_task($event, 2)
-                }
-              }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-6" }, [
-          _c("label", { attrs: { for: "one" } }, [_vm._v("Tuesday")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "input-group" }, [
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", id: "one", placeholder: "Add Task" },
-              on: {
-                change: function($event) {
-                  return _vm.add_task($event, 3)
-                }
-              }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-6" }, [
-          _c("label", { attrs: { for: "one" } }, [_vm._v("Wednesday")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "input-group" }, [
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", id: "one", placeholder: "Add Task" },
-              on: {
-                change: function($event) {
-                  return _vm.add_task($event, 4)
-                }
-              }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-6" }, [
-          _c("label", { attrs: { for: "one" } }, [_vm._v("Thursday")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "input-group" }, [
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", id: "one", placeholder: "Add Task" },
-              on: {
-                change: function($event) {
-                  return _vm.add_task($event, 5)
-                }
-              }
-            })
-          ])
-        ]),
+    _c("div", { staticClass: "days container" }, [
+      _c("div", { staticClass: "day col-xs-12" }, [
+        _c("h1", [_vm._v(_vm._s(_vm.lists[0].day))]),
         _vm._v(" "),
         _c(
-          "button",
-          { staticClass: "btn btn-default", on: { click: _vm.send } },
-          [_vm._v("Submit")]
+          "ul",
+          { staticClass: "list-unstyled" },
+          _vm._l(_vm.lists[0].listsq, function(item, index) {
+            return _c("li", { key: index }, [
+              _vm._v(
+                "\n                    " +
+                  _vm._s(item) +
+                  "\n\n                    "
+              ),
+              _c("div", { staticClass: "buttonss" }, [
+                _c(
+                  "button",
+                  { staticClass: "btn btn-success", on: { click: _vm.get } },
+                  [
+                    _vm._v(
+                      "\n                            get\n                        "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn btn-danger", on: { click: _vm.add } },
+                  [
+                    _vm._v(
+                      "\n                            add\n                        "
+                    )
+                  ]
+                )
+              ])
+            ])
+          }),
+          0
         )
       ])
     ])
@@ -9006,10 +8765,10 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { attrs: { id: "userTable" } }, [
-      _c("table", { staticClass: "table table-hover" }, [
+    _c("div", { staticClass: "panel panel-default" }, [
+      _c("div", { staticClass: "panel-heading" }, [_vm._v("All Users")]),
+      _vm._v(" "),
+      _c("table", { staticClass: "table" }, [
         _c("thead", [
           _c(
             "tr",
@@ -9026,7 +8785,11 @@ var render = function() {
                     }
                   },
                   [
-                    _vm._v(_vm._s(col) + "\n                        "),
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(col) +
+                        "\n                        "
+                    ),
                     col == _vm.sortColumn
                       ? _c("i", {
                           staticClass: "arrow",
@@ -9107,44 +8870,32 @@ var render = function() {
           }),
           0
         )
-      ]),
-      _vm._v(" "),
-      _c(
-        "ul",
-        { staticClass: "pagination" },
-        _vm._l(_vm.num_pages(), function(i) {
-          return _c(
-            "li",
-            {
-              key: i,
-              class: [i == _vm.currentPage ? "active" : ""],
-              on: {
-                click: function($event) {
-                  return _vm.change_page(i)
-                }
+      ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "ul",
+      { staticClass: "pagination" },
+      _vm._l(_vm.num_pages(), function(i) {
+        return _c(
+          "li",
+          {
+            key: i,
+            class: [i == _vm.currentPage ? "active" : ""],
+            on: {
+              click: function($event) {
+                return _vm.change_page(i)
               }
-            },
-            [_vm._v(_vm._s(i))]
-          )
-        }),
-        0
-      )
-    ])
+            }
+          },
+          [_vm._v(_vm._s(i))]
+        )
+      }),
+      0
+    )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "content-header" }, [
-      _c("h1", [
-        _vm._v("\n            User\n            "),
-        _c("small", [_vm._v("all")])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -27789,7 +27540,7 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
     loged: false,
     // Start Admin Panel
     AdminPanel: {
-      currentPage: 'articleAdd',
+      currentPage: 'userAll',
       loged: false,
       token: '',
       userEdit: {}

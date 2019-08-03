@@ -20,7 +20,7 @@ export const store = new Vuex.Store({
         loged: false,
         // Start Admin Panel
         AdminPanel: {
-            currentPage: 'articleAdd',
+            currentPage: 'userAll',
             loged: false,
             token: '',
             userEdit: {}
