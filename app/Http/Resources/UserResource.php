@@ -21,10 +21,7 @@ class UserResource extends JsonResource
             "email" => $this->email,
             "admin" => $this->admin,
             'start' => $this->start,
-            'end'   => $this->end,
-            'token' => $this->api_token
-        
-           
+            'end'   => $this->end
         ];
     }
 }

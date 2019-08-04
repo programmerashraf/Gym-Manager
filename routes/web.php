@@ -20,7 +20,7 @@ Route::get('dash', function () {
 });
 
 
-Route::group(["middleware"=>"web"], function (){
+Route::group(["middleware"=>"auth"], function (){
 	// articles
 	Route::name('articles')->get('articles', 'ArticleController@index');
 	Route::name('addArticle')->post('addArticle', 'ArticleController@store');
@@ -30,7 +30,7 @@ Route::group(["middleware"=>"web"], function (){
 	// exerciese
 	Route::name('exercieses')->get('exerciese/{id}', ' ExerciseController@index');
 	Route::name('addExerciese')->post('addExerciese', ' ExerciseController@store');
-	Route::name('editExerciese')->put('editExerciese/{id}', ' ExerciseController@update');
-	Route::name('deleteExerciese')->delete('deleteExerciese/{id}', ' ExerciseController@destroy');
+	Route::name('editExerciese')->put('editExerciese/{id}', 'ExerciseController@update');
+	Route::name('deleteExerciese')->delete('deleteExerciese/{id}', 'ExerciseController@destroy');
 
  });
