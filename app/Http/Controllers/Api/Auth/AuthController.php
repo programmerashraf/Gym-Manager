@@ -29,33 +29,28 @@ class AuthController extends Controller
                 "name"=> $request->name,
                 "email"=> $request->email,
                 "password"=> $request->password,
-                'api_token' => Str::random(60),
                 'start'=> $start,
-                'end'=> $end,
+                'end'=> $end
                 
             ]);
-        //$token = $user->]('token')->accessToken;
+        $token = $user->createToken('Token')->accessToken;
+       
         return $this->ApiResponse(200, "تم الستجيل بنجاح", [
             "user" => new UserResource($user),
-           
+            "token" => $token
         ]);
     }
 
     public function login(ApiLoginRequest $request){
-
         if (auth()->attempt($request->only('email','password'))){
 
         return $this->ApiResponse(200, "تم تسجيل الدخول بنجاح", [
           "user" =>   new UserResource(auth()->user()),
-            
+          "token" => auth()->user()->createToken('Token')->accessToken
             ]);
           }
 
-            return $this->ApiResponse(404, "يرجي التحقق من بيانات الدخول");
-   
-
-       
-      
+        return $this->ApiResponse(404, "يرجي التحقق من بيانات الدخول");
     }
 
 }
