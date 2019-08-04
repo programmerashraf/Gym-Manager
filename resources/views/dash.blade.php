@@ -36,6 +36,10 @@
     <title>Admin Panel</title>
 </head>
 <body class="hold-transition skin-blue sidebar-mini wysihtml5-supported">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 662b86df2ed2392d3ee50606bd3ecb70acd2a459
     <div id="admin">
         <admin></admin>
     </div>

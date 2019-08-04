@@ -20,7 +20,7 @@ export const store = new Vuex.Store({
         loged: false,
         // Start Admin Panel
         AdminPanel: {
-            currentPage: 'articleAdd',
+            currentPage: 'userAll',
             loged: false,
             token: '',
             userEdit: {}
@@ -108,9 +108,13 @@ export const store = new Vuex.Store({
         subscriptionDateEnd: (state, payload) => {
             state.user.subscription.end = payload
         },
-        // Edit_Navbar: (state, payload) => {
-        //     state.sections.Navbar.
-        // }
+        Edit_Navbar: (state, payload, value) => {
+            if( payload == 'text'){
+                state.sections.Navbar.logo.name == value
+            } else if (payload == 'bgcolor'){
+                state.sections.Navbar.colors.background == value
+            }
+        }
     },
     getters: {
         article: (state) => (id) => {

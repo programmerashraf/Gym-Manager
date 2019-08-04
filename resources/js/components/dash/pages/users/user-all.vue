@@ -1,16 +1,15 @@
 <template>
-    <div>
-        <section class="content-header">
-            <h1>
-                User
-                <small>all</small>
-            </h1>
-        </section>
-        <div id="userTable">
-            <table class="table table-hover">
+    <div>        
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">All Users</div>
+
+            <!-- Table -->
+            <table class="table">
                 <thead>
                     <tr>
-                        <th v-bind:key="index" v-for="(col, index) in columns" v-on:click="sortTable(col)">{{col}}
+                        <th v-bind:key="index" v-for="(col, index) in columns" v-on:click="sortTable(col)">
+                            {{col}}
                             <i class="arrow" v-if="col == sortColumn"
                                 v-bind:class="[ascending ? 'fas fa-sort-down' : 'fas fa-sort-up']"></i>
                         </th>
@@ -21,43 +20,38 @@
                     <tr v-bind:key="index" v-for="(row, index) in get_rows()">
                         <td v-bind:key="index" v-for="(col, index) in columns">{{row[col]}}</td>
                         <td>
-                            <button class="btn btn-success"  title="Edit user" @click="change_component($event, 'userEdit')"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-success" title="Edit user"
+                                @click="change_component($event, 'userEdit')"><i
+                                    class="fas fa-edit"></i></button>
 
-                            <button class="btn btn-danger" title="Delete user"  @click="deleteUser($event)" ><i class="fas fa-user-minus"></i></button>
-                            <button class="btn btn-warning" title="Add tasks" @click="change_component($event, 'tasks')"><i class="fas fa-plus"></i></button>
+                            <button class="btn btn-danger" title="Delete user"
+                                @click="deleteUser($event)"><i class="fas fa-user-minus"></i></button>
+                            <button class="btn btn-warning" title="Add tasks"
+                                @click="change_component($event, 'tasks')"><i
+                                    class="fas fa-plus"></i></button>
                         </td>
                     </tr>
                 </tbody>
             </table>
-
-            <ul class="pagination">
-                <li :key="i" v-for="i in num_pages()" v-bind:class="[i == currentPage ? 'active' : '']"
-                    v-on:click="change_page(i)">{{i}}</li>
-            </ul>
-
         </div>
+
+        <ul class="pagination">
+            <li :key="i" v-for="i in num_pages()" v-bind:class="[i == currentPage ? 'active' : '']"
+                v-on:click="change_page(i)">{{i}}</li>
+        </ul>
+
     </div>
 </template>
 
 <style lang="scss" scoped>
-    .table {
-        th {
-            background-color: #3c8dbc;
-            color: white;
-            transition: all 0.4s ease;
-            cursor: pointer;
+    
+    @media(max-width: 426px){
 
-            &:hover {
-                background-color: #226e9b;
-            }
-
-            .arrow {
-                color: white;
-                float: right;
-            }
+        .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+            padding: 0;
+            border-right: 1px solid #ddd;
         }
     }
-
     .pagination {
         li {
             background-color: #3c8dbc;
@@ -142,12 +136,14 @@
 
                 this.$store.commit('change_current_page', payload);
             },
-            deleteUser(e){
+            deleteUser(e) {
                 axios.post('/deleteUser', {
-                    id: $(e.target).parents('tr').first().children()[0].innerText,
-                    _token: this.csrf
-                })
-                .then( res => {console.log(res)}).catch( err => console.log( err.message ) )
+                        id: $(e.target).parents('tr').first().children()[0].innerText,
+                        _token: this.csrf
+                    })
+                    .then(res => {
+                        console.log(res)
+                    }).catch(err => console.log(err.message))
             }
         },
         computed: {
