@@ -110,6 +110,7 @@ import Axios from 'axios';
         data() {
             return {
                 perview: false,
+                csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
                 article: {
                     img: '',
                     title: '',
@@ -136,7 +137,7 @@ import Axios from 'axios';
             },
             sendArticle() {
                  Axios.post('/addArticle', {
-
+                    _token: this.csrf,
                     article: this.article,
 
                  }).then(res => console.log(res)).catch(err => console.log(err))

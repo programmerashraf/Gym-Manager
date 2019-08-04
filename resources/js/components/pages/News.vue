@@ -2,10 +2,12 @@
     <div id="news">
         <Nav2></Nav2>
         <div class="jumbotron mt-5 pb0">
-            <h1 class="display-6 text-right">المقالات</h1>
+            <div class="container">
+                <h1 class="display-6 text-right">المقالات</h1>
+            </div>
         </div>
         <div class="container">
-            <div class="preview d-flex row mb-3" :key="article.id" v-for="article in get_articles">
+            <div class="preview d-flex row mb-5" :key="article.id" v-for="article in get_articles">
 
 					<div class="article-info col-8">
 						<h1>{{ article.title }}</h1>
@@ -50,6 +52,11 @@ export default {
 #news{
     text-align: right
 }
+.jumbotron{
+    background-color: rgb(242, 58, 46);
+    color: white;
+}
+
 .preview{
 	border-radius: 20px;
 	overflow: hidden;
@@ -59,7 +66,13 @@ export default {
 	-moz-box-shadow: 7px -2px 17px 0px rgba(0,0,0,0.41);
 	box-shadow: 0px -2px 17px 0px rgba(0,0,0,0.41);
 
+    
+    &:hover .article-thumb{
+        transform: scale(1.1)
+    }
+
     .article-thumb {
+        transition: all 0.4s ease;
         padding: 0;
         margin: 0
     }

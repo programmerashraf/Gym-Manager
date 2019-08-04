@@ -2,19 +2,24 @@
     <div id="article">
         <Navabr3/>
             
-            <div class="row">
-                <div class="col-8">
-                    <h1>
-                        {{ article[0].title }} 
-                    </h1>
-                    
-                    <div class="article-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-8">
+                        
+                        <div class="img"><img :src="article[0].img" alt="" class="img-fliud"></div>
+
+                        <h1>
+                            {{ article[0].title }} 
+                        </h1>
+                        
+                        <div class="article-body">
+                            
+                        </div>
+                    </div>
+
+                    <div class="col-4">
                         
                     </div>
-                </div>
-
-                <div class="col-4">
-
                 </div>
             </div>
 
@@ -49,3 +54,9 @@ export default {
 }
 </script>
 
+<style>
+    #article{
+        direction: rtl;
+        text-align: right;
+    }
+</style>

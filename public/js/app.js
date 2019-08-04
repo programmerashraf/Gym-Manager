@@ -2564,6 +2564,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       perview: false,
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
       article: {
         img: '',
         title: '',
@@ -2589,6 +2590,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     sendArticle: function sendArticle() {
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/addArticle', {
+        _token: this.csrf,
         article: this.article
       }).then(function (res) {
         return console.log(res);
@@ -3559,6 +3561,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3628,6 +3632,11 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _blocks_Nav__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../blocks/Nav */ "./resources/js/components/blocks/Nav.vue");
 /* harmony import */ var _blocks_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../blocks/Footer */ "./resources/js/components/blocks/Footer.vue");
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3917,7 +3926,7 @@ exports.push([module.i, "@media (max-width: 426px) {\n.table > tbody > tr > td[d
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, "#news[data-v-1b491be9] {\n  text-align: right;\n}\n.preview[data-v-1b491be9] {\n  border-radius: 20px;\n  overflow: hidden;\n  background-color: #FFF;\n  max-height: 200px;\n  box-shadow: 0px -2px 17px 0px rgba(0, 0, 0, 0.41);\n}\n.preview .article-thumb[data-v-1b491be9] {\n  padding: 0;\n  margin: 0;\n}\n.preview .article-info button[data-v-1b491be9] {\n  float: right;\n}", ""]);
+exports.push([module.i, "#news[data-v-1b491be9] {\n  text-align: right;\n}\n.jumbotron[data-v-1b491be9] {\n  background-color: #f23a2e;\n  color: white;\n}\n.preview[data-v-1b491be9] {\n  border-radius: 20px;\n  overflow: hidden;\n  background-color: #FFF;\n  max-height: 200px;\n  box-shadow: 0px -2px 17px 0px rgba(0, 0, 0, 0.41);\n}\n.preview:hover .article-thumb[data-v-1b491be9] {\n  transform: scale(1.1);\n}\n.preview .article-thumb[data-v-1b491be9] {\n  transition: all 0.4s ease;\n  padding: 0;\n  margin: 0;\n}\n.preview .article-info button[data-v-1b491be9] {\n  float: right;\n}", ""]);
 
 
 /***/ }),
@@ -3974,6 +3983,20 @@ exports.push([module.i, "\n.form-group[data-v-437b8513]{\r\n    max-width: 500px
 exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
 exports.push([module.i, "\n.form-group[data-v-508876f0]{\r\n    max-width: 500px;\n}\n.box-footer[data-v-508876f0]{\r\n    display: flex;\r\n    align-items: center\n}\r\n", ""]);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/articles.vue?vue&type=style&index=0&lang=css&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/articles.vue?vue&type=style&index=0&lang=css& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
+// Module
+exports.push([module.i, "\n#article{\n    direction: rtl;\n    text-align: right;\n}\n", ""]);
 
 
 /***/ }),
@@ -5149,6 +5172,36 @@ options.transform = transform
 options.insertInto = undefined;
 
 var update = __webpack_require__(/*! ../../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/dist/cjs.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/articles.vue?vue&type=style&index=0&lang=css&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader/dist/cjs.js??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/articles.vue?vue&type=style&index=0&lang=css& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./articles.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/articles.vue?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -9166,7 +9219,7 @@ var render = function() {
         _vm._l(_vm.get_articles, function(article) {
           return _c(
             "div",
-            { key: article.id, staticClass: "preview d-flex row mb-3" },
+            { key: article.id, staticClass: "preview d-flex row mb-5" },
             [
               _c(
                 "div",
@@ -9211,7 +9264,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "jumbotron mt-5 pb0" }, [
-      _c("h1", { staticClass: "display-6 text-right" }, [_vm._v("المقالات")])
+      _c("div", { staticClass: "container" }, [
+        _c("h1", { staticClass: "display-6 text-right" }, [_vm._v("المقالات")])
+      ])
     ])
   }
 ]
@@ -9278,20 +9333,29 @@ var render = function() {
     [
       _c("Navabr3"),
       _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-8" }, [
-          _c("h1", [
-            _vm._v(
-              "\n                    " +
-                _vm._s(_vm.article[0].title) +
-                " \n                "
-            )
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-8" }, [
+            _c("div", { staticClass: "img" }, [
+              _c("img", {
+                staticClass: "img-fliud",
+                attrs: { src: _vm.article[0].img, alt: "" }
+              })
+            ]),
+            _vm._v(" "),
+            _c("h1", [
+              _vm._v(
+                "\n                        " +
+                  _vm._s(_vm.article[0].title) +
+                  " \n                    "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "article-body" })
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "article-body" })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-4" })
+          _c("div", { staticClass: "col-4" })
+        ])
       ]),
       _vm._v(" "),
       _c("Footer3")
@@ -27449,7 +27513,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _articles_vue_vue_type_template_id_aeedc99a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./articles.vue?vue&type=template&id=aeedc99a& */ "./resources/js/components/pages/articles.vue?vue&type=template&id=aeedc99a&");
 /* harmony import */ var _articles_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./articles.vue?vue&type=script&lang=js& */ "./resources/js/components/pages/articles.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _articles_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./articles.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/pages/articles.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -27457,7 +27523,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _articles_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _articles_vue_vue_type_template_id_aeedc99a___WEBPACK_IMPORTED_MODULE_0__["render"],
   _articles_vue_vue_type_template_id_aeedc99a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -27486,6 +27552,22 @@ component.options.__file = "resources/js/components/pages/articles.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_articles_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./articles.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/articles.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_articles_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/articles.vue?vue&type=style&index=0&lang=css&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/pages/articles.vue?vue&type=style&index=0&lang=css& ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_dist_cjs_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_articles_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader/dist/cjs.js??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./articles.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/dist/cjs.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/articles.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_dist_cjs_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_articles_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_dist_cjs_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_articles_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_dist_cjs_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_articles_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_dist_cjs_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_articles_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_dist_cjs_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_articles_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -27549,27 +27631,27 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
     articles: [{
       id: 1,
       img: 'https://imgplaceholder.com/420x320',
-      title: 'This is headerd',
-      body: '<p><b>This is body This is body This is body This is body This is body</b></p>',
-      info: 'This is some info'
+      title: ' نموذج لوريم ايبسوم عربي',
+      body: '<p><p><b>لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور</b></p><p><b>أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريد</b></p><p><b>أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو كونسيكيوات . ديواس</b></p><p><b><i>أيوتي أريري دولار إن ريبريهينديرأيت فوليوبتاتي فيلايت أيسسي كايلليوم دولار أيو فيجايت</i></b></p><p><b>نيولا باراياتيور. أيكسسيبتيور ساينت أوككايكات كيوبايداتات نون بروايدينت ,سيونت ان كيولبا</b></p><p><b>كيو أوفيسيا ديسيريونتموليت انيم أيدي ايست لابوريوم."</b></p><b></b><p><ul><li>ايست,كيواي دولوريم ايبسيوم كيوا دولار سايت أميت, كونسيكتيتيور,أديبايسكاي فيلايت, سيد</li><li><p>ايست,كيواي دولوريم ايبسيوم كيوا دولار سايت أميت, كونسيكتيتيور,أديبايسكاي فيلايت, سيد</p>ايست,كيواي دولوريم ايبسيوم كيوا دولار سايت أميت, كونسيكتيتيور,أديبايسكاي فيلايت, سيد<br></li><li><p>ايست,كيواي دولوريم ايبسيوم كيوا دولار سايت أميت, كونسيكتيتيور,أديبايسكاي فيلايت, سيد</p><br><br></li></ul></p><br><br></p>',
+      info: 'وريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل ليتصور طريقه وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه ... بروشور او فلاير على سبيل المثال ... او نماذج مواقع انترنت ...'
     }, {
       id: 2,
       img: 'https://imgplaceholder.com/420x320',
       title: 'This is headerd',
       body: 'This is body This is body This is body This is body This is body',
-      info: 'This is some info'
+      info: 'وريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل ليتصور طريقه وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه ... بروشور او فلاير على سبيل المثال ... او نماذج مواقع انترنت ...'
     }, {
       id: 3,
       img: 'https://imgplaceholder.com/420x320',
       title: 'This is headerd',
       body: 'This is body This is body This is body This is body This is body',
-      info: 'This is some info'
+      info: 'وريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل ليتصور طريقه وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه ... بروشور او فلاير على سبيل المثال ... او نماذج مواقع انترنت ...'
     }, {
       id: 4,
       img: 'https://imgplaceholder.com/420x320',
       title: 'This is headerd',
       body: 'This is body This is body This is body This is body This is body',
-      info: 'This is some info'
+      info: 'وريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل ليتصور طريقه وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه ... بروشور او فلاير على سبيل المثال ... او نماذج مواقع انترنت ...'
     }],
     // Start Tasks
     tasks: [{
