@@ -119,13 +119,13 @@ export default {
 
 					console.log(res);
 				}
-			}).catch(
-                Swal.fire({
-                     title: 'Something Wrong',
-                    text: 'Make sure you inserted the data in right way' ,
-                    type: 'error',
-                    confirmButtonText: 'ok'
-                }))
+			}).catch(err => console.log(err.message))
+                // Swal.fire({
+                //     title: 'Something Wrong',
+                //     text: 'Make sure you inserted the data in right way' ,
+                //     type: 'error',
+                //     confirmButtonText: 'ok'
+                // }));                
 		}
     }
 }

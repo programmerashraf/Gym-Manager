@@ -21,7 +21,7 @@ export const store = new Vuex.Store({
         // Start Admin Panel
         AdminPanel: {
             currentPage: 'userAll',
-            loged: false,
+            loged: false ,
             token: '',
             userEdit: {}
         },

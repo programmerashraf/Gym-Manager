@@ -119,13 +119,20 @@
                     return [];
                 }
                 return Object.keys(this.rows[0])
-            }
+            },
         },
         mounted() {
-            axios.get('/articles').then(res => {
-                console.log(res);
+            axios.get('/articles', this.$store.state.AdminPanel.token)
+            .then(res => {
+                console.log(res)
             }).catch(err => err.message);
         }
     }
 
+
+// axios.post('/api/login', [
+//                 'param' :{
+//                     "BearerToken" => $token
+//                 }
+//             ]
 </script>

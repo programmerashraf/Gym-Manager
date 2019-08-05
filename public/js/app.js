@@ -2741,13 +2741,17 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(axios__WEBPACK_IMPORTED_MODULE_1_
     }
   },
   mounted: function mounted() {
-    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/articles').then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/articles', this.$store.state.AdminPanel.token).then(function (res) {
       console.log(res);
     })["catch"](function (err) {
       return err.message;
     });
   }
-});
+}); // axios.post('/api/login', [
+//                 'param' :{
+//                     "BearerToken" => $token
+//                 }
+//             ]
 
 /***/ }),
 
@@ -2828,9 +2832,11 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(axios__WEBPACK_IMPORTED_MODULE_1_
         password: this.$store.state.user.password
       }).then(function (res) {
         // Get user
-        _this.$store.state.AdminPanel.token = res.data.data.user.token;
+        _this.$store.state.AdminPanel.token = res.data.data.token;
         _this.$store.state.AdminPanel.loged = true;
+        console.log(res.data);
       })["catch"](function (err) {
+        console.log(err);
         Swal.fire({
           title: 'email or password is un correct',
           text: 'Please make sure you are signed up',
@@ -3165,12 +3171,14 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(axios__WEBPACK_IMPORTED_MODULE_1_
           _this.date_end = '';
           console.log(res);
         }
-      })["catch"](Swal.fire({
-        title: 'Something Wrong',
-        text: 'Make sure you inserted the data in right way',
-        type: 'error',
-        confirmButtonText: 'ok'
-      }));
+      })["catch"](function (err) {
+        return console.log(err.message);
+      }); // Swal.fire({
+      //     title: 'Something Wrong',
+      //     text: 'Make sure you inserted the data in right way' ,
+      //     type: 'error',
+      //     confirmButtonText: 'ok'
+      // }));                
     }
   }
 });

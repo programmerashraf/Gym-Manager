@@ -60,13 +60,16 @@ export default {
 			// Send the request
 			axios.post('/api/login', {
 				email: this.$store.state.user.email,
-				password: this.$store.state.user.password
+                password: this.$store.state.user.password,
 			})
 			.then( res => {
 				// Get user
-                this.$store.state.AdminPanel.token = res.data.data.user.token;
-				this.$store.state.AdminPanel.loged = true;
+                this.$store.state.AdminPanel.token = res.data.data.token;
+                this.$store.state.AdminPanel.loged = true;
+                
+                console.log(res.data)
 			}).catch( err => {
+                console.log(err);
                 Swal.fire({
                     title: 'email or password is un correct',
                     text: 'Please make sure you are signed up',
