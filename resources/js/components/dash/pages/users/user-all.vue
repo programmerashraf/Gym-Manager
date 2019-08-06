@@ -168,12 +168,12 @@
             // }).catch(err => err.message);
 
 
-            axios.get('/users', [
-                Headers => [
-                    Accept => 'application/json',
-                    Authorization => 'Bearer '+ this.$store.state.AdminPanel.token
-                ],
-            ])
+            axios.get('/api/users',
+                headers => {
+                    Accept =>'application/json',
+                    Authorization =>'Bearer '+ this.$store.state.AdminPanel.token
+                }
+            )
             .then(res => {
                 console.log(res)
             }).catch(err => err.message);

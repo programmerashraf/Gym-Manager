@@ -2741,15 +2741,11 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(axios__WEBPACK_IMPORTED_MODULE_1_
     }
   },
   mounted: function mounted() {
-    var _this = this;
-
-    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/articles', [function (Headers) {
-      return [function (Accept) {
-        return 'application/json';
-      }, function (Authorization) {
-        return 'Bearer ' + _this.$store.state.AdminPanel.token;
-      }];
-    }]).then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/articles", {
+      headers: {
+        'token': this.$store.AdminPanel.token
+      }
+    }).then(function (res) {
       console.log(res);
     })["catch"](function (err) {
       return err.message;
@@ -3371,13 +3367,13 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(axios__WEBPACK_IMPORTED_MODULE_1_
     //         this.rows.push(user)
     //     });
     // }).catch(err => err.message);
-    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/users', [function (Headers) {
-      return [function (Accept) {
+    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/users', function (headers) {
+      (function (Accept) {
         return 'application/json';
-      }, function (Authorization) {
+      }), function (Authorization) {
         return 'Bearer ' + _this2.$store.state.AdminPanel.token;
-      }];
-    }]).then(function (res) {
+      };
+    }).then(function (res) {
       console.log(res);
     })["catch"](function (err) {
       return err.message;
