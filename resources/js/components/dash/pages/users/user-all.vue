@@ -155,16 +155,27 @@
             }
         },
         mounted() {
-            axios.get(`/api/users?api_token=${this.$store.state.AdminPanel.token}`).then(res => {
+            // axios.get(`/api/users?access_token=${this.$store.state.AdminPanel.token}`).then(res => {
 
-                res.data.data.forEach(user => {
-                    delete user.token;
-                })
+            //     res.data.data.forEach(user => {
+            //         delete user.token;
+            //     })
 
-                res.data.data.forEach(user => {
-                    this.rows.push(user)
-                });
+            //     res.data.data.forEach(user => {
+            //         this.rows.push(user)
+            //     });
 
+            // }).catch(err => err.message);
+
+
+            axios.get('/users', [
+                Headers => [
+                    Accept => 'application/json',
+                    Authorization => 'Bearer '+ this.$store.state.AdminPanel.token
+                ],
+            ])
+            .then(res => {
+                console.log(res)
             }).catch(err => err.message);
         }
     }

@@ -122,7 +122,12 @@
             },
         },
         mounted() {
-            axios.get('/articles', this.$store.state.AdminPanel.token)
+            axios.get('/articles', [
+                Headers => [
+                    Accept => 'application/json',
+                    Authorization => 'Bearer '+ this.$store.state.AdminPanel.token
+                ],
+            ])
             .then(res => {
                 console.log(res)
             }).catch(err => err.message);

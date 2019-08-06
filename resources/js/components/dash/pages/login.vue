@@ -58,7 +58,7 @@ export default {
     methods:{
         login() {
 			// Send the request
-			axios.post('/api/login', {
+			axios.post('/api/login',  {
 				email: this.$store.state.user.email,
                 password: this.$store.state.user.password,
 			})
