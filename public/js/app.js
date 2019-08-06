@@ -2741,15 +2741,12 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(axios__WEBPACK_IMPORTED_MODULE_1_
     }
   },
   mounted: function mounted() {
-    var _this = this;
-
-    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/articles', [function (Headers) {
-      return [function (Accept) {
-        return 'application/json';
-      }, function (Authorization) {
-        return 'Bearer ' + _this.$store.state.AdminPanel.token;
-      }];
-    }]).then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('api/articles', {
+      headers: {
+        Accept: 'application/json',
+        Authorization: 'Bearer ' + this.$store.state.AdminPanel.token
+      }
+    }).then(function (res) {
       console.log(res);
     })["catch"](function (err) {
       return err.message;
@@ -3361,8 +3358,6 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(axios__WEBPACK_IMPORTED_MODULE_1_
     }
   },
   mounted: function mounted() {
-    var _this2 = this;
-
     // axios.get(`/api/users?access_token=${this.$store.state.AdminPanel.token}`).then(res => {
     //     res.data.data.forEach(user => {
     //         delete user.token;
@@ -3371,13 +3366,12 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(axios__WEBPACK_IMPORTED_MODULE_1_
     //         this.rows.push(user)
     //     });
     // }).catch(err => err.message);
-    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/users', [function (Headers) {
-      return [function (Accept) {
-        return 'application/json';
-      }, function (Authorization) {
-        return 'Bearer ' + _this2.$store.state.AdminPanel.token;
-      }];
-    }]).then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('api/users', {
+      headers: {
+        Accept: 'application/json',
+        Authorization: 'Bearer ' + this.$store.state.AdminPanel.token
+      }
+    }).then(function (res) {
       console.log(res);
     })["catch"](function (err) {
       return err.message;
@@ -28812,8 +28806,8 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! F:\WEB\Gym-Manager\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! F:\WEB\Gym-Manager\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! c:\xampp\htdocs\Gym-Manager\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! c:\xampp\htdocs\Gym-Manager\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
