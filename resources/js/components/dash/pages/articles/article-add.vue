@@ -136,15 +136,23 @@ import Axios from 'axios';
 
             },
             sendArticle() {
-                 Axios.post('/addArticle', {
-                    _token: this.csrf,
-                    article: this.article,
+                 Axios.post(`api/addArticle`,{
+                    
+                    headers: {
+                        Accept: 'application/json',
+                        Authorization: 'Bearer '+ this.$store.state.AdminPanel.token
+                    },
 
-                 }).then(res => console.log(res)).catch(err => console.log(err))
+                    article: this.article
+                })
+                .then(res => {
+                    console.log(res)
+                }).catch(err => err.message);
             },
            
         },
         mounted() {
+            console.log(this.$store.state.AdminPanel.token);
             //bootstrap WYSIHTML5 - text editor
             $('.mohammed').wysihtml5();
         }

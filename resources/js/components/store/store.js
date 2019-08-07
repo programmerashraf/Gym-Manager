@@ -23,7 +23,13 @@ export const store = new Vuex.Store({
             currentPage: 'userAll',
             loged: false ,
             token: '',
-            userEdit: {}
+            userEdit: {
+                name: '',
+                email: '',
+                password: '',
+                date_start: '',
+                date_end: '',
+            }
         },
         // Start Articles
         articles:[

@@ -3,37 +3,40 @@
         <div class="container">
 
 
-        <div class="box-header with-border">
-            <h3 class="box-title">Add User</h3>
-        </div>
-        <!-- /.box-header -->
+            <div class="box-header with-border">
+                <h3 class="box-title">Add User</h3>
+            </div>
+            <!-- /.box-header -->
             <!-- form start -->
             <form class="form-horizontal">
                 <div class="box-body">
 
                     <div class="form-group">
                         <label class="font-wieght-bold">User name</label>
-                        <input type="text" class="form-control" v-model.lazy="get_user_name" placeholder="User Name">
+                        <input type="text" class="form-control" v-model.lazy="name" placeholder="User Name">
                     </div>
 
                     <div class="form-group">
                         <label for="inputEmail3" class="font-wieght-bold control-label">Email</label>
-                        <input type="email" class="form-control" id="inputEmail3" v-model.lazy="get_user_email" placeholder="Email">
+                        <input type="email" class="form-control" id="inputEmail3" v-model.lazy="email"
+                            placeholder="Email">
                     </div>
 
                     <div class="form-group">
                         <label for="inputPassword3" class="font-wieght-bold control-label">Password</label>
-                        <input type="password" class="form-control" id="inputPassword3" v-model.lazy="get_user_password" placeholder="Password">
+                        <input type="password" class="form-control" id="inputPassword3" v-model.lazy="password"
+                            placeholder="Password">
                     </div>
 
                     <div class="form-group">
                         <label for="DateStart" class="font-wieght-bold control-label">Date Start</label>
-                        <input type="date" class="form-control" id="DateStart"  v-model="date_start" placeholder="DD/MM/YYY">
+                        <input type="date" class="form-control" id="DateStart" v-model="date_start"
+                            placeholder="DD/MM/YYY">
                     </div>
 
                     <div class="form-group">
                         <label for="DateEnd" class="font-wieght-bold control-label">Date End</label>
-                        <input type="date" class="form-control" id="DateEnd"  v-model="date_end" placeholder="DD/MM/YYY">
+                        <input type="date" class="form-control" id="DateEnd" v-model="date_end" placeholder="DD/MM/YYY">
                     </div>
 
 
@@ -41,7 +44,7 @@
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
-                    <button class="btn btn-success" type="button" @click="register()">ADD USER</button>
+                    <button class="btn btn-success" type="button" @click="register">ADD USER</button>
                 </div>
                 <!-- /.box-footer -->
             </form>
@@ -51,94 +54,76 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import axios from 'axios';
-import { mapState } from 'vuex'
+    import Vue from 'vue';
+    import axios from 'axios';
+    import {
+        mapState
+    } from 'vuex'
 
 
-Vue.use(axios);
+    Vue.use(axios);
 
-export default {
-    data(){
-      return {
-          date_start: 0,
-          date_end: 0
-      }
-    },
-    computed:{
-        get_user_name:{
-			get() {
-				return this.$store.state.user.name;
-			},
-			set(value){
-				this.$store.commit('get_user_name', value)
-			}
-		},
-		get_user_email:{
-			get() {
-				return this.$store.state.user.email;
-			},
-			set(value){
-				this.$store.commit('get_user_email', value)
-			}
-		},
-		get_user_password:{
-			get() {
-				return this.$store.state.user.password;
-			},
-			set(value){
-				this.$store.commit('get_user_password', value)
-			}
-        }
-    },
-    methods: {
-		register() {
-			// Send the request
-			axios.post('/api/register', {
-				 name: this.$store.state.user.name,
-				 email: this.$store.state.user.email,
-                 password: this.$store.state.user.password,
-                 date_start: this.date_start,
-                 date_end: this.date_end,
-			})
-			.then(res => {
-				// Todo
-				if(res.data.code == 200){
-					Swal.fire({
-                        title: 'you add user',
-                        text: null,
-                        type: 'success',
-                        confirmButtonText: 'Cool!'
-                    });
+    export default {
+        data(){
+            return{
+                name: '',
+                email: '',
+                password: '',
+                date_start: '',
+                date_end: ''
+            }
+        },
 
-                    this.$store.state.user.name = '';
-                    this.$store.state.user.email = '';
-                    this.$store.state.user.password = '';
-                    this.date_start = '';
-                    this.date_end = '';
+        methods: {
+            register() {
+                // Send the request
+                axios.post('api/register', {
+                        name: this.name,
+                        email: this.email,
+                        password: this.password,
+                        date_start: this.date_start,
+                        date_end: this.date_end,
+                    })
+                    .then(res => {
+                        // Todo
+                         if (res.data.code == 200) {
+                             Swal.fire({
+                                 title: 'you add user',
+                                 text: null,
+                                 type: 'success',
+                                 confirmButtonText: 'Cool!'
+                             });
 
-					console.log(res);
-				}
-			}).catch(err => console.log(err.message))
+                             this.$store.state.user.name = '';
+                             this.$store.state.user.email = '';
+                             this.$store.state.user.password = '';
+                             this.date_start = '';
+                             this.date_end = '';
+
+                            console.log(res);
+                         }
+                    }).catch(err => console.log(err.message))
                 // Swal.fire({
                 //     title: 'Something Wrong',
                 //     text: 'Make sure you inserted the data in right way' ,
                 //     type: 'error',
                 //     confirmButtonText: 'ok'
                 // }));                
-		}
+            }
+        }
     }
-}
+
 </script>
 
 
 <style scoped>
-.form-group{
-    max-width: 500px;
-}
+    .form-group {
+        max-width: 500px;
+    }
 
-.box-footer{
-    display: flex;
-    align-items: center
-}
+    .box-footer {
+        display: flex;
+        align-items: center
+    }
+
 </style>

@@ -34,7 +34,7 @@
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
-                    <button class="btn btn-success" type="button" @click="update_user()">Edit USER</button>
+                    <button class="btn btn-success" type="button" @click="update_user">Edit USER</button>
                 </div>
                 <!-- /.box-footer -->
             </form>
@@ -94,7 +94,7 @@ export default {
 
                     console.log(res);
                 }
-            })
+            }).catch(err => console.log(err))
         }
     }
 }

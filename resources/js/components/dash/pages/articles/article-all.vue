@@ -25,7 +25,7 @@
                                     class="fas fa-edit"></i></button>
 
                             <button class="btn btn-danger" title="Delete user"
-                                @click="deleteUser($event)"><i class="fas fa-user-minus"></i></button>
+                                @click="deleteArticle($event)"><i class="fas fa-user-minus"></i></button>
                             <button class="btn btn-warning" title="Add tasks"
                                 @click="change_component($event, 'tasks')"><i
                                     class="fas fa-plus"></i></button>
@@ -111,7 +111,35 @@
             },
             "change_page": function change_page(page) {
                 this.currentPage = page;
-            }
+            },
+
+            change_component(e, payload) {
+                let id = $(e.target).parents('tr').first().children()[0].innerText;
+                let users = this.rows;
+
+                users.forEach(user => {
+                    for (let key in user) {
+                        if (user[key] == id) {
+                            Object.assign(this.$store.state.AdminPanel.userEdit, user);
+                            console.log(user);
+                        }
+                    }
+                });
+
+                this.$store.commit('change_current_page', payload);
+            },  
+                deleteArticle(e) {
+                    axios.delete(`api/deleteArticle=?${$(e.target).parents('tr').first().children()[0].innerText}`, 
+                    {
+                        headers: {
+                            Accept: 'application/json',
+                            Authorization: 'Bearer '+ this.$store.state.AdminPanel.token
+                        },
+                })
+                .then(res => {console.log(res)})
+                .catch(err => err.message);
+                
+            },
         },
         computed: {
             "columns": function columns() {
@@ -122,21 +150,15 @@
             },
         },
         mounted() {
-            axios.get(`/api/articles`,{
-                 headers: {
-                     'token' : this.$store.AdminPanel.token  
-                 }
+            axios.get('api/articles',{
+                headers: {
+                    Accept: 'application/json',
+                    Authorization: 'Bearer '+ this.$store.state.AdminPanel.token
+                },
             })
             .then(res => {
                 console.log(res)
             }).catch(err => err.message);
         }
     }
-
-
-// axios.post('/api/login', [
-//                 'param' :{
-//                     "BearerToken" => $token
-//                 }
-//             ]
 </script>

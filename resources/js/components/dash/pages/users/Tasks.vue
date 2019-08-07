@@ -24,7 +24,7 @@
                         {{ item }}
 
                         <div class='buttonss'>
-                            <button class="btn btn-success" @click="get">
+                            <button class="btn btn-success">
                                 get
                             </button>
                             <button class="btn btn-danger" @click="add">
@@ -106,18 +106,21 @@ export default {
         }
     },
     methods:{
-        get(){
-            Axios.get('/exercieses').then(res => console.log(res)).catch(err => console.log(err))
-
-        },
         add(){
-            Axios.post('/addExerciese', {
+            Axios.post('api/addExerciese', {
                 tasks: {day: 0, lists: ['Some thing98','Some thing15','Some thing1']}
             }).then(res => console.log(res)).catch(err => console.log(err))
         },
     },
     mounted(){
-        Axios.get('/exercieses').then(res => console.log(res)).catch(err => console.log(err))
+        Axios.get('api/exerciese', {
+            headers:{
+                 Accept: 'application/json',
+                    Authorization: 'Bearer '+ this.$store.state.AdminPanel.token
+            }
+        })
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
 
     }
 }

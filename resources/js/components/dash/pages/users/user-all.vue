@@ -137,13 +137,17 @@
                 this.$store.commit('change_current_page', payload);
             },
             deleteUser(e) {
-                axios.post('/deleteUser', {
-                        id: $(e.target).parents('tr').first().children()[0].innerText,
-                        _token: this.csrf
-                    })
-                    .then(res => {
-                        console.log(res)
-                    }).catch(err => console.log(err.message))
+                axios.post('api/deleteUser', 
+                {
+                    headers: {
+                        Accept: 'application/json',
+                        Authorization: 'Bearer '+ this.$store.state.AdminPanel.token,
+                        id: $(e.target).parents('tr').first().children()[0].innerText
+                    },
+                        
+                })
+                .then(res => {console.log(res)})
+                .catch(err => err.message);
             }
         },
         computed: {
@@ -155,27 +159,22 @@
             }
         },
         mounted() {
-            // axios.get(`/api/users?access_token=${this.$store.state.AdminPanel.token}`).then(res => {
-
-            //     res.data.data.forEach(user => {
-            //         delete user.token;
-            //     })
-
-            //     res.data.data.forEach(user => {
-            //         this.rows.push(user)
-            //     });
-
-            // }).catch(err => err.message);
-
-
-            axios.get('/api/users',
-                headers => {
-                    Accept =>'application/json',
-                    Authorization =>'Bearer '+ this.$store.state.AdminPanel.token
-                }
-            )
+            axios.get('api/users', 
+              {
+                 headers: {
+                    Accept: 'application/json',
+                    Authorization: 'Bearer '+ this.$store.state.AdminPanel.token
+                },
+            })
             .then(res => {
-                console.log(res)
+                console.log(res.data.data)
+                let users = res.data.data;
+
+                users.forEach(user =>{
+                    this.rows.push(user);
+                    console.log(user)
+                })
+
             }).catch(err => err.message);
         }
     }
