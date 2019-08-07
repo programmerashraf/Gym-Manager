@@ -3056,10 +3056,11 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('api/exerciese', {
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("api/exerciese=?id=1", {
       headers: {
         Accept: 'application/json',
-        Authorization: 'Bearer ' + this.$store.state.AdminPanel.token
+        Authorization: 'Bearer ' + this.$store.state.AdminPanel.token,
+        id: 1
       }
     }).then(function (res) {
       return console.log(res);

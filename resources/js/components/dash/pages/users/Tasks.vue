@@ -113,10 +113,11 @@ export default {
         },
     },
     mounted(){
-        Axios.get('api/exerciese', {
+        Axios.get(`api/exerciese=?id=1`, {
             headers:{
                  Accept: 'application/json',
-                    Authorization: 'Bearer '+ this.$store.state.AdminPanel.token
+                 Authorization: 'Bearer '+ this.$store.state.AdminPanel.token,
+                 id: 1
             }
         })
         .then(res => console.log(res))
