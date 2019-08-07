@@ -16,7 +16,7 @@ class ExerciseController extends Controller
      */
     public function index($id)
     {
-        $exercises = Exercise::find($id)->all();
+        $exercises = Exercise::where('user_id', $id)->all();
         return $this->ApiResponse(200, 'success',  $exercise);
     }
 
@@ -65,7 +65,7 @@ class ExerciseController extends Controller
      */
     public function destroy($id)
     {
-        Exercise::find($id)->delete();
+        Exercise::where('user_id', $id)->delete();
         return back();
     }
 }
