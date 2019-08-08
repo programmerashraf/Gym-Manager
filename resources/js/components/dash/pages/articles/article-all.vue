@@ -129,7 +129,7 @@
                 this.$store.commit('change_current_page', payload);
             },  
                 deleteArticle(e) {
-                    axios.delete(`api/deleteArticle=?${$(e.target).parents('tr').first().children()[0].innerText}`, 
+                    axios.delete(`api/deleteArticle`, 
                     {
                         headers: {
                             Accept: 'application/json',

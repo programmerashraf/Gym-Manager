@@ -137,12 +137,14 @@
                 this.$store.commit('change_current_page', payload);
             },
             deleteUser(e) {
-                axios.post('api/deleteUser', 
+                axios.post(`api/deleteUser`,
+                {
+                    id: $(e.target).parents('tr').first().children()[0].innerText
+                },
                 {
                     headers: {
                         Accept: 'application/json',
                         Authorization: 'Bearer '+ this.$store.state.AdminPanel.token,
-                        id: $(e.target).parents('tr').first().children()[0].innerText
                     },
                         
                 })

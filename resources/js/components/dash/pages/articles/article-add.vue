@@ -136,14 +136,16 @@ import Axios from 'axios';
 
             },
             sendArticle() {
-                 Axios.post(`api/addArticle`,{
+                 Axios.post(`api/addArticle`,
+                    {
+                        article: this.article
+                    }
+                 ,{
                     
                     headers: {
                         Accept: 'application/json',
                         Authorization: 'Bearer '+ this.$store.state.AdminPanel.token
-                    },
-
-                    article: this.article
+                    },                   
                 })
                 .then(res => {
                     console.log(res)

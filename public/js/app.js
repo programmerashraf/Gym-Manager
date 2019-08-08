@@ -2590,11 +2590,12 @@ __webpack_require__.r(__webpack_exports__);
     },
     sendArticle: function sendArticle() {
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("api/addArticle", {
+        article: this.article
+      }, {
         headers: {
           Accept: 'application/json',
           Authorization: 'Bearer ' + this.$store.state.AdminPanel.token
-        },
-        article: this.article
+        }
       }).then(function (res) {
         console.log(res);
       })["catch"](function (err) {
@@ -2750,7 +2751,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(axios__WEBPACK_IMPORTED_MODULE_1_
       this.$store.commit('change_current_page', payload);
     },
     deleteArticle: function deleteArticle(e) {
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a["delete"]("api/deleteArticle=?".concat($(e.target).parents('tr').first().children()[0].innerText), {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a["delete"]("api/deleteArticle", {
         headers: {
           Accept: 'application/json',
           Authorization: 'Bearer ' + this.$store.state.AdminPanel.token
@@ -3024,7 +3025,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -3056,11 +3056,10 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("api/exerciese=?id=1", {
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("api/exerciese/2", {
       headers: {
         Accept: 'application/json',
-        Authorization: 'Bearer ' + this.$store.state.AdminPanel.token,
-        id: 1
+        Authorization: 'Bearer ' + this.$store.state.AdminPanel.token
       }
     }).then(function (res) {
       return console.log(res);
@@ -3344,11 +3343,12 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(axios__WEBPACK_IMPORTED_MODULE_1_
       this.$store.commit('change_current_page', payload);
     },
     deleteUser: function deleteUser(e) {
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('api/deleteUser', {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("api/deleteUser", {
+        id: $(e.target).parents('tr').first().children()[0].innerText
+      }, {
         headers: {
           Accept: 'application/json',
-          Authorization: 'Bearer ' + this.$store.state.AdminPanel.token,
-          id: $(e.target).parents('tr').first().children()[0].innerText
+          Authorization: 'Bearer ' + this.$store.state.AdminPanel.token
         }
       }).then(function (res) {
         console.log(res);
@@ -8566,7 +8566,7 @@ var render = function() {
               _vm._v(
                 "\n                    " +
                   _vm._s(item) +
-                  "\n\n                    "
+                  "\n                    "
               ),
               _c("div", { staticClass: "buttonss" }, [
                 _c("button", { staticClass: "btn btn-success" }, [

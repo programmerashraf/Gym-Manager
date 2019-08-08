@@ -22,7 +22,6 @@
                 <ul class="list-unstyled">
                     <li :key="index" v-for="(item, index) in lists[0].listsq">
                         {{ item }}
-
                         <div class='buttonss'>
                             <button class="btn btn-success">
                                 get
@@ -113,11 +112,10 @@ export default {
         },
     },
     mounted(){
-        Axios.get(`api/exerciese=?id=1`, {
+        Axios.get(`api/exerciese/2`, {
             headers:{
                  Accept: 'application/json',
                  Authorization: 'Bearer '+ this.$store.state.AdminPanel.token,
-                 id: 1
             }
         })
         .then(res => console.log(res))
