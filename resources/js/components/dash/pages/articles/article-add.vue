@@ -27,11 +27,10 @@
 						<!-- /.box-header -->
 						<div class="box-body pad">
 							<form>
-								<textarea class="mohammed" placeholder="Place some text here"
+								<textarea @change="get_body" class="mohammed" placeholder="Place some text here"
 									style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
 							</form>
 						</div>
-                        <button class="btn btn-primary" @click="get_body">Done</button>
 					</div>
 				</div>
 				<!-- /.col-->
@@ -109,8 +108,6 @@ import Axios from 'axios';
     export default {
         data() {
             return {
-                perview: false,
-                csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
                 article: {
                     img: '',
                     title: '',
@@ -136,14 +133,16 @@ import Axios from 'axios';
 
             },
             sendArticle() {
-                 Axios.post(`api/addArticle`,{
+                 Axios.post(`api/addArticle`,
+                    {
+                        article: this.article
+                    }
+                 ,{
                     
                     headers: {
                         Accept: 'application/json',
                         Authorization: 'Bearer '+ this.$store.state.AdminPanel.token
-                    },
-
-                    article: this.article
+                    },                   
                 })
                 .then(res => {
                     console.log(res)
