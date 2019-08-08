@@ -20,7 +20,7 @@ export const store = new Vuex.Store({
         loged: false,
         // Start Admin Panel
         AdminPanel: {
-            currentPage: 'userAll',
+            currentPage: 'dashboard',
             loged: false ,
             token: '',
             userEdit: {
@@ -72,20 +72,7 @@ export const store = new Vuex.Store({
             {day: 4, lists: ['Some thing98','Some thing15','Some thing5']},
             {day: 5, lists: ['Some thing98','Some thing15','Some thing6']},
      
-        ],
-        // Start Sections
-        sections:{
-            Navbar: {
-                logo: {
-                    name: 'لوجو',
-                    img: ''
-                },
-                colors:{
-                    background: '#f23a2e',
-                    font: 'white'
-                } 
-            }
-        }
+        ]
     },
     mutations:{
         // Check if loged
